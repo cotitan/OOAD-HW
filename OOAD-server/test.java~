@@ -1,0 +1,14 @@
+package OOAD_hw;
+
+import DataOperationPost;
+
+public class Test {
+    public static void main(String args[]) {
+        DataOperationPost dataOp;
+        dataOp.setUrl(dataOp.getBaseUrl() + "/user/login");
+        String json = "{\"id\":1, \"content\":\"coco\"";
+        dataOp.setJson(json);
+        dataOp.Do();
+    }
+}
+
