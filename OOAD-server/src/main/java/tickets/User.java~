@@ -8,8 +8,6 @@ public class User {
     private String phone;
     private String tags;
 
-    public User() { }
-
     public User(String uName, String pw) {
 	   this.username = uName;
 	   this.password = pw;

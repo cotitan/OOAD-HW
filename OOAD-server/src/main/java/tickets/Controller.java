@@ -22,34 +22,11 @@ public class Controller {
 	private PreparedStatement sql;
 	private ResultSet res;
 
-	@RequestMapping(value="/register", method = RequestMethod.POST)
-	public @ResponseBody Response register(@RequestBody String str) {
-		
-		str = URLDecoder.decode(str);
-		System.out.println("\nregister: " + str);
+	@RequestMapping(value="/register", method = RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Response register(@RequestBody User user) {
+	    System.out.print(" { register: " + user.getUsername());
 		Response response = new Response();
-		
-		// resolve post string
-		User user = new User("1234", "1234");
 		try {
-			user = new Gson().fromJson(str, User.class);
-		} catch (Exception e) {
-			response.setStatus(false);
-			response.setMessage("error data format!");
-			return response;
-		}
-
-		// insert into database
-		try {
-			String query = String.format("select * from user_Info where username=\"%s\";",
-				user.getUsername());
-			sql = dbmsConn.prepareStatement(query);
-			res = sql.executeQuery();
-			if (res.next()) {
-				response.setStatus(false);
-				response.setMessage("username exist!");
-			}
-			else {
 				sql = dbmsConn.prepareStatement("insert into user_Info values(?,?,?,?,?)");
 				sql.setString(1, user.getUsername());
 				sql.setString(2, user.getPassword());
@@ -60,49 +37,41 @@ public class Controller {
 
 				response.setStatus(true);
 				response.setMessage("Successfully registered!");
-			}
 		} catch (Exception e) {
 			response.setStatus(false);
-			response.setMessage("error inserting into database");
-			e.printStackTrace();
+			response.setMessage("username exists! error inserting into database");
+			// e.printStackTrace();
 		}
+		System.out.println(";  Status: " + response.getStatus() + " }");
 		return response;
 	}
 
 
     @RequestMapping(value="/login", method = RequestMethod.POST)
-    public @ResponseBody Response login(@RequestBody String str) {
-        
-	    str = URLDecoder.decode(str);
-		System.out.println("\nlogin: " + str);
+    public @ResponseBody Response login(@RequestBody User user) {
+        System.out.print(" { login: " + user.getUsername());
 		Response response = new Response();
-
-		// resolve post string
-		User user = new User("1234", "1234");
-	    try {
-			user = new Gson().fromJson(str, User.class);
-		} catch (Exception e) {
-			response.setStatus(false);
-			response.setMessage("Error data format!");
-			return response;
-		}
-
 		try {
+		    // query database for user
 			String query = String.format("select * from user_Info where username=\"%s\";",
 				user.getUsername());
 			sql = dbmsConn.prepareStatement(query);
 			res = sql.executeQuery();
+			
+			// if username exists in database
 			if (res.next()) {
 				String password = res.getString("password");
+				// if password is right
 				if (password.equals(user.getPassword())) {
 					response.setStatus(true);
 					response.setMessage("login Successfully");
 				}
 				else {
 					response.setStatus(false);
-					response.setMessage("password error");
+					response.setMessage("password invalid");
 				}
 			}
+			// username not exists in database
 			else {
 				response.setStatus(false);
 				response.setMessage("username not exist");
@@ -111,6 +80,7 @@ public class Controller {
 			System.out.println("error query");
 			e.printStackTrace();
 		}
+		System.out.println(";  Status: " + response.getStatus() + " }");
         return response;
     }
 }
