@@ -9,8 +9,9 @@ import java.sql.Statement;
 public class DBMSOperation {
 	
 	private static Connection dbmsConn;
-	private static String mysqlHost = "jdbc:mysql://127.0.0.1:3306/movieTickets";
-
+//	private static String mysqlHost = "jdbc:mysql://127.0.0.1:3306/movieTickets";
+	private static String mysqlHost = "jdbc:mysql://42.96.205.36:3306/movieTickets";
+	
 	public static Connection getDBConnection() {
 
 		if (dbmsConn != null)

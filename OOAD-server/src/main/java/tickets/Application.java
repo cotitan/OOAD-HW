@@ -1,5 +1,5 @@
-package tickets;
-
+//package tickets;
+package src.main.java.tickets;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

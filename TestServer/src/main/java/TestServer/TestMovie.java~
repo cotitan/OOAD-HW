@@ -1,0 +1,11 @@
+public class TestMovie {
+    public static void main(String[] args) {
+	DataOperationGet dataOp = new DataOperationGet();
+	dataOp.setUrl(dataOp.getBaseUrl() + "/movie/onView");
+	try {
+    	    System.out.println(dataOp.Do());
+	} catch (Exception e) {
+	    System.out.println("Exception");
+	}
+    }
+}

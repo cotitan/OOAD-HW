@@ -1,4 +1,5 @@
-package tickets;
+package src.main.java.tickets.DataModel;
+// package DataModel;
 
 public class User {
 

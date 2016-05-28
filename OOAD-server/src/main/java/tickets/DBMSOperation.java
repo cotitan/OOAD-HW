@@ -1,4 +1,5 @@
-package tickets;
+package src.main.java.tickets;
+//package tickets;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;

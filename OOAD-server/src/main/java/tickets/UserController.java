@@ -1,5 +1,7 @@
-package tickets;
+package src.main.java.tickets;
+//package tickets;
 
+import src.main.java.tickets.DataModel.User;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +18,7 @@ import java.net.URLDecoder;
 
 @RestController
 @RequestMapping("/user")
-public class Controller {
+public class UserController {
 	
 	private static Connection dbmsConn = DBMSOperation.getDBConnection();
 	private PreparedStatement sql;
