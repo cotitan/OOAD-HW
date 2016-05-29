@@ -1,0 +1,5 @@
+{"status":false,"message":"password invalid"}
+{"status":true,"message":"login Successfully"}
+{"status":false,"message":"username exists! error inserting into database"}
+疯狂动物城 , 这是一座独一无二的现代动物都市，每种动物在这里都有自己的居所，比如
+愤怒的小鸟 , 在一座与世隔绝的美丽小鸟上，住着一群乐天知命的鸟。不过易怒的大红、亢奋的
