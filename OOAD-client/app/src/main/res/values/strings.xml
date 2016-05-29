@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <style name="AppBaseTheme" parent="android:Theme.Light" type="text/css"></style>
+
 </resources>

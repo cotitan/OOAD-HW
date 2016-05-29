@@ -1,14 +1,250 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    >
+<LinearLayout
     android:id="@+id/Personal_Layout"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
 
-    <TextView
-        android:text="Fourth"
-        android:id="@+id/View4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </TextView>
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#D3D3D3"
+        android:gravity="center"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="我的"
+            android:background="@drawable/red_fillet"
+            android:textSize="6pt"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/setbar_bg"
+        >
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/imageview"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:textSize="10pt"
+            android:text="这里是用户名"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="普通会员"
+            android:background="@drawable/fillet"
+            android:textSize="7pt"
+            android:layout_marginTop="10dp"
+            android:textColor="#8f8f8f"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#D3D3D3"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/setbar_bg">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0"
+
+        >
+
+        <TableRow>
+            <TextView
+                android:text="我的订单"
+                android:textSize="9pt"
+                android:paddingLeft="10dp"
+                />
+
+            <TextView
+                android:text="全部"
+                android:textColor="#8f8f8f"
+                />
+
+            <Button
+                android:text=">"
+                android:background="@android:color/transparent"
+                android:textStyle="bold"
+                android:textSize="9pt"
+                />
+
+        </TableRow>
+
+    </TableLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#8f8f8f"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/imageview"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"
+            />
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/imageview"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"
+            />
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/imageview"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"
+            />
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/imageview"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#D3D3D3"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/setbar_bg"
+        >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0"
+
+            >
+
+            <TableRow>
+                <TextView
+                    android:text="帮助中心"
+                    android:textSize="9pt"
+                    android:paddingLeft="10dp"
+                    />
+
+                <Button
+                    android:text=">"
+                    android:background="@android:color/transparent"
+                    android:textStyle="bold"
+                    android:textSize="9pt"
+                    />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#8f8f8f"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0"
+
+            >
+
+            <TableRow>
+                <TextView
+                    android:text="个人设置"
+                    android:textSize="9pt"
+                    android:paddingLeft="10dp"
+                    />
+
+                <Button
+                    android:text=">"
+                    android:background="@android:color/transparent"
+                    android:textStyle="bold"
+                    android:textSize="9pt"
+                    />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#D3D3D3"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        >
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/out"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>
+
+</ScrollView>
