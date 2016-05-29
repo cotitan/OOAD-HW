@@ -1,0 +1,8 @@
+src/main/java/TestServer/datamodel/User.class
+src/main/java/TestServer/MovieList.class
+src/main/java/TestServer/Main.class
+src/main/java/TestServer/DataOperation.class
+src/main/java/TestServer/datamodel/Movie.class
+src/main/java/TestServer/DataOperationPost.class
+src/main/java/TestServer/Test.class
+src/main/java/TestServer/DataOperationGet.class

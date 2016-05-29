@@ -1,0 +1,31 @@
+package src.main.java.TestServer;
+
+import src.main.java.TestServer.datamodel.*;
+import java.util.ArrayList;
+
+public class MovieList {
+    private ArrayList<Movie> movieList;
+
+    public MovieList() {
+    }
+    
+    public void setMovieList(ArrayList<Movie> list) {
+        movieList = list;
+    }
+    
+    public ArrayList<Movie> getMovieList() {
+        return movieList;
+    }
+    
+    public Movie get(int i) {
+        return movieList.get(i);
+    }
+    
+    public int size() {
+        return movieList.size();
+    }
+    
+    
+    
+}
+
