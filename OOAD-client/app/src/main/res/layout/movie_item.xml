@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:Android="http://schemas.android.com/apk/res/android"
+    Android:orientation="horizontal"
+    Android:layout_width="fill_parent"
+    Android:layout_height="fill_parent">
+
+    <!-- 商品图片 -->
+    <ImageView Android:id="@+id/movie_image"
+        Android:layout_width="wrap_content"
+        Android:layout_height="wrap_content"
+        Android:layout_margin="10dp"/>
+
+    <!-- 商品信息 -->
+    <LinearLayout Android:orientation="vertical"
+        Android:layout_width="wrap_content"
+        Android:layout_height="wrap_content">
+
+        <TextView Android:id="@+id/movie_title"
+            Android:layout_width="wrap_content"
+            Android:layout_height="wrap_content"
+            Android:textColor="#FFF"
+            Android:textSize="23dp" />
+
+        <TextView Android:id="@+id/movie_info"
+            Android:layout_width="wrap_content"
+            Android:layout_height="wrap_content"
+            Android:textColor="#FFF"
+            Android:textSize="32dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
