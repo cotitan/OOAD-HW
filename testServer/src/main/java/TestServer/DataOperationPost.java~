@@ -1,4 +1,4 @@
-package ooad.testServer.src.main.java.TestServer;
+package src.main.java.TestServer;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -81,8 +81,9 @@ public class DataOperationPost extends DataOperation {
             while((line = reader.readLine()) != null) {
                 result += line;
             }
-            result = URLDecoder.decode(result, codeMode);
-
+            // encoding to utf-8 make it difficult (to read image encoded in base64)
+            // result = URLDecoder.decode(result, codeMode);
+            result = result.replace("\n", "");
         } catch (Exception e) {
             System.out.println("Send Post Fail!");
             result = "{\"status\": false, \"message\": \"Send Post Fail!\"}";

@@ -72,8 +72,8 @@ public class DataOperationGet extends DataOperation {
             while((line = reader.readLine()) != null) {
                 result += line;
             }
-            result = URLDecoder.decode(result, codeMode);
-
+            // result = URLDecoder.decode(result, codeMode);
+            result = result.replace("\n", "");
         } catch (Exception e) {
             System.out.println("Send Get Fail!");
             result = "{\"status\": false, \"message\": \"Send Get Fail!\" }";

@@ -81,8 +81,9 @@ public class DataOperationPost extends DataOperation {
             while((line = reader.readLine()) != null) {
                 result += line;
             }
-            result = URLDecoder.decode(result, codeMode);
-
+            // encoding to utf-8 make it difficult (to decode image encoded in base64)
+            // result = URLDecoder.decode(result, codeMode);
+            result = result.replace("\n", "");
         } catch (Exception e) {
             System.out.println("Send Post Fail!");
             result = "{\"status\": false, \"message\": \"Send Post Fail!\"}";

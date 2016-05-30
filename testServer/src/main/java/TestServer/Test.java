@@ -7,9 +7,13 @@ import com.google.gson.Gson;
 import sun.misc.BASE64Encoder;
 import sun.misc.BASE64Decoder;
 import java.io.FileOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
 public class Test {
     public void testLogin() {
@@ -63,17 +67,16 @@ public class Test {
 	    }
 	    for (int i = 0; i < list.size(); i++) {
 	        System.out.println(list.get(i).getName() + " , " + list.get(i).getIntro());
-	        System.out.println(list.get(i).getAvatar());
-	        if (deserialize(list.get(i).getAvatar()))
-	            System.out.println("succeed");
+            deserialize(list.get(i).getAvatar(), "pic2.png");
 	    }
     }
 
-    public boolean deserialize(String imgStr) {
-        //对字节数组字符串进行Base64解码并生成图片  
+    public boolean deserialize(String imgStr, String filePath) {
+        //对字节数组字符串进行Base64解码并生成图片
+        // System.out.println(imgStr);
         if (imgStr == null) //图像数据为空  
             return false;  
-        BASE64Decoder decoder = new BASE64Decoder();  
+        BASE64Decoder decoder = new BASE64Decoder();
         try {  
             //Base64解码  
             byte[] b = decoder.decodeBuffer(imgStr);  
@@ -82,9 +85,8 @@ public class Test {
                     b[i]+=256;  
                 }  
             }  
-            //生成jpeg图片  
-            String imgFilePath = "pic2.png";//新生成的图片  
-            OutputStream out = new FileOutputStream(imgFilePath);      
+            //生成图片   
+            OutputStream out = new FileOutputStream(filePath);      
             out.write(b);  
             out.flush();  
             out.close();  
@@ -93,6 +95,5 @@ public class Test {
             return false;  
         }
     }
-
 }
 

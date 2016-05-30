@@ -1,4 +1,4 @@
-package ooad.testServer.src.main.java.TestServer;
+package src.main.java.TestServer;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -73,7 +73,7 @@ public class DataOperationGet extends DataOperation {
                 result += line;
             }
             result = URLDecoder.decode(result, codeMode);
-
+            // result = result.replace("\n", "");
         } catch (Exception e) {
             System.out.println("Send Get Fail!");
             result = "{\"status\": false, \"message\": \"Send Get Fail!\" }";
