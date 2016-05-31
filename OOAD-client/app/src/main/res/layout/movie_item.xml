@@ -5,28 +5,50 @@
     Android:layout_height="fill_parent">
 
     <!-- 商品图片 -->
-    <ImageView Android:id="@+id/movie_image"
+    <ImageView
+        Android:id="@+id/movie_image"
         Android:layout_width="wrap_content"
         Android:layout_height="wrap_content"
         Android:layout_margin="10dp"/>
 
     <!-- 商品信息 -->
-    <LinearLayout Android:orientation="vertical"
-        Android:layout_width="wrap_content"
-        Android:layout_height="wrap_content">
+    <LinearLayout
+        Android:orientation="vertical"
+        Android:layout_width="240dp"
+        Android:layout_height="74dp">
 
-        <TextView Android:id="@+id/movie_title"
+        <TextView
+            Android:layout_marginTop="5dp"
+            Android:id="@+id/movie_title"
             Android:layout_width="wrap_content"
             Android:layout_height="wrap_content"
-            Android:textColor="#FFF"
-            Android:textSize="23dp" />
+            Android:textColor="#000"
+            Android:textSize="18dp" />
 
-        <TextView Android:id="@+id/movie_info"
+        <TextView
+            Android:layout_width="fill_parent"
+            Android:layout_height="wrap_content"
+            Android:id="@+id/movie_info"
+            Android:textColor="#888888"
+            Android:textStyle="italic"
+            Android:textSize="16dp"
+            Android:ellipsize="end"
+            Android:maxLines="1"
+            Android:singleLine="false" />
+
+        <TextView
+            Android:id="@+id/movie_time"
             Android:layout_width="wrap_content"
             Android:layout_height="wrap_content"
-            Android:textColor="#FFF"
-            Android:textSize="32dp" />
-
+            Android:textColor="#888888"
+            Android:textSize="15dp" />
     </LinearLayout>
+
+    <ImageView
+        Android:layout_marginLeft="14dp"
+        Android:layout_gravity="center"
+        Android:layout_width="wrap_content"
+        Android:layout_height="wrap_content"
+        Android:background="@drawable/arrow"/>
 
 </LinearLayout>

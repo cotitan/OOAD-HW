@@ -29,6 +29,8 @@
         <activity android:name="mainActivity.Order_Activity" />
         <activity android:name="mainActivity.Personal_Activity" />
 
+        <activity android:name="mainActivity.Movie_Detail" />
+
     </application>
 
 </manifest>
