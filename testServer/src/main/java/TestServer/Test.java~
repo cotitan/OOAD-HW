@@ -67,7 +67,50 @@ public class Test {
 	    }
 	    for (int i = 0; i < list.size(); i++) {
 	        System.out.println(list.get(i).getName() + " , " + list.get(i).getIntro());
-            deserialize(list.get(i).getAvatar(), "pic2.png);
+            deserialize(list.get(i).getAvatar(), "pic2.png");
+	    }
+    }
+	
+	public void testOnviewImage() {
+	    DataOperationGet dataOp = new DataOperationGet();
+	    dataOp.setUrl(dataOp.getBaseUrl() + "/movie/onViewPosters");
+    	String response = "";
+	    try {
+            response = dataOp.Do();
+	    } catch (Exception e) {
+	        System.out.println("Exception");
+	    }
+	    System.out.println(response);
+	    PosterList posterList = new PosterList();
+	    try {
+	        posterList = new Gson().fromJson(response, PosterList.class);
+	    } catch (Exception e) {
+	        System.out.println("exception deserialize");
+	    }
+	    for (int i = 0; i < posterList.getSize(); i++) {
+	        System.out.println(posterList.getMovieName(i) + "  的图片");
+            deserialize(posterList.getMovieImage(i), "pic" + i + ".jpg");
+	    }
+	}    
+	
+	public void testTheater() {
+        DataOperationGet dataOp = new DataOperationGet();
+	    dataOp.setUrl(dataOp.getBaseUrl() + "/theater/nearby");
+    	String response = "";
+	    try {
+            response = dataOp.Do();
+	    } catch (Exception e) {
+	        System.out.println("Exception");
+	    }
+	    // System.out.println(response);
+	    TheaterList list = new TheaterList();
+	    try {
+	        list = new Gson().fromJson(response, TheaterList.class);
+	    } catch (Exception e) {
+	        System.out.println("exception deserialize");
+	    }
+	    for (int i = 0; i < list.size(); i++) {
+	        System.out.println(list.get(i).getName() + " , " + list.get(i).getLocation()+ "," +list.get(i).getPrice());
 	    }
     }
 

@@ -1,0 +1,51 @@
+package src.main.java.tickets.datamodel;
+
+import java.util.ArrayList;
+
+public class PosterList {
+    private ArrayList<Poster> movieName;
+    private ArrayList<Poster> movieImage;
+    private int count;
+    
+    public Posters() {
+        movieName = new ArrayList<String>();
+        movieImage = new ArrayList<String>();
+        count = 0;
+    }
+    
+    public int size() {
+        return count;
+    }
+    
+    public String getMovieName(int i) {
+        if (i >= count)
+            return "";
+        return this.movieName.get(i).getName();
+    }
+    
+    public String getMovieImage(int i) {
+        if (i >= count)
+            return "";
+        return this.movieImage.get(i).getImage();
+    }
+    
+    public void add(String name, String image) {
+        movieName.add(name);
+        movieImage.add(image);
+        count++;
+    }
+    
+    public class Poster {
+        private String movieName;
+        private String movieImage;
+        public Poster() {}
+        public Poster(String name, String image) {
+            this.name = name;
+            this.image = image;
+        }
+        public String getMovieName() { return this.movieName; }
+        public String getMovieImage() { return this.movieImage; }
+    }
+    
+}
+

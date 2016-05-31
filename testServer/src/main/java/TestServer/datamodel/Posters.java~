@@ -1,0 +1,38 @@
+package src.main.java.TestServer.datamodel;
+
+import java.util.ArrayList;
+
+public class Posters {
+    private ArrayList<String> movieName;
+    private ArrayList<String> movieImage;
+    int count;
+    
+    public Posters() {
+        movieName = new ArrayList<String>();
+        movieImage = new ArrayList<String>();
+        count = 0;
+    }
+    
+    public int size() {
+        return count;
+    }
+    
+    public String getMovieName(int i) {
+        if (i >= count)
+            return "";
+        return this.movieName.get(i);
+    }
+    
+    public String getMovieImage(int i) {
+        if (i >= count)
+            return "";
+        return this.movieImage.get(i);
+    }
+    
+    public void add(String name, String image) {
+        movieName.add(name);
+        movieImage.add(image);
+        count++;
+    }
+}
+

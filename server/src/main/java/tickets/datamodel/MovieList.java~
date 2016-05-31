@@ -1,9 +1,9 @@
-package src.main.java.tickets.dataModel;
+package src.main.java.tickets.datamodel;
 
 import java.util.ArrayList;
 
 public class MovieList {
-    private ArrayList<Movie> movieList;
+    private ArrayList<Poster> movieList;
 
     public MovieList() {
         movieList = new ArrayList<Movie>();
@@ -23,6 +23,16 @@ public class MovieList {
     
     public int size() {
         return movieList.size();
+    }
+    
+    public class Poster {
+        private String name;
+        private String image;
+        public Poster() {}
+        public Poster(String name, String image) {
+            this.name = name;
+            this.image = image;
+        }
     }
 }
 

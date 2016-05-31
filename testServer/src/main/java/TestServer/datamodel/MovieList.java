@@ -1,6 +1,5 @@
-package src.main.java.TestServer;
+package src.main.java.TestServer.datamodel;
 
-import src.main.java.TestServer.datamodel.*;
 import java.util.ArrayList;
 
 public class MovieList {

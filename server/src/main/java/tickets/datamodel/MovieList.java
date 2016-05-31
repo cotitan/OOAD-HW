@@ -24,5 +24,6 @@ public class MovieList {
     public int size() {
         return movieList.size();
     }
+    
 }
 

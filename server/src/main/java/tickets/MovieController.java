@@ -31,8 +31,7 @@ public class MovieController {
 
     private String pic;
 
-    public String GetImage() {
-        String imgFile = "pic1.jpg";
+    public static String getImage(String imgFile) {
         InputStream in = null;
         byte[] data = null;
         try {
@@ -46,6 +45,27 @@ public class MovieController {
         BASE64Encoder encoder = new BASE64Encoder();
         return encoder.encode(data);
     }
+
+	@RequestMapping(value="/onView", method = RequestMethod.GET, consumes="application/json")
+	public @ResponseBody MovieList returnMovieList() {
+	    System.out.println(" { return movie list... }");
+	    String m1_intro = "这是一座独一无二的现代动物都市，每种动物在这里都有自己的居所，比如";
+	    String m2_intro = "在一座与世隔绝的美丽小鸟上，住着一群乐天知命的鸟。不过易怒的大红、亢奋的";
+	    String avatar1 = getImage("pic.png");
+	    MovieList movieList = new MovieList();
+        movieList.add(new Movie("疯狂动物城", m1_intro, avatar1));
+        movieList.add(new Movie("愤怒的小鸟", m2_intro, avatar1));
+		return movieList;
+	}
+	
+	@RequestMapping(value="/onViewPosters", method = RequestMethod.GET, consumes="application/json")
+	public @ResponseBody PosterList returnOnViewPosters() {
+	    System.out.println(" { return onview posters... }");
+	    PosterList p = new PosterList();
+	    p.add("愤怒的小鸟", getImage("angry_bird.jpg"));
+	    p.add("疯狂动物城", getImage("animal_world.jpg"));
+	    return p;
+	}
 
     public static String encodeToString(String imgPath, String type) {
         BufferedImage image = null;
@@ -70,18 +90,6 @@ public class MovieController {
         }  
         return imageString;  
     }  
-
-	@RequestMapping(value="/onView", method = RequestMethod.GET, consumes="application/json")
-	public @ResponseBody MovieList returnMovieList() {
-	    System.out.println(" { return movie list... }");
-	    String m1_intro = "这是一座独一无二的现代动物都市，每种动物在这里都有自己的居所，比如";
-	    String m2_intro = "在一座与世隔绝的美丽小鸟上，住着一群乐天知命的鸟。不过易怒的大红、亢奋的";
-	    String avatar1 = encodeToString("pic.png", "png");
-	    MovieList movieList = new MovieList();
-        movieList.add(new Movie("疯狂动物城", m1_intro, avatar1));
-        // movieList.add(new Movie("愤怒的小鸟", m2_intro, avatar1));
-		return movieList;
-	}
 
 }
 
