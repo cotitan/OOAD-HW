@@ -1,5 +1,7 @@
 /*.class
 !/OOAD-client/*.jar
+/testServer/*.jpg
+/testServer/*.png
 /*.jar
 /*.jar.original
 /*.java~
