@@ -1,4 +1,5 @@
 /*.class
+!/OOAD-client/*.jar
 /*.jar
 /*.jar.original
 /*.java~
