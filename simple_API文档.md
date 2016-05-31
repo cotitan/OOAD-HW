@@ -1,8 +1,9 @@
 
 #rules:
+    URL: http://42.96.205.36:8080
     all string --- utf-8 format
     all data --- json format
-
+    
 1. register(post)
     address:
         "/user/register"
@@ -29,3 +30,4 @@
         bool status,
         String message;
 
+3. 正在
