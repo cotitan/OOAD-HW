@@ -5,6 +5,7 @@ public class Main {
 	Test test = new Test();
 	test.testLogin();
 	test.testRegister();
+	test.testTheater();
 	test.testMovie();
     }
 }
