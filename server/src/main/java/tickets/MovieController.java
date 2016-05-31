@@ -51,7 +51,7 @@ public class MovieController {
 	    System.out.println(" { return movie list... }");
 	    String m1_intro = "这是一座独一无二的现代动物都市，每种动物在这里都有自己的居所，比如";
 	    String m2_intro = "在一座与世隔绝的美丽小鸟上，住着一群乐天知命的鸟。不过易怒的大红、亢奋的";
-	    String avatar1 = getImage("pic.png");
+	    String avatar1 = getImage("pic.jpg");
 	    MovieList movieList = new MovieList();
         movieList.add(new Movie("疯狂动物城", m1_intro, avatar1));
         movieList.add(new Movie("愤怒的小鸟", m2_intro, avatar1));

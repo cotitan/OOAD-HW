@@ -1,3 +1,5 @@
 /OOAD-server/target/*
 /*.class
+/*.jar
+/*.jar.original
 /OOAD-server/src/main/java/tickets/*.class

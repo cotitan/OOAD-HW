@@ -67,7 +67,7 @@ public class Test {
 	    }
 	    for (int i = 0; i < list.size(); i++) {
 	        System.out.println(list.get(i).getName() + " , " + list.get(i).getIntro());
-            deserialize(list.get(i).getAvatar(), "pic2.png");
+            deserialize(list.get(i).getAvatar(), "pic1.jpg");
 	    }
     }
 	
