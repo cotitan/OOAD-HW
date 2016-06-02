@@ -12,6 +12,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.io.DataInputStream;
+import java.net.URL;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
@@ -65,10 +68,10 @@ public class Test {
 	    } catch (Exception e) {
 	        System.out.println("exception deserialize");
 	    }
-	    for (int i = 0; i < list.size(); i++) {
-	        System.out.println(list.get(i).getName() + " , " + list.get(i).getIntro());
-            deserialize(list.get(i).getAvatar(), "pic1.jpg");
-	    }
+
+                    for (Movie movie: list.getMovieList()) {
+	        System.out.println(movie.getName() + " , " + movie.getIntro());
+                    }
     }
 	
 	public void testOnviewImage() {
@@ -112,6 +115,33 @@ public class Test {
 	    for (int i = 0; i < list.size(); i++) {
 	        System.out.println(list.get(i).getName() + " , " + list.get(i).getLocation()+ "," +list.get(i).getPrice());
 	    }
+    }
+
+    public void downloadPicture(ArrayList<String> urlList) {
+        int imgIndex = 0;
+        for (String urlAddr: urlList) {
+            try {
+                URL url = new URL(urlAddr);
+                DataInputStream dataInputStream = new DataInputStream(url.openStream());
+                String imgName = imgIndex + ".jpg";
+                FileOutputStream fileOutputStream = new FileOutputStream(new File(imgName));
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = dataInputStream.read(buffer)) > 0) {
+                    fileOutputStream.write(buffer, 0, length);
+                }
+                dataInputStream.close();
+                fileOutputStream.close();
+                imgIndex++;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                System.out.println("error downloading picture");
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("error saving picture");
+            }
+            System.out.println("finish downloading pic" + imgIndex);
+        }
     }
 
     public boolean deserialize(String imgStr, String filePath) {

@@ -1,0 +1,19 @@
+package src.main.java.TestServer;
+
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+	    Test test = new Test();
+	    test.testLogin();
+	    test.testRegister();
+	    test.testTheater();
+	    test.testMovie();
+	    test.testOnviewImage();
+	    ArrayList<String> imgUrlList = new ArrayList<String>();
+	    imgUrlList.add("http://images.51cto.com/files/uploadimg/20120227/1406350.png");
+	    // imgUrlList.add("http://localhost:8080/animal_world.jpg");
+	    test.downloadPicture(imgUrlList);
+    }
+}
+

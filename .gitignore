@@ -3,7 +3,7 @@
 /testServer/*.jpg
 /testServer/*.png
 /*.jar
-/*.jar.original
+/*.original
 /*.java~
 /*.xml~
 /*.md~

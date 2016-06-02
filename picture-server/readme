@@ -1,0 +1,2 @@
+run with command:
+java -jar target/picture-server.jar --server.port=8081

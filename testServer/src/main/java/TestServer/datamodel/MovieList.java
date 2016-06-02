@@ -4,11 +4,21 @@ import java.util.ArrayList;
 
 public class MovieList {
     private ArrayList<Movie> movieList;
+    private ArrayList<String> postersAddrs;
 
     public MovieList() {
         movieList = new ArrayList<Movie>();
+        postersAddrs = new ArrayList<String>();
     }
     
+    public void setPostersAddrs(ArrayList<String> list) {
+        postersAddrs = list;
+    }
+
+    public ArrayList<String> getPostersAddrs() {
+        return postersAddrs;
+    }
+
     public void setmovieList(ArrayList<Movie> list) {
         movieList = list;
     }
@@ -17,17 +27,12 @@ public class MovieList {
         return movieList;
     }
     
-    public void add(Movie movie) {
+    public void addMovie(Movie movie) {
         movieList.add(movie);
     }
     
-    public int size() {
-        return movieList.size();
-    }
-    
-    public Movie get(int i) {
-        return movieList.get(i);
-    }
-    
+    public void addPostersAddr(String addr) {
+        postersAddrs.add(addr);
+    }    
 }
 
