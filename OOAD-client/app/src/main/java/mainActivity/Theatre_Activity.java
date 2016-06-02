@@ -25,7 +25,7 @@ import java.util.Map;
 public class Theatre_Activity extends Activity {
 
     private ListView m_ListView;
-    private static final String[] m_Cities = {"å¹¿å·", "æ·±åœ³", "ä¸œè", "ä½›å±±", "ä¸­å±±", "è‚‡åº†"};
+    private static final String[] m_Cities = {"¹ãÖİ", "ÉîÛÚ", "¶«İ¸", "·ğÉ½", "ÖĞÉ½", "ÕØÇì"};
 
     private Spinner m_Spinner;
     private ArrayAdapter<String> adapter;
@@ -44,11 +44,11 @@ public class Theatre_Activity extends Activity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         m_Spinner.setAdapter(adapter);
-        //é€‰æ‹©åŸå¸‚çš„ä¸‹æ‹‰èœå•
+        //Ñ¡Ôñ³ÇÊĞµÄÏÂÀ­²Ëµ¥
         m_Spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                //é€‰æ‹©ä¸åŒçš„åŸå¸‚åï¼Œåœ¨è¿™é‡Œä½œå‡ºå˜æ›´
+                //Ñ¡Ôñ²»Í¬µÄ³ÇÊĞºó£¬ÔÚÕâÀï×÷³ö±ä¸ü
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -59,7 +59,7 @@ public class Theatre_Activity extends Activity {
         m_ImgBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //æœç´¢æŒ‰é’®çš„è§¦å‘äº‹ä»¶
+                //ËÑË÷°´Å¥µÄ´¥·¢ÊÂ¼ş
             }
         });
 
@@ -76,35 +76,35 @@ public class Theatre_Activity extends Activity {
     private List<Map<String, Object>> getData() {
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("name", "å¹¿ä¸œç§‘å­¦ä¸­å¿ƒå·¨å¹•å½±é™¢");
-        map.put("address", "å¹¿å·å¤§å­¦åŸè¥¿å…­è·¯168å·");
+        map.put("name", "¹ã¶«¿ÆÑ§ÖĞĞÄ¾ŞÄ»Ó°Ôº");
+        map.put("address", "¹ãÖİ´óÑ§³ÇÎ÷ÁùÂ·168ºÅ");
         map.put("distance", "3.80km");
-        map.put("ticket", "ç‰¹æƒ æŠ¢ç¥¨");
-        map.put("price", "Â¥ 20.8èµ·");
+        map.put("ticket", "ÌØ»İÇÀÆ±");
+        map.put("price", "£¤ 20.8Æğ");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("name", "å¹¿ä¸œç§‘å­¦ä¸­å¿ƒå·¨å¹•å½±é™¢");
-        map.put("address", "å¹¿å·å¤§å­¦åŸè¥¿å…­è·¯168å·");
+        map.put("name", "¹ã¶«¿ÆÑ§ÖĞĞÄ¾ŞÄ»Ó°Ôº");
+        map.put("address", "¹ãÖİ´óÑ§³ÇÎ÷ÁùÂ·168ºÅ");
         map.put("distance", "3.80km");
-        map.put("ticket", "ç‰¹æƒ æŠ¢ç¥¨");
-        map.put("price", "Â¥ 20.8èµ·");
+        map.put("ticket", "ÌØ»İÇÀÆ±");
+        map.put("price", "£¤ 20.8Æğ");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("name", "å¹¿ä¸œç§‘å­¦ä¸­å¿ƒå·¨å¹•å½±é™¢");
-        map.put("address", "å¹¿å·å¤§å­¦åŸè¥¿å…­è·¯168å·");
+        map.put("name", "¹ã¶«¿ÆÑ§ÖĞĞÄ¾ŞÄ»Ó°Ôº");
+        map.put("address", "¹ãÖİ´óÑ§³ÇÎ÷ÁùÂ·168ºÅ");
         map.put("distance", "3.80km");
-        map.put("ticket", "ç‰¹æƒ æŠ¢ç¥¨");
-        map.put("price", "Â¥ 20.8èµ·");
+        map.put("ticket", "ÌØ»İÇÀÆ±");
+        map.put("price", "£¤ 20.8Æğ");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("name", "å¹¿ä¸œç§‘å­¦ä¸­å¿ƒå·¨å¹•å½±é™¢");
-        map.put("address", "å¹¿å·å¤§å­¦åŸè¥¿å…­è·¯168å·");
+        map.put("name", "¹ã¶«¿ÆÑ§ÖĞĞÄ¾ŞÄ»Ó°Ôº");
+        map.put("address", "¹ãÖİ´óÑ§³ÇÎ÷ÁùÂ·168ºÅ");
         map.put("distance", "3.80km");
-        map.put("ticket", "ç‰¹æƒ æŠ¢ç¥¨");
-        map.put("price", "Â¥ 20.8èµ·");
+        map.put("ticket", "ÌØ»İÇÀÆ±");
+        map.put("price", "£¤ 20.8Æğ");
         list.add(map);
 
         return list;
