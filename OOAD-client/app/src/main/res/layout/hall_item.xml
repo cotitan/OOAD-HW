@@ -1,0 +1,90 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="aaa"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:id="@+id/hall_item_time"
+        />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_weight="2"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aaa"
+            android:textSize="16sp"
+            android:id="@+id/hall_item_type"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aaa"
+            android:textSize="16sp"
+            android:textColor="#8f8f8f"
+            android:id="@+id/hall_item_hall"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_gravity="center_vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aa"
+            android:layout_gravity="center_vertical"
+            android:textColor="#E3170D"
+            android:textSize="25sp"
+            android:paddingBottom="10dp"
+            android:id="@+id/hall_item_price"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="元"
+            android:layout_gravity="center_vertical"
+            android:textColor="#E3170D"
+            android:layout_marginLeft="8dp"
+            android:textSize="15sp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="@drawable/ticket_buying_fillet"
+            android:text="选座购"
+            android:textSize="10sp"
+            android:textColor="#E3170D"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical"
+            />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

@@ -1,6 +1,7 @@
 package mainActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -30,6 +31,7 @@ public class Theatre_Activity extends Activity {
     private Spinner m_Spinner;
     private ArrayAdapter<String> adapter;
     private ImageButton m_ImgBut;
+    private SimpleAdapter simpleAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +68,19 @@ public class Theatre_Activity extends Activity {
         //ListView
         m_ListView = (ListView)findViewById(R.id.theatreListView);
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this, getData(),
+        simpleAdapter = new SimpleAdapter(this, getData(),
                 R.layout.theatre_item, new String[]{"name", "address", "distance", "ticket", "price"},
                 new int[]{R.id.theatreName, R.id.theatreAddress, R.id.theatreDistance,
                 R.id.buyTicketButton, R.id.leastTicketPrice});
         m_ListView.setAdapter(simpleAdapter);
+
+        m_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent start_main = new Intent(Theatre_Activity.this, Theatre_Detail.class);
+                startActivity(start_main);
+            }
+        });
     }
 
     private List<Map<String, Object>> getData() {
@@ -80,7 +90,7 @@ public class Theatre_Activity extends Activity {
         map.put("address", "广州大学城西六路168号");
         map.put("distance", "3.80km");
         map.put("ticket", "特惠抢票");
-        map.put("price", "￥ 20.8起");
+        map.put("price", "￥ 20.8");
         list.add(map);
 
         map = new HashMap<String, Object>();
@@ -88,7 +98,7 @@ public class Theatre_Activity extends Activity {
         map.put("address", "广州大学城西六路168号");
         map.put("distance", "3.80km");
         map.put("ticket", "特惠抢票");
-        map.put("price", "￥ 20.8起");
+        map.put("price", "￥ 20.8");
         list.add(map);
 
         map = new HashMap<String, Object>();
@@ -96,7 +106,7 @@ public class Theatre_Activity extends Activity {
         map.put("address", "广州大学城西六路168号");
         map.put("distance", "3.80km");
         map.put("ticket", "特惠抢票");
-        map.put("price", "￥ 20.8起");
+        map.put("price", "￥ 20.8");
         list.add(map);
 
         map = new HashMap<String, Object>();
@@ -104,7 +114,7 @@ public class Theatre_Activity extends Activity {
         map.put("address", "广州大学城西六路168号");
         map.put("distance", "3.80km");
         map.put("ticket", "特惠抢票");
-        map.put("price", "￥ 20.8起");
+        map.put("price", "￥ 20.8");
         list.add(map);
 
         return list;

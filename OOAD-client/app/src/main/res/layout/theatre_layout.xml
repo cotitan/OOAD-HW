@@ -16,7 +16,7 @@
         <Spinner
             android:id="@+id/mySpinner"
             android:layout_width="40pt"
-            android:layout_height="match_parent"
+            android:layout_height="30pt"
             android:layout_marginRight="30pt"
             >
 
