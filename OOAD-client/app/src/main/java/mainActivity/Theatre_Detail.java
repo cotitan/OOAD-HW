@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 
 import com.example.maximtian.myapplication.R;
@@ -35,6 +36,11 @@ public class Theatre_Detail extends Activity {
     private List<View> dots; // 图片标题圆点
     private int currentItem = 0; // 图片的索引号
 
+    private TextView theatreTextView;
+    private TextView theatreTextView2;
+    private TextView movieName;
+    private TextView movieRank;
+
 
 
     private SimpleAdapter adapter; // 数据端
@@ -44,6 +50,20 @@ public class Theatre_Detail extends Activity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.theatre_detail);
+
+        Intent intent = getIntent();
+        String value = intent.getStringExtra("theatreName");
+        theatreTextView = (TextView)findViewById(R.id.theatre_detail_theatreName);
+        theatreTextView2 = (TextView)findViewById(R.id.theatre_detail_theatreName2);
+        movieName = (TextView)findViewById(R.id.theatre_detail_movieName);
+        movieRank = (TextView)findViewById(R.id.theatre_detail_rank);
+
+        theatreTextView.setText(value);
+        theatreTextView2.setText(value);
+        movieName.setText("疯狂动物城");
+        movieRank.setText("9.1");
+
+
         init();
         init_movie_info();
     }

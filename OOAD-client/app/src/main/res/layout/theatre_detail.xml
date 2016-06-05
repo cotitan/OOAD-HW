@@ -8,17 +8,20 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:background="#E3170D"
             android:orientation="horizontal"
-            android:paddingLeft="8dp"
+            android:paddingLeft="20dp"
             >
 
-            <ImageButton
-                android:layout_width="25dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/return_but"
-                android:scaleType="fitCenter"
+                android:text="&lt;"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:background="@android:color/transparent"
                 />
             <TextView
@@ -26,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="aaa"
                 android:textColor="@color/white"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center_vertical"
@@ -47,7 +50,7 @@
                 android:layout_height="30dp"
                 android:text="aaaa"
                 android:textSize="20sp"
-                android:id="@id/theatre_detail_theatreName"
+                android:id="@+id/theatre_detail_theatreName2"
                 />
 
             <LinearLayout

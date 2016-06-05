@@ -33,6 +33,8 @@ public class Theatre_Activity extends Activity {
     private ImageButton m_ImgBut;
     private SimpleAdapter simpleAdapter;
 
+    private List<Map<String, Object>> list; // 存影院信息
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,13 +80,14 @@ public class Theatre_Activity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent start_main = new Intent(Theatre_Activity.this, Theatre_Detail.class);
+                start_main.putExtra("theatreName", list.get(i).get("name").toString());
                 startActivity(start_main);
             }
         });
     }
 
     private List<Map<String, Object>> getData() {
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+        list = new ArrayList<Map<String, Object>>();
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("name", "广东科学中心巨幕影院");
         map.put("address", "广州大学城西六路168号");

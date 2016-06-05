@@ -10,14 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="30pt"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         >
 
         <Spinner
             android:id="@+id/mySpinner"
             android:layout_width="40pt"
             android:layout_height="30pt"
-            android:layout_marginRight="30pt"
+            android:layout_marginRight="25pt"
             >
 
         </Spinner>
