@@ -31,6 +31,7 @@
         <activity android:name="mainActivity.Personal_Activity" />
 
         <activity android:name="mainActivity.Movie_Detail" />
+        <activity android:name="mainActivity.Choosing_place" />
 
     </application>
 

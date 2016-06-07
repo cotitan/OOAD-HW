@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:Android="http://schemas.android.com/apk/res/android"
+    Android:orientation="vertical"
+    Android:layout_width="fill_parent"
+    Android:layout_height="fill_parent">
+
+    <!-- 评论者信息 -->
+    <LinearLayout
+        Android:layout_marginTop="5dp"
+        Android:orientation="horizontal"
+        Android:layout_width="fill_parent"
+        Android:layout_height="30dp">
+
+        <ImageView
+            Android:id="@+id/author_image"
+            Android:layout_width="wrap_content"
+            Android:layout_height="wrap_content" />
+
+        <TextView
+            Android:id="@+id/author_name"
+            Android:layout_width="wrap_content"
+            Android:layout_height="wrap_content"
+            Android:gravity="center"
+            Android:textSize="20sp"/>
+
+        <TextView
+            Android:id="@+id/remark_time"
+            Android:layout_width="wrap_content"
+            Android:layout_height="wrap_content"
+            Android:layout_marginLeft="5dp"
+            Android:textSize="15sp"
+            Android:textColor="#888888"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        Android:layout_width="fill_parent"
+        Android:layout_height="wrap_content">
+
+        <TextView
+            Android:layout_marginLeft="10dp"
+            Android:layout_marginRight="10dp"
+            Android:id="@+id/remark_info"
+            Android:layout_width="wrap_content"
+            Android:layout_height="wrap_content"
+            Android:textColor="#000"
+            Android:textSize="18dp" />
+
+        <RelativeLayout
+            Android:layout_below="@id/remark_info"
+            Android:layout_alignParentRight="true"
+            Android:layout_width="wrap_content"
+            Android:layout_height="wrap_content" >
+
+            <ImageView
+                Android:id="@+id/praise_bt"
+                Android:layout_marginRight="10dp"
+                Android:layout_alignParentRight="true"
+                Android:layout_width="wrap_content"
+                Android:layout_height="wrap_content"
+                Android:background="@drawable/comment"/>
+
+            <ImageView
+                Android:layout_toLeftOf="@id/praise_bt"
+                Android:layout_width="wrap_content"
+                Android:layout_height="wrap_content"
+                Android:background="@drawable/praise"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

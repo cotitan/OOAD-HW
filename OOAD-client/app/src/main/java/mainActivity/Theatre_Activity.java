@@ -64,6 +64,7 @@ public class Theatre_Activity extends Activity {
             @Override
             public void onClick(View view) {
                 //搜索按钮的触发事件
+
             }
         });
 

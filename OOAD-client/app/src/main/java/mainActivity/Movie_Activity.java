@@ -10,6 +10,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,6 +31,7 @@ import java.util.concurrent.TimeUnit;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 /**
@@ -50,12 +52,36 @@ public class Movie_Activity extends ListActivity {
 
     private SimpleAdapter adapter; // 数据端
 
+    private static final String[] m_Cities = {"广州", "深圳", "东莞", "佛山", "中山", "肇庆"};
+
+    private Spinner m_Spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movie_layout);
         init_TopView();
         init_movie_info();
+        init_Spinner();
+    }
+
+    public void init_Spinner() {
+        m_Spinner = (Spinner)findViewById(R.id.location_Spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, m_Cities);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        m_Spinner.setAdapter(adapter);
+        //选择城市的下拉菜单
+        m_Spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                //选择不同的城市后，在这里作出变更
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+
+            }
+        });
     }
 
     @Override

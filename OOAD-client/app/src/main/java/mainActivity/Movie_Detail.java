@@ -1,12 +1,15 @@
 package mainActivity;
 
+import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -21,9 +24,9 @@ import java.util.Map;
 /**
  * Created by MaximTian on 2016/5/31.
  */
-public class Movie_Detail extends ListActivity implements View.OnClickListener {
+public class Movie_Detail extends Activity implements View.OnClickListener {
 
-    private ListView remark_List; // 评论
+    private MyListView remark_List; // 评论
 
     private ImageView imageView; // 电影海报
     private TextView title; // 电影标题
@@ -46,6 +49,9 @@ public class Movie_Detail extends ListActivity implements View.OnClickListener {
     private ImageView mImageSpread;// 展开
     private ImageView mImageShrinkUp;// 收起
 
+    private RatingBar ratingBar;  // 电影评分
+    private float ratingMarks = (float) 8.9;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +60,11 @@ public class Movie_Detail extends ListActivity implements View.OnClickListener {
         initView();
         init_remarks();
         remark_List.setFocusable(false); // 设置焦点，让页面顶置
-       button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent start_main = new Intent(Movie_Detail.this, Choosing_place.class);
+                startActivity(start_main);
             }
         });
     }
@@ -70,7 +77,13 @@ public class Movie_Detail extends ListActivity implements View.OnClickListener {
         title.setText("疯狂动物城");
 
         rank = (TextView) findViewById(R.id.movie_detail_rank);
-        rank.setText("9.0");
+        rank.setText(String.valueOf(ratingMarks));
+
+        // 电影评分
+        float temp_marks = ratingMarks - 5;
+        if (temp_marks <= 0) temp_marks = (float) 0;
+        ratingBar = (RatingBar)findViewById(R.id.room_ratingbar);
+        ratingBar.setRating(temp_marks);
 
         movie_source = (TextView) findViewById(R.id.movie_detail_source);
         movie_source.setText("美国 | 97分钟");
@@ -117,11 +130,11 @@ public class Movie_Detail extends ListActivity implements View.OnClickListener {
     }
 
     private void init_remarks() {
-        remark_List = getListView();
-        SimpleAdapter adapter = new SimpleAdapter(this, get_movie_Data(),
-                R.layout.movie_item, new String[]{"img", "title", "info", "time"},
-                new int[]{R.id.movie_image, R.id.movie_title, R.id.movie_info, R.id.movie_time});
-        setListAdapter(adapter);
+        remark_List = (MyListView) findViewById(R.id.myListView);
+        SimpleAdapter adapter = new SimpleAdapter(this, get_remark_Data(),
+                R.layout.remark_item, new String[]{"au_img", "au_name", "rm_time", "remark"},
+                new int[]{R.id.author_image, R.id.author_name, R.id.remark_time, R.id.remark_info});
+        remark_List.setAdapter(adapter);
 
         int totalHeight = 0;
         for (int i = 0; i < adapter.getCount(); i++) {
@@ -132,45 +145,38 @@ public class Movie_Detail extends ListActivity implements View.OnClickListener {
 
         ViewGroup.LayoutParams params = remark_List.getLayoutParams();
         params.height = totalHeight + (remark_List.getDividerHeight() * (remark_List.getCount() - 1));
-        ((ViewGroup.MarginLayoutParams)params).setMargins(10, 10, 10, 10);
         remark_List.setLayoutParams(params);
+        remark_List.setEnabled(false);
     }
 
-    private List<Map<String, Object>> get_movie_Data() {
+    private List<Map<String, Object>> get_remark_Data() {
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("img", R.mipmap.ic_launcher);
-        map.put("title", "疯狂动物城");
-        map.put("info", "This is an apple");
-        map.put("time", "2016-01-01 上映");
+        map.put("au_img", R.drawable.dynamic1);
+        map.put("au_name", "labi");
+        map.put("rm_time", "3天前");
+        map.put("remark", "balalallallalalalasllalalslladakbsxajlalsdlalalallalalaaalallalalalalalalalallalalallalalalsallasxknasashd");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("img", R.mipmap.ic_launcher);
-        map.put("title", "愤怒的小鸟");
-        map.put("info", "This is a banana");
-        map.put("time", "2016-02-01 上映");
+        map.put("au_img", R.drawable.dynamic2);
+        map.put("au_name", "labi");
+        map.put("rm_time", "3天前");
+        map.put("remark", "balalallallalalalasllalalslladakbsxajlalsdlalalallalalaaalallalalalalalalalallalalallalalalsallasxknasashd");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("img", R.mipmap.ic_launcher);
-        map.put("title", "疯狂原始人");
-        map.put("info", "This is a cat");
-        map.put("time", "2016-03-01 上映");
+        map.put("au_img", R.drawable.dynamic3);
+        map.put("au_name", "labi");
+        map.put("rm_time", "3天前");
+        map.put("remark", "balalallallalalalasllalalslladakbsxajlalsdlalalallalalaaalallalalalalalalalallalalallalalalsallasxknasashd");
         list.add(map);
 
         map = new HashMap<String, Object>();
-        map.put("img", R.mipmap.ic_launcher);
-        map.put("title", "植物大战僵尸");
-        map.put("info", "This is a dog, This is a dog,This is a dog,This is a dog,This is a dog");
-        map.put("time", "2016-04-01 上映");
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("img", R.mipmap.ic_launcher);
-        map.put("title", "舌尖上的中国");
-        map.put("info", "This is an eagle, This is an eagle");
-        map.put("time", "2016-05-01 上映");
+        map.put("au_img", R.drawable.dynamic4);
+        map.put("au_name", "labi");
+        map.put("rm_time", "3天前");
+        map.put("remark", "balalallallalalalasllalalslladakbsxajlalsdlalalallalalaaalallalalalalalalalallalalallalalalsallasxknasashd");
         list.add(map);
 
         return list;

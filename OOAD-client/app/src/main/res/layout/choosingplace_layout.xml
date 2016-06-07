@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#b4b4b4" />
+
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <GridView
+            android:id="@+id/row"
+            android:layout_marginLeft="5dp"
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            android:numColumns="1"
+            android:horizontalSpacing="10px"
+            android:verticalSpacing="10px"
+            android:stretchMode="columnWidth" />
+
+        <View
+            android:layout_width="1dp"
+            android:orientation="horizontal"
+            android:layout_height="fill_parent"
+            android:background="#b4b4b4" />
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="8"
+            android:horizontalSpacing="5dp"
+            android:verticalSpacing="5dp"
+            android:stretchMode="columnWidth"
+            android:background="#c3c3c3c3"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#b4b4b4" />
+
+</LinearLayout>

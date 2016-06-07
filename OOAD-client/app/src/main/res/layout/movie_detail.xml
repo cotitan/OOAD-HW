@@ -11,6 +11,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:background="@color/white"
             android:layout_marginTop="5dp"
             android:orientation="horizontal"
             android:layout_width="fill_parent"
@@ -36,13 +37,31 @@
                     android:textSize="20dp"
                     android:layout_marginTop="10dp"/>
 
-                <TextView
-                    android:id="@+id/movie_detail_rank"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:textSize="15dp"
-                    android:layout_marginTop="10dp"/>
+                <!--评分部分-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/room_ratingbar"
+                        style="@style/RatingBar"
+                        android:numStars="5" >
+                    </RatingBar>
+
+                    <TextView
+                        android:id="@+id/movie_detail_rank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp" />
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/movie_detail_source"
@@ -75,7 +94,7 @@
                 android:background="#b4b4b4" />
 
             <View
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:background="#b4b4b4" />
@@ -156,19 +175,63 @@
                 android:background="#b4b4b4" />
 
             <View
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:background="#b4b4b4" />
         </LinearLayout>
 
-        <ListView
-            android:background="#fff"
-            android:id="@id/android:list"
+        <LinearLayout
+            android:layout_marginTop="5dp"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:text="短评"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:layout_gravity="left"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <Button
+                    android:layout_marginRight="10dp"
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:text="发短评"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:layout_gravity="right"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#cecece" />
+
+        <mainActivity.MyListView
+            android:id="@+id/myListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="auto_fit"
             android:dividerHeight="0dip"
-            android:fadingEdge = "none" />
+            android:fadingEdge="none" />
 
     </LinearLayout>
 </ScrollView>

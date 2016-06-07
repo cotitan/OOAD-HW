@@ -25,7 +25,7 @@ import java.util.concurrent.ScheduledExecutorService;
 /**
  * Created by WILLIAM on 2016/6/4.
  */
-public class Theatre_Detail extends Activity {
+public class Theatre_Detail extends ListActivity {
 
     private ListView hall_ListView;
 
@@ -63,7 +63,6 @@ public class Theatre_Detail extends Activity {
         movieName.setText("·è¿ñ¶¯Îï³Ç");
         movieRank.setText("9.1");
 
-
         init();
         init_movie_info();
     }
@@ -82,7 +81,7 @@ public class Theatre_Detail extends Activity {
     }
 
     private void init_movie_info() {
-        hall_ListView = (ListView)findViewById(R.id.hallListView);
+        hall_ListView = getListView();
         adapter = new SimpleAdapter(this, get_movie_Data(),
                 R.layout.hall_item, new String[]{"time", "movie_type", "hall", "price"},
                 new int[]{R.id.hall_item_time, R.id.hall_item_type, R.id.hall_item_hall, R.id.hall_item_price});
@@ -135,7 +134,7 @@ public class Theatre_Detail extends Activity {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
             Map<String, String> map = (Map<String, String>) adapter.getItem(position);
-            Intent start_main = new Intent(Theatre_Detail.this, Movie_Detail.class);
+            Intent start_main = new Intent(Theatre_Detail.this, Choosing_place.class);
             startActivity(start_main);
         }
     }
