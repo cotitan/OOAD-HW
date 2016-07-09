@@ -1,6 +1,7 @@
-package src.main.java.tickets;
+// package src.main.java.tickets;
+package tickets;
 
-import src.main.java.tickets.datamodel.*;
+import tickets.datamodel.*;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,9 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.google.gson.Gson;
-import java.net.URLEncoder;
-import java.net.URLDecoder;
 
 @RestController
 @RequestMapping("/user")

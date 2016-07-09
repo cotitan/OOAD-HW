@@ -1,27 +1,21 @@
-package src.main.java.tickets;
+package tickets;
 
-import src.main.java.tickets.datamodel.*;
-import sun.misc.BASE64Decoder;
+import tickets.datamodel.*;
 import sun.misc.BASE64Encoder;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.*;
-import java.util.ArrayList;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @RestController
 @RequestMapping("/movie")
 public class MovieController {
-	static final String serverIP = "http://42.96.205.36:8081";
+	static final String serverIP = "http://localhost:8081";
 	private static Connection dbmsConn = DBMSOperation.getDBConnection();
 	private PreparedStatement sql;
 

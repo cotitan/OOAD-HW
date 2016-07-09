@@ -1,6 +1,6 @@
-package src.main.java.tickets;
+package tickets;
 
-import src.main.java.tickets.datamodel.Greeting;
+import tickets.datamodel.Greeting;
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

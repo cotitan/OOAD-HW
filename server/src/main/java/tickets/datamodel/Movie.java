@@ -1,4 +1,4 @@
-package src.main.java.tickets.datamodel;
+package tickets.datamodel;
 // package dataModel;
 
 public class Movie {

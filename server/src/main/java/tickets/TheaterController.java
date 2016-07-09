@@ -1,6 +1,6 @@
-package src.main.java.tickets;
+package tickets;
 
-import src.main.java.tickets.datamodel.*;
+import tickets.datamodel.*;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 import java.io.*;

@@ -1,16 +1,15 @@
-package src.main.java.tickets;
+package tickets;
 
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Connection;
-import java.sql.Statement;
 
 public class DBMSOperation {
 	
 	private static Connection dbmsConn;
-//	private static String mysqlHost = "jdbc:mysql://127.0.0.1:3306/movieTickets";
-	private static String mysqlHost = "jdbc:mysql://42.96.205.36:3306/movieTickets";
+	private static String mysqlHost = "jdbc:mysql://127.0.0.1:3306/movieTickets";
+	// private static String mysqlHost = "jdbc:mysql://42.96.205.36:3306/movieTickets";
+	// private static String mysqlHost = "jdbc:mysql://163.44.169.177:3306/movieTickets";
 	
 	public static Connection getDBConnection() {
 
@@ -30,7 +29,7 @@ public class DBMSOperation {
 
 				// connect mysql
 				try {
-					dbmsConn = DriverManager.getConnection(mysqlHost, "root", "tiankk");
+					dbmsConn = DriverManager.getConnection(mysqlHost, "root", "Cotitan&789");
 					System.out.println("successfully connected to mysql");
 				} catch (SQLException e) {
 					System.out.println("\n\nfail to connect mysql");

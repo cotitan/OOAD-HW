@@ -1,15 +1,4 @@
 src/main/java/tickets/datamodel/Movie.class
-src/main/java/tickets/GreetingController.class
-src/main/java/tickets/datamodel/PosterList$Poster.class
-src/main/java/tickets/UserController.class
-src/main/java/tickets/datamodel/User.class
-src/main/java/tickets/datamodel/TheaterList.class
-src/main/java/tickets/datamodel/Greeting.class
-src/main/java/tickets/Application.class
-src/main/java/tickets/datamodel/Theater.class
-src/main/java/tickets/datamodel/MovieList.class
-src/main/java/tickets/DBMSOperation.class
-src/main/java/tickets/datamodel/PosterList.class
-src/main/java/tickets/TheaterController.class
-src/main/java/tickets/MovieController.class
+tickets/DBMSOperation.class
 src/main/java/tickets/datamodel/Response.class
+src/main/java/tickets/datamodel/MovieList.class
