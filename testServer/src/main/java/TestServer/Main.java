@@ -1,4 +1,4 @@
-package src.main.java.TestServer;
+package TestServer;
 
 import java.util.ArrayList;
 
@@ -10,10 +10,12 @@ public class Main {
         test.testTheater();
         test.testMovie();
         // test.testOnviewImage();
+        /*
         ArrayList<String> imgUrlList = new ArrayList<String>();
         imgUrlList.add("http://localhost:8081/pictures/posters/angry_bird.jpg");
         imgUrlList.add("http://localhost:8081/pictures/avatars/angry_bird.jpg");
         test.downloadPicture(imgUrlList);
+        */
     }
 }
 

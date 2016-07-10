@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RestController
 @RequestMapping("/movie")
 public class MovieController {
-	static final String serverIP = "http://localhost:8081";
+	static final String picServerIP = "http://localhost:8081";
 	private static Connection dbmsConn = DBMSOperation.getDBConnection();
 	private PreparedStatement sql;
 
@@ -24,15 +24,15 @@ public class MovieController {
             System.out.println(" { return movie list... }");
             String m1_intro = "这是一座独一无二的现代动物都市，每种动物在这里都有自己的居所，比如";
             String m2_intro = "在一座与世隔绝的美丽小鸟上，住着一群乐天知命的鸟。不过易怒的大红、亢奋的";
-            String avatarAddr1 = serverIP + "/pictures/avatars/angry_bird";
-            String avatarAddr2 = serverIP + "/pictures/avatars/animal_world";
+            String avatarAddr1 = picServerIP + "/pictures/avatars/angry_bird.jpg";
+            String avatarAddr2 = picServerIP + "/pictures/avatars/animal_world.jpg";
             MovieList movieList = new MovieList();
             movieList.addMovie(new Movie("疯狂动物城", m1_intro, avatarAddr1));
             movieList.addMovie(new Movie("愤怒的小鸟", m2_intro, avatarAddr2));
-            movieList.addPostersAddr(serverIP + "/pictures/posters/angry_bird");
-            movieList.addPostersAddr(serverIP + "/pictures/posters/angry_bird");
-            movieList.addPostersAddr(serverIP + "/pictures/posters/animal_world");
-            movieList.addPostersAddr(serverIP + "/pictures/posters/animal_world");
+            movieList.addPostersAddr(picServerIP + "/pictures/posters/angry_bird.jpg");
+            movieList.addPostersAddr(picServerIP + "/pictures/posters/angry_bird.jpg");
+            movieList.addPostersAddr(picServerIP + "/pictures/posters/animal_world.jpg");
+            movieList.addPostersAddr(picServerIP + "/pictures/posters/animal_world.jpg");
             return movieList;
 	}
 	

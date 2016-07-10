@@ -1,4 +1,4 @@
-package src.main.java.TestServer.datamodel;
+package TestServer.datamodel;
 // package dataModel;
 
 public class Movie {

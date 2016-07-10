@@ -1,4 +1,4 @@
-package src.main.java.TestServer;
+package TestServer;
 
 /**
  * Created by ljkis_000 on 2015/9/30.

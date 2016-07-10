@@ -1,4 +1,4 @@
-package src.main.java.TestServer;
+package TestServer;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

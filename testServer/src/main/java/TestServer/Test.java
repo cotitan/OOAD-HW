@@ -1,22 +1,16 @@
-package src.main.java.TestServer;
+package TestServer;
 
-import src.main.java.TestServer.datamodel.*;
+import TestServer.datamodel.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 import com.google.gson.Gson;
-import sun.misc.BASE64Encoder;
 import sun.misc.BASE64Decoder;
 import java.io.FileOutputStream;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.io.DataInputStream;
 import java.net.URL;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 
 public class Test {
     public void testLogin() {
@@ -69,9 +63,11 @@ public class Test {
 	        System.out.println("exception deserialize");
 	    }
 
-                    for (Movie movie: list.getMovieList()) {
-	        System.out.println(movie.getName() + " , " + movie.getIntro());
-                    }
+        String localPath = "downloaded/pictures/avatars";
+        for (Movie movie: list.getMovieList()) {
+	        System.out.println(movie.getName() + " , " + movie.getIntro() + movie.getAvatar());
+            downloadPicture(movie.getAvatar(), localPath);
+        }
     }
 	
 	public void testOnviewImage() {
@@ -117,30 +113,35 @@ public class Test {
 	    }
     }
 
-    public void downloadPicture(ArrayList<String> urlList) {
-        int imgIndex = 0;
-        for (String urlAddr: urlList) {
-            try {
-                URL url = new URL(urlAddr);
-                DataInputStream dataInputStream = new DataInputStream(url.openStream());
-                String imgName = imgIndex + ".jpg";
-                FileOutputStream fileOutputStream = new FileOutputStream(new File(imgName));
-                byte[] buffer = new byte[1024];
-                int length;
-                while ((length = dataInputStream.read(buffer)) > 0) {
-                    fileOutputStream.write(buffer, 0, length);
-                }
-                dataInputStream.close();
-                fileOutputStream.close();
-                imgIndex++;
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-                System.out.println("error downloading picture");
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println("error saving picture");
+    public void downloadPicture(String urlAddr, String savingPath) {
+        try {
+            URL url = new URL(urlAddr);
+            DataInputStream dataInputStream = new DataInputStream(url.openStream());
+            String filePath = savingPath + urlAddr.substring(urlAddr.lastIndexOf('/'));
+            File file = new File((filePath));
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
             }
-            System.out.println("finish downloading pic" + imgIndex);
+            FileOutputStream fileOutputStream = new FileOutputStream(new File(filePath));
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = dataInputStream.read(buffer)) > 0) {
+                fileOutputStream.write(buffer, 0, length);
+            }
+            dataInputStream.close();
+            fileOutputStream.close();
+            System.out.println("picture saved to " + filePath);
+        } catch (Exception e) {
+            System.out.println("error downloading pictures");
+        }
+    }
+
+    public void downloadPictures(ArrayList<String> urlList) {
+        String savingPath = "downloaded/pictures/posters";
+        String filePath;
+        for (String urlAddr: urlList) {
+            filePath = savingPath + urlAddr.substring(urlAddr.lastIndexOf('/'));
+            downloadPicture(urlAddr, filePath);
         }
     }
 

@@ -1,6 +1,6 @@
-package src.main.java.TestServer.datamodel;
+package TestServer.datamodel;
 
-import src.main.java.TestServer.datamodel.*;
+import TestServer.datamodel.*;
 import java.util.ArrayList;
 
 public class TheaterList {
