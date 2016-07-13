@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:stretchColumns="1"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent" >
+
+    <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="10dp" >
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_height = "wrap_content"
+            android:text = "账号: " />
+
+        <EditText
+            android:id="@+id/register_account"
+            android:layout_height="wrap_content"
+            android:hint="Input your account" />
+    </TableRow>
+
+    <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_height = "wrap_content"
+            android:text = "设置密码: " />
+
+        <EditText
+            android:id="@+id/register_password"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </TableRow>
+
+    <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_height = "wrap_content"
+            android:text = "确认密码: " />
+
+        <EditText
+            android:id="@+id/register_confirm"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </TableRow>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/register_registerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="#ff336699"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:text="注册" />
+
+    </RelativeLayout>
+
+
+</TableLayout>

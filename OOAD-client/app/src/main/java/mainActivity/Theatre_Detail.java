@@ -41,7 +41,7 @@ public class Theatre_Detail extends ListActivity {
     private TextView movieName;
     private TextView movieRank;
 
-
+    private String value;
 
     private SimpleAdapter adapter; // 数据端
 
@@ -52,7 +52,7 @@ public class Theatre_Detail extends ListActivity {
         setContentView(R.layout.theatre_detail);
 
         Intent intent = getIntent();
-        String value = intent.getStringExtra("theatreName");
+        value = intent.getStringExtra("theatreName");
         theatreTextView = (TextView)findViewById(R.id.theatre_detail_theatreName);
         theatreTextView2 = (TextView)findViewById(R.id.theatre_detail_theatreName2);
         movieName = (TextView)findViewById(R.id.theatre_detail_movieName);
@@ -135,6 +135,11 @@ public class Theatre_Detail extends ListActivity {
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
             Map<String, String> map = (Map<String, String>) adapter.getItem(position);
             Intent start_main = new Intent(Theatre_Detail.this, Choosing_place.class);
+            start_main.putExtra("time", map.get("time").toString());
+            start_main.putExtra("movie_type", map.get("movie_type").toString());
+            start_main.putExtra("hall", map.get("hall").toString());
+            start_main.putExtra("theatreName", value);
+            start_main.putExtra("movieName", "疯狂动物城");
             startActivity(start_main);
         }
     }

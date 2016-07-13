@@ -1,10 +1,12 @@
 package mainActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.example.maximtian.myapplication.R;
 
@@ -21,6 +23,10 @@ public class Choosing_place extends Activity {
     private SimpleAdapter adapter;
     private GridView gridview;
     private GridView row;
+    private TextView theatreName;
+    private TextView movieName;
+    private TextView movieInfo;
+    private TextView hallInfo;
 
     private String[] row_number = new String[]{"1", "2", "3", "4", "5", "6", "7", "8"};
 /*    private String[] str = new String[] {
@@ -38,6 +44,18 @@ public class Choosing_place extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choosingplace_layout);
+
+        movieName = (TextView)findViewById(R.id.choosingplace_movieName);
+        theatreName = (TextView)findViewById(R.id.choosingplace_theatreName);
+        movieInfo = (TextView)findViewById(R.id.choosingplace_info);
+        hallInfo = (TextView)findViewById(R.id.choosingplace_hall);
+
+        Intent intent = getIntent();
+        movieName.setText(intent.getStringExtra("movieName"));
+        theatreName.setText(intent.getStringExtra("theatreName"));
+        movieInfo.setText(intent.getStringExtra("time") + " " + intent.getStringExtra("movie_type"));
+        hallInfo.setText(intent.getStringExtra("hall"));
+
         gridview = (GridView) findViewById(R.id.gridview);
         row = (GridView) findViewById(R.id.row);
         row.setAdapter(new ArrayAdapter<String>(this, R.layout.grid_row_item, row_number));
@@ -56,6 +74,11 @@ public class Choosing_place extends Activity {
             list.add(map);
         }
         return list;
+    }
+
+    public void getInfo()
+    {
+
     }
 
 }
