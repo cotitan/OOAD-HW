@@ -2,9 +2,7 @@
 package tickets;
 
 import tickets.datamodel.*;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,19 +21,19 @@ public class UserController {
 
 	@RequestMapping(value="/register", method = RequestMethod.POST, consumes="application/json")
 	public @ResponseBody Response register(@RequestBody User user) {
-	    System.out.print(" { register: " + user.getUsername());
+		System.out.print(" { register: " + user.getUsername());
 		Response response = new Response();
 		try {
-				sql = dbmsConn.prepareStatement("insert into user_Info values(?,?,?,?,?)");
-				sql.setString(1, user.getUsername());
-				sql.setString(2, user.getPassword());
-				sql.setInt(3, user.getGender());
-				sql.setString(4, user.getPhone());
-				sql.setString(5, user.getTags());
-				sql.executeUpdate();
+			sql = dbmsConn.prepareStatement("insert into user_Info values(?,?,?,?,?)");
+			sql.setString(1, user.getUsername());
+			sql.setString(2, user.getPassword());
+			sql.setInt(3, user.getGender());
+			sql.setString(4, user.getPhone());
+			sql.setString(5, user.getTags());
+			sql.executeUpdate();
 
-				response.setStatus(true);
-				response.setMessage("Successfully registered!");
+			response.setStatus(true);
+			response.setMessage("Successfully registered!");
 		} catch (Exception e) {
 			response.setStatus(false);
 			response.setMessage("username exists! error inserting into database");
