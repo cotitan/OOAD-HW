@@ -23,7 +23,7 @@ public class Choosing_place extends Activity {
     private GridView row;
 
     private String[] row_number = new String[]{"1", "2", "3", "4", "5", "6", "7", "8"};
-    private String[] str = new String[] {
+/*    private String[] str = new String[] {
             "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ",
             "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ",
             "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ",
@@ -33,7 +33,7 @@ public class Choosing_place extends Activity {
             "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ",
             "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ", "¡õ"
     };
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

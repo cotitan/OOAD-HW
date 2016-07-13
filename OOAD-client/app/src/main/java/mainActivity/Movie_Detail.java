@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
@@ -27,6 +28,7 @@ import java.util.Map;
 public class Movie_Detail extends Activity implements View.OnClickListener {
 
     private MyListView remark_List; // 评论
+    private ImageButton back;
 
     private ImageView imageView; // 电影海报
     private TextView title; // 电影标题
@@ -63,8 +65,17 @@ public class Movie_Detail extends Activity implements View.OnClickListener {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent start_main = new Intent(Movie_Detail.this, Choosing_place.class);
+                Intent start_main = new Intent(Movie_Detail.this, Choosing_theatre.class);
+                start_main.putExtra("movieName", title.toString());
                 startActivity(start_main);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // back to the last activity
+                finish();
             }
         });
     }
@@ -102,6 +113,7 @@ public class Movie_Detail extends Activity implements View.OnClickListener {
         mShowMore.setOnClickListener(Movie_Detail.this);
 
         button = (Button) findViewById(R.id.ticket_button);
+        back = (ImageButton) findViewById(R.id.back);
     }
 
     @Override

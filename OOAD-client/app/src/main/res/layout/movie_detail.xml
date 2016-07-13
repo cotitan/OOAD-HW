@@ -11,6 +11,38 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:background="@drawable/red_fillet"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:text="愤怒的小鸟"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/search"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:background="@color/white"
             android:layout_marginTop="5dp"
             android:orientation="horizontal"
