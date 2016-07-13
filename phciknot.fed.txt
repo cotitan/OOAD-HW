@@ -1,0 +1,23 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# Changes to be committed:
+#	modified:   OOAD-client/.idea/gradle.xml
+#	modified:   OOAD-client/.idea/misc.xml
+#	modified:   OOAD-client/.idea/modules.xml
+#	deleted:    OOAD-client/MyApplication.iml
+#	modified:   OOAD-client/app/app.iml
+#	modified:   OOAD-client/app/src/main/AndroidManifest.xml
+#	modified:   OOAD-client/app/src/main/java/com/example/maximtian/myapplication/login_activity.java
+#	modified:   OOAD-client/app/src/main/java/mainActivity/Choosing_place.java
+#	modified:   OOAD-client/app/src/main/java/mainActivity/Register_Activity.java
+#	modified:   OOAD-client/app/src/main/java/mainActivity/Theatre_Detail.java
+#	modified:   OOAD-client/app/src/main/res/layout/choosingplace_layout.xml
+#	modified:   OOAD-client/app/src/main/res/layout/hall_item.xml
+#	modified:   OOAD-client/app/src/main/res/layout/theatre_detail.xml
+#
+

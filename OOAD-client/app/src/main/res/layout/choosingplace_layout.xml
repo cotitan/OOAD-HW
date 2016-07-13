@@ -5,50 +5,233 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
-        android:layout_marginTop="5dp"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#b4b4b4" />
-
     <LinearLayout
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#E3170D"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        >
 
-        <GridView
-            android:id="@+id/row"
-            android:layout_marginLeft="5dp"
-            android:layout_width="15dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numColumns="1"
-            android:horizontalSpacing="10px"
-            android:verticalSpacing="10px"
-            android:stretchMode="columnWidth" />
-
-        <View
-            android:layout_width="1dp"
-            android:orientation="horizontal"
-            android:layout_height="fill_parent"
-            android:background="#b4b4b4" />
-
-        <GridView
-            android:id="@+id/gridview"
-            android:layout_width="fill_parent"
+            android:text="&lt;"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"
+            />
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:numColumns="8"
-            android:horizontalSpacing="5dp"
-            android:verticalSpacing="5dp"
-            android:stretchMode="columnWidth"
-            android:background="#c3c3c3c3"/>
+            android:text="aaa"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/choosingplace_movieName"
+            />
 
     </LinearLayout>
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#b4b4b4" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:padding="10dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="aaaa"
+            android:textSize="20sp"
+            android:id="@+id/choosingplace_theatreName"
+            />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="今天  7月13日  11:54  英语3D"
+            android:id="@+id/choosingplace_info"
+            android:textSize="15sp"
+            android:layout_marginTop="3dp"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#8f8f8f"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            >
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/imageview"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                />
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="可选"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            >
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/imageview"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                />
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已售"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            >
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/imageview"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                />
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已选"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#8f8f8f"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#D3D3D3"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center_horizontal"
+            >
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="35dp"
+                android:background="#8F8F8F"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:text="4号厅银幕"
+                    android:id="@+id/choosingplace_hall"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#b4b4b4" />
+
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <GridView
+                android:id="@+id/row"
+                android:layout_marginLeft="5dp"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:numColumns="1"
+                android:horizontalSpacing="10px"
+                android:verticalSpacing="10px"
+                android:stretchMode="columnWidth" />
+
+            <View
+                android:layout_width="1dp"
+                android:orientation="horizontal"
+                android:layout_height="fill_parent"
+                android:background="#b4b4b4" />
+
+            <GridView
+                android:id="@+id/gridview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="8"
+                android:horizontalSpacing="5dp"
+                android:verticalSpacing="5dp"
+                android:stretchMode="columnWidth"
+                android:background="#c3c3c3c3"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#b4b4b4" />
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>

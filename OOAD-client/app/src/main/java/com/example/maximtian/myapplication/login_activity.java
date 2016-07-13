@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.view.View.OnClickListener;
 
+import mainActivity.Register_Activity;
 import mainActivity.main_activity;
 
 /**
@@ -21,6 +22,7 @@ public class login_activity extends Activity {
     private String account;
     private String password;
     private Button loginBtn;
+    private Button registerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class login_activity extends Activity {
         ed_account = (EditText) findViewById(R.id.account);
         ed_password = (EditText) findViewById(R.id.password);
         loginBtn = (Button) findViewById(R.id.login);
+        registerBtn = (Button)findViewById(R.id.register);
 
         loginBtn.setOnClickListener(new OnClickListener() {
             @Override
@@ -55,6 +58,14 @@ public class login_activity extends Activity {
                 Intent start_main = new Intent(login_activity.this, main_activity.class);
                 startActivity(start_main);
                 finish();
+            }
+        });
+
+        registerBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent start_main = new Intent(login_activity.this, Register_Activity.class);
+                startActivity(start_main);
             }
         });
     }
