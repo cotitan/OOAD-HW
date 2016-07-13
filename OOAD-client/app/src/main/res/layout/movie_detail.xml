@@ -39,7 +39,7 @@
                 android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/search"
+                android:background="@drawable/void_pic"
                 android:layout_gravity="center" />
 
         </LinearLayout>
