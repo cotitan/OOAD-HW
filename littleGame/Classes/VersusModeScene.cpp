@@ -1,6 +1,9 @@
 #include "VersusModeScene.h"
 
+#include "cocostudio/CocoStudio.h"
+#include "ui/CocosGUI.h"
 USING_NS_CC;
+using namespace CocosDenshion;
 
 cocos2d::Scene * VersusModeScene::createScene()
 {
@@ -40,12 +43,17 @@ bool VersusModeScene::init()
 
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("plist/VersusModeScene.plist");
 
+
 	// * -----------------------背景图片---------------------------------- *
-	auto backGround = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("background3.png"));
+	auto backGround = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("background.png"));
 	backGround->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	this->addChild(backGround, 0);
 	
 	displayPlayer();
+
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->preloadBackgroundMusic("music/BGM_1.mp3");
+	audio->playBackgroundMusic("music/gateMap.wav", true);
 	return true;
 }
 
@@ -162,6 +170,7 @@ void VersusModeScene::displayButton()
 // * -----------------------------------------------------点击玩家-------------------------------------------------------- *
 void VersusModeScene::player1Callback(Ref * pSender)
 {
+	SimpleAudioEngine::getInstance()->playEffect("music/button.wav", false, 1.0f, 1.0f, 1.0f);
 	if (flag != 0) return;  // 如果当前正在选人，就不能再点击玩家了
 	flag = 1;
 	player1MenuItem->setScale(1.5f);
@@ -170,6 +179,7 @@ void VersusModeScene::player1Callback(Ref * pSender)
 
 void VersusModeScene::player2Callback(Ref * pSender)
 {
+	SimpleAudioEngine::getInstance()->playEffect("music/button.wav", false, 1.0f, 1.0f, 1.0f);
 	if (flag != 0) return;
 	flag = 2;
 	player2MenuItem->setScale(1.5f);
@@ -180,6 +190,7 @@ void VersusModeScene::player2Callback(Ref * pSender)
 // * -----------------------------------------------------点击英雄-------------------------------------------------------- *
 void VersusModeScene::gateOneCallBack(Ref * pSender)
 {
+	SimpleAudioEngine::getInstance()->playEffect("music/Gate_1_selected.mp3", false, 1.0f, 1.0f, 1.0f);
 	if (flag == 1)
 	{
 		if (player1 != NULL) 
@@ -192,7 +203,7 @@ void VersusModeScene::gateOneCallBack(Ref * pSender)
 	else if (flag == 2) {
 		if (player2 != NULL)
 			pl2->removeFromParent();
-		pl1 = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("Gate_2.png"));
+		pl2 = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("Gate_1.png"));
 		pl2->setPosition(Vec2(visibleSize.width - 20 - pl2->getContentSize().width + origin.x, pl2->getContentSize().height/2 + origin.y));
 		addChild(pl2, 1);
 		player2 = 1;
@@ -203,6 +214,7 @@ void VersusModeScene::gateOneCallBack(Ref * pSender)
 
 void VersusModeScene::gateTwoCallBack(Ref * pSender)
 {
+	SimpleAudioEngine::getInstance()->playEffect("music/Gate_2_selected.mp3", false, 1.0f, 1.0f, 1.0f);
 	if (flag == 1)
 	{
 		if (player1 != NULL) pl1->removeFromParent();
@@ -224,6 +236,7 @@ void VersusModeScene::gateTwoCallBack(Ref * pSender)
 
 void VersusModeScene::gateThreeCallBack(Ref * pSender)
 {
+	SimpleAudioEngine::getInstance()->playEffect("music/Gate_3_selected.mp3", false, 1.0f, 1.0f, 1.0f);
 	if (flag == 1)
 	{
 		if (player1 != NULL) pl1->removeFromParent();
@@ -333,7 +346,7 @@ void VersusModeScene::mapOneCallback(Ref * pSender)
 	bg = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("map_1_2.png"));
 	bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y + bg->getContentSize().height/2));
 	addChild(bg, 1);
-	background = "Map_1";
+	background = 1;
 	selectGateMenu->clearGate();
 	displayButton();
 }
@@ -344,7 +357,7 @@ void VersusModeScene::mapTwoCallback(Ref * pSender)
 	bg = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("map_2_2.png"));
 	bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y + bg->getContentSize().height/2));
 	addChild(bg, 1);
-	background = "Map_2";
+	background = 2;
 	selectGateMenu->clearGate();
 	displayButton();
 }
@@ -355,7 +368,7 @@ void VersusModeScene::mapThreeCallback(Ref * pSender)
 	bg = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("map_3_2.png"));
 	bg->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y + bg->getContentSize().height/2));
 	addChild(bg, 1);
-	background = "Map_3";
+	background = 3;
 	selectGateMenu->clearGate();
 	displayButton();
 }
@@ -364,6 +377,8 @@ void VersusModeScene::mapThreeCallback(Ref * pSender)
 
 void VersusModeScene::startCallback(Ref * pSender)
 {
+	SimpleAudioEngine::getInstance()->playEffect("music/button.wav", false, 1.0f, 1.0f, 1.0f);
+	SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 	Director::getInstance()->replaceScene(GameScene::createScene(player1, prop1, player2, prop2, background));
 }
 

@@ -11,9 +11,9 @@ class GameLayer : public cocos2d::Layer
 public:
 	GameLayer();
 	~GameLayer();
-	static GameLayer* create(int pl1, int pl2);
+	static GameLayer* create(int pl1, int pl2, int bg);
 	/*CREATE_FUNC(GameLayer);*/
-	virtual bool init(int pl1, int pl2);
+	virtual bool init(int pl1, int pl2, int bg);
 	/*virtual bool init();*/
 	// 定义 Hero* 类型变量 hero1、hero2，并只声明了其 get 方法
 	CC_SYNTHESIZE_READONLY(Hero*, hero1, Hero1);
@@ -37,6 +37,7 @@ public:
 	// 表示每个瓦片的宽高，用来控制英雄的行走区域
 	float tileWidth;
 	float tileHeight;
+
 
 	float screenWidth;
 	float screenHeight;

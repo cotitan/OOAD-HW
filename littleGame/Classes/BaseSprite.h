@@ -40,7 +40,7 @@ public:
 	CC_SYNTHESIZE(ActionState, currActionState, CurrActionState);  // 当前状态
 
 	CC_SYNTHESIZE(cocos2d::Point, velocity, Velocity);  // 速度属性
-	CC_SYNTHESIZE(unsigned int, hp, HP);  // 生命值属性
+	CC_SYNTHESIZE(int, hp, HP);  // 生命值属性
 	CC_SYNTHESIZE(unsigned int, atk, ATK);  // 攻击力
 
 	std::function<void(void)> pAttack; // 表示 void pAttack();

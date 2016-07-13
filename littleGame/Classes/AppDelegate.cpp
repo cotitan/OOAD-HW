@@ -1,8 +1,8 @@
 #include "AppDelegate.h"
 #include "MenuScene.h"
-
+#include "SimpleAudioEngine.h"
 USING_NS_CC;
-
+using namespace CocosDenshion;
 static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
 static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
 static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
@@ -79,7 +79,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // run
     director->runWithScene(scene);
-
+	// * -----------------------Ô¤¼ÓÔØÒôÀÖ---------------------------------- *
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->preloadBackgroundMusic("music/gateMap.wav");
+	audio->preloadEffect("music/Gate_3_selected.mp3");
+	audio->preloadEffect("music/Gate_2_selected.mp3");
+	audio->preloadEffect("music/Gate_1_selected.mp3");
+	audio->preloadEffect("music/CGPage.wav");
+	audio->preloadEffect("music/button.wav");
     return true;
 }
 
@@ -88,7 +95,7 @@ void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
 
     // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+     SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
@@ -96,5 +103,5 @@ void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
 
     // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+     SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }

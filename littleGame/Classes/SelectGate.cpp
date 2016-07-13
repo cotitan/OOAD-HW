@@ -1,5 +1,9 @@
 #include "SelectGate.h"
 #include <math.h>
+#include "cocostudio/CocoStudio.h"
+#include "ui/CocosGUI.h"
+USING_NS_CC;
+using namespace CocosDenshion;
 #define PI acos(-1)
 //菜单的缩小比例 最小的比例是1-MENU_SCALE
 #define MENU_SCALE 0.3
@@ -158,6 +162,7 @@ bool SelectGate::onTouchBegan(Touch* touch, Event* event) {
 }
 
 void SelectGate::onTouchEnded(Touch* touch, Event* event) {
+	SimpleAudioEngine::getInstance()->playEffect("music/Page.wav", false, 1.0f, 1.0f, 1.0f);
 	auto size = getContentSize();
 	auto xDelta = touch->getLocation().x - touch->getStartLocation().x;
 	rectify(xDelta>0);

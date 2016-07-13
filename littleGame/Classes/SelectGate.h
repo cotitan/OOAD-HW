@@ -2,7 +2,7 @@
 #define __SELECTGATE_H__
 
 #include "cocos2d.h"
-
+#include "SimpleAudioEngine.h"
 class SelectGate : public cocos2d::Layer
 {
 public:

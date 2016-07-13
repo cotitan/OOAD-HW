@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "SelectGate.h"
 #include "GameScene.h"
-
+#include "SimpleAudioEngine.h"
 class VersusModeScene : cocos2d::Layer
 {
 public:
@@ -30,7 +30,7 @@ public:
 	cocos2d::Sprite* pr1;
 	const char* prop2;
 	cocos2d::Sprite* pr2;
-	const char* background;
+	int background;
 	cocos2d::Sprite* bg;
 
 

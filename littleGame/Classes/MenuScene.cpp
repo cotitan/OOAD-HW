@@ -1,9 +1,10 @@
 #include "MenuScene.h"
 #include "VersusModeScene.h"
 #include "AdventureModeScene.h"
-
+#include "cocostudio/CocoStudio.h"
+#include "ui/CocosGUI.h"
 USING_NS_CC;
-
+using namespace CocosDenshion;
 cocos2d::Scene * MenuScene::createScene()
 {
 	// 'scene' is an autorelease object
@@ -49,15 +50,16 @@ bool MenuScene::init()
 	auto menu = Menu::create(startMenuItem, NULL);
 	menu->setPosition(Vec2::ZERO);
 	this->addChild(menu, 1);
+
 	return true;
 }
 
 // 点击 “开始”，就会弹出模式选择菜单项
 void MenuScene::menuCallback(cocos2d::Ref * pSender)
 {
-	/** 播放点击音效
-	...
-	**/
+	//播放点击音效
+	SimpleAudioEngine::getInstance()->playEffect("music/button.wav", false, 1.0f, 1.0f, 1.0f);
+	
 	startMenuItem->setVisible(false);
 	// 可以跳转到 “对战模式”的按钮
 	auto versusMode = MenuItemSprite::create(
@@ -78,18 +80,16 @@ void MenuScene::menuCallback(cocos2d::Ref * pSender)
 
 void MenuScene::versusMenuCallback(cocos2d::Ref * pSender)
 {
-	/** 播放点击音效
-	...
-	**/
+	// 播放点击音效
+	SimpleAudioEngine::getInstance()->playEffect("music/button.wav", false, 1.0f, 1.0f, 1.0f);
 	auto myScene = VersusModeScene::createScene();
-	Director::getInstance()->replaceScene(TransitionFade::create(0.5, myScene, Color3B(0, 255, 255)));
+	Director::getInstance()->replaceScene(TransitionFade::create(0.5, myScene, Color3B(0, 0, 0)));
 }
 
 void MenuScene::adventureMenuCallback(cocos2d::Ref * pSender)
 {
-	/** 播放点击音效
-	...
-	**/
+	// 播放点击音效
+	SimpleAudioEngine::getInstance()->playEffect("music/button.wav", false, 1.0f, 1.0f, 1.0f);
 	auto myScene = AdventureModeScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(0.5, myScene, Color3B(0, 255, 255)));
 }

@@ -1,7 +1,8 @@
 #include "GameLayer.h"
-
+#include "SimpleAudioEngine.h"
+#include "GameOverScene.h"
 USING_NS_CC;
-
+using namespace CocosDenshion;
 GameLayer::GameLayer() : tmx(NULL)
 {
 }
@@ -11,10 +12,10 @@ GameLayer::~GameLayer()
 {
 }
 
-GameLayer * GameLayer::create(int pl1, int pl2)
+GameLayer * GameLayer::create(int pl1, int pl2, int bg)
 {
 	GameLayer* pRet = new(std::nothrow) GameLayer();
-	if (pRet && pRet->init(pl1, pl2))
+	if (pRet && pRet->init(pl1, pl2, bg))
 	{
 		pRet->autorelease();
 		return pRet;
@@ -28,7 +29,7 @@ GameLayer * GameLayer::create(int pl1, int pl2)
 }
 
 
-bool GameLayer::init(int pl1, int pl2)
+bool GameLayer::init(int pl1, int pl2, int bg)
 {
 	if (!Layer::init()) return false;
 	this->visibleSize = Director::getInstance()->getVisibleSize();
@@ -53,7 +54,20 @@ bool GameLayer::init(int pl1, int pl2)
 	addChild(hero2);
 	hero2->createHpBar(pl2);
 	// * ---------------------------------背景图片---------------------------- *
-	tmx = TMXTiledMap::create("map.tmx");
+	switch (bg)
+	{
+	case 1:
+		tmx = TMXTiledMap::create("tmxMap/map1.tmx");
+		break;
+	case 2:
+		tmx = TMXTiledMap::create("tmxMap/map2.tmx");
+		break;
+	case 3:
+		tmx = TMXTiledMap::create("tmxMap/map3.tmx");
+	default:
+		break;
+	}
+	//tmx = TMXTiledMap::create("map.tmx");
 	this->addChild(tmx, -1);
 	tileHeight = tmx->getTileSize().height;
 	tileWidth = tmx->getTileSize().width;
@@ -65,6 +79,13 @@ bool GameLayer::init(int pl1, int pl2)
 	hero2->pAttack = CC_CALLBACK_0(GameLayer::onHero2Attack, this);
 	hero2->pStop = CC_CALLBACK_0(GameLayer::onHero2Stop, this);
 	hero2->pWalk = CC_CALLBACK_1(GameLayer::onHero2Walk, this);
+
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->playBackgroundMusic("music/BGM_1.mp3", true);
+	audio->preloadEffect("music/Fire1.wav");
+	audio->preloadEffect("music/Fire2.wav");
+	audio->preloadEffect("music/Fire3.wav");
+	audio->preloadEffect("music/Explode.wav");
 
 	this->scheduleUpdate();
 	return true;
@@ -124,10 +145,30 @@ void GameLayer::update(float dt)
 			{
 				(*it)->removeFromParentAndCleanup(true);
 				hero2->runHurtAction();
+				SimpleAudioEngine::getInstance()->playEffect("music/Explode.wav", false, 1.0f, 1.0f, 1.0f);
+				auto ex = ParticleSystemQuad::create("plist/explode.plist");
+				ex->setPosition((*it)->getPosition());
+				ex->setAutoRemoveOnFinish(true);
+				ex->setDuration(0.1);
+				ex->setScale(0.2f);
+				addChild(ex, 5);
 				hero2->setHP(hero2->getHP() - hero1->getATK());
-				if (hero2->getHP() < 0) hero2->setHP(0); // 其实是gameover
-				ProgressTo *progressTo = ProgressTo::create(1, hero2->getHP());
-				hero2->hpBar->runAction(RepeatForever::create(progressTo));
+				if (hero2->getHP() < 0) {
+					hero2->setHP(0);
+					RenderTexture* renderTexture = RenderTexture::create(origin.x + visibleSize.width, origin.y + visibleSize.height);
+					renderTexture->begin();
+					this->getParent()->visit();
+					renderTexture->end();
+					Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+					SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+					unschedule(schedule_selector(GameLayer::update));
+					Director::getInstance()->pushScene(GameOverScene::scene(renderTexture, hero1->p, 1));
+				}// 其实是gameover
+				
+
+				//ProgressTo *progressTo = ProgressTo::create(1, hero2->getHP());
+				//hero2->hpBar->runAction(RepeatForever::create(progressTo));
+				hero2->hpBar->setPercentage(hero2->getHP());
 				it = hero1->bullets.erase(it);
 				break;
 			}
@@ -152,11 +193,29 @@ void GameLayer::update(float dt)
 			{
 				(*itr)->removeFromParentAndCleanup(true);
 				hero1->runHurtAction();
+				SimpleAudioEngine::getInstance()->playEffect("music/Explode.wav", false, 1.0f, 1.0f, 1.0f);
+				auto ex = ParticleSystemQuad::create("plist/explode.plist");
+				ex->setPosition((*itr)->getPosition());
+				ex->setAutoRemoveOnFinish(true);
+				ex->setDuration(0.1);
+				ex->setScale(0.2f);
+				addChild(ex, 5);
 				// HP--;
 				hero1->setHP(hero1->getHP() - hero2->getATK());
-				if (hero1->getHP() < 0) hero1->setHP(0); // 其实是gameover
-				ProgressTo *progressTo = ProgressTo::create(1, hero1->getHP());
-				hero1->hpBar->runAction(RepeatForever::create(progressTo));
+				if (hero1->getHP() < 0) {
+					hero1->setHP(0);
+					RenderTexture* renderTexture = RenderTexture::create(origin.x + visibleSize.width, origin.y + visibleSize.height);
+					renderTexture->begin();
+					this->getParent()->visit();
+					renderTexture->end();
+					Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+					SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+					unschedule(schedule_selector(GameLayer::update));
+					Director::getInstance()->pushScene(GameOverScene::scene(renderTexture, hero2->p, 2));
+				}// 其实是gameover
+				//ProgressTo *progressTo = ProgressTo::create(1, hero1->getHP());
+				//hero1->hpBar->runAction(RepeatForever::create(progressTo));
+				hero1->hpBar->setPercentage(hero1->getHP());
 				itr = hero2->bullets.erase(itr);
 				break;
 			}
