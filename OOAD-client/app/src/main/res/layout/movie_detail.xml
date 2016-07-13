@@ -17,10 +17,11 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:layout_margin="5dp"
                 android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/back"
+                android:background="@drawable/back"
                 android:layout_gravity="center" />
 
             <TextView
@@ -34,10 +35,11 @@
                 android:gravity="center"
                 android:layout_weight="1" />
 
-            <ImageButton
+            <TextView
+                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/search"
+                android:background="@drawable/search"
                 android:layout_gravity="center" />
 
         </LinearLayout>
