@@ -36,7 +36,10 @@ public class Register_Activity extends Activity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (password.getText().toString().equals(confirm_password.getText().toString()) &&
+                if (acount.getText().toString().equals(""))
+                {
+                    Toast.makeText(Register_Activity.this, "«Î ‰»Î’À∫≈", Toast.LENGTH_LONG).show();
+                } else if (password.getText().toString().equals(confirm_password.getText().toString()) &&
                         !password.getText().toString().equals("")) {
                     Intent intent = new Intent(Register_Activity.this, login_activity.class);
                     startActivity(intent);
