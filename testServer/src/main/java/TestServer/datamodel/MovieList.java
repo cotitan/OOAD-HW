@@ -3,11 +3,11 @@ package TestServer.datamodel;
 import java.util.ArrayList;
 
 public class MovieList {
-    private ArrayList<Movie> movieList;
+    private ArrayList<MovieSimple> movieList;
     private ArrayList<String> postersAddrs;
 
     public MovieList() {
-        movieList = new ArrayList<Movie>();
+        movieList = new ArrayList<MovieSimple>();
         postersAddrs = new ArrayList<String>();
     }
     
@@ -19,15 +19,15 @@ public class MovieList {
         return postersAddrs;
     }
 
-    public void setmovieList(ArrayList<Movie> list) {
+    public void setmovieList(ArrayList<MovieSimple> list) {
         movieList = list;
     }
     
-    public ArrayList<Movie> getMovieList() {
+    public ArrayList<MovieSimple> getMovieList() {
         return movieList;
     }
     
-    public void addMovie(Movie movie) {
+    public void addMovie(MovieSimple movie) {
         movieList.add(movie);
     }
     

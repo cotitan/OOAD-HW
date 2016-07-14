@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d6f91fa-931d-4bfb-bcc6-b69f73e0096b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/tickets/datamodel/Movie.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../testServer/target/classes/TestServer/DataOperation.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../testServer/target/classes/TestServer/DataOperationGet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../testServer/target/classes/TestServer/DataOperationPost.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/DataOperation.java" afterPath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/serverConnector/DataOperation.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/DataOperationGet.java" afterPath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/serverConnector/DataOperationGet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/DataOperationPost.java" afterPath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/serverConnector/DataOperationPost.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/target/classes/TestServer/Test.class" afterPath="$PROJECT_DIR$/../testServer/target/classes/TestServer/Test.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/target/classes/TestServer/datamodel/MovieList.class" afterPath="$PROJECT_DIR$/../testServer/target/classes/TestServer/datamodel/MovieList.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tickets/MovieController.java" afterPath="$PROJECT_DIR$/src/main/java/tickets/MovieController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tickets/datamodel/MovieList.java" afterPath="$PROJECT_DIR$/src/main/java/tickets/datamodel/MovieList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../testServer/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/Test.java" afterPath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/Test.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/datamodel/MovieList.java" afterPath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/datamodel/MovieList.java" />
     </list>
     <ignored path="OOAD-server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +39,8 @@
       <file leaf-file-name="MovieController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/tickets/MovieController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+            <state relative-caret-position="103">
+              <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <marker date="1468465862370" expanded="true" signature="1054:1111" ph="select idx, movie" />
@@ -606,12 +614,12 @@
       <workItem from="1468331627475" duration="3975000" />
       <workItem from="1468376324887" duration="5500000" />
       <workItem from="1468418918928" duration="3867000" />
-      <workItem from="1468458515788" duration="2832000" />
+      <workItem from="1468458515788" duration="4152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24904000" />
+    <option name="totallyTimeSpent" value="26224000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="403" y="74" width="1180" height="716" extended-state="0" />
@@ -628,7 +636,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22881356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22881356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1009,8 +1017,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tickets/MovieController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+        <state relative-caret-position="103">
+          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1468465862370" expanded="true" signature="1054:1111" ph="select idx, movie" />

@@ -2,13 +2,14 @@ package TestServer;
 
 import TestServer.datamodel.*;
 import java.util.ArrayList;
+
+import TestServer.serverConnector.DataOperationGet;
+import TestServer.serverConnector.DataOperationPost;
 import com.google.gson.Gson;
 import sun.misc.BASE64Decoder;
 import java.io.FileOutputStream;
 import java.io.File;
-import java.io.IOException;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 import java.io.DataInputStream;
 import java.net.URL;
 
@@ -64,8 +65,8 @@ public class Test {
 	    }
 
         String localPath = "downloaded/pictures/avatars";
-        for (Movie movie: list.getMovieList()) {
-	        System.out.println(movie.getName() + " , " + movie.getIntro() + movie.getAvatar());
+        for (MovieSimple movie: list.getMovieList()) {
+	        System.out.println(movie.getName() + " " + movie.getIntro() + movie.getAvatar());
             downloadPicture(movie.getAvatar(), localPath);
         }
     }

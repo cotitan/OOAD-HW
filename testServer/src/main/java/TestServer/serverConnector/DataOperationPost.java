@@ -1,4 +1,4 @@
-package TestServer;
+package TestServer.serverConnector;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -6,8 +6,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 
 /**
  * Created by ljkis_000 on 2015/9/30.
