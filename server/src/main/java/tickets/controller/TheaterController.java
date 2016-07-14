@@ -2,23 +2,13 @@ package tickets.controller;
 
 import tickets.DBMSOperation;
 import tickets.datamodel.*;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
-import java.io.*;
-import java.util.ArrayList;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.google.gson.Gson;
-import java.net.URLEncoder;
-import java.net.URLDecoder;
 
 @RestController
 @RequestMapping("/theater")
