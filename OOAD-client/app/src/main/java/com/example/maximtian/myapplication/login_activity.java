@@ -14,7 +14,6 @@ import java.util.List;
 
 import Database.DBManager;
 import Database.User;
-import mainActivity.Register_Activity;
 import mainActivity.main_activity;
 
 /**

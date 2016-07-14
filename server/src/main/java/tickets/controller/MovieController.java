@@ -47,7 +47,7 @@ public class MovieController {
         movieList.addPostersAddr(picServerIP + "/pictures/posters/animal_world.jpg");
         return movieList;
     }
-    
+
     public static String encodeToString(String imgPath, String type) {
         BufferedImage image = null;
         try {

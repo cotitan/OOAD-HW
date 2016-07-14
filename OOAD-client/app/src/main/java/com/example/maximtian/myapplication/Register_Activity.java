@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.view.View.OnClickListener;
 
 import Database.DBManager;
 import Database.PublicID;
@@ -36,12 +37,12 @@ public class Register_Activity extends Activity {
         password = (EditText)findViewById(R.id.register_password);
         confirm_password = (EditText)findViewById(R.id.register_confirm);
 
-        registerBtn.setOnClickListener(new View.OnClickListener() {
+        registerBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (password.getText().toString().equals(confirm_password.getText().toString()) &&
                         !password.getText().toString().equals("")) {
-                    String ps = password.getText().toString();
+        /*            String ps = password.getText().toString();
                     String ac = acount.getText().toString();
                     User user = new User(PublicID.getUser_id(), ac, ps);
                     dbManager.addUserSQL(user);
@@ -49,7 +50,7 @@ public class Register_Activity extends Activity {
 
                     Intent intent = new Intent(Register_Activity.this, login_activity.class);
                     startActivity(intent);
-                    finish();
+                    Register_Activity.this.finish(); */
                 } else if (password.getText().toString().equals("")) {
                     Toast.makeText(Register_Activity.this, "«Î ‰»Î√‹¬Î", Toast.LENGTH_LONG).show();
                 } else {
