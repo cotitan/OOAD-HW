@@ -27,14 +27,14 @@ public class MovieController {
         System.out.println(" { return movie list... }");
         MovieList movieList = new MovieList();
         try {
-            String query = "select idx, movieName, intro_simple, posterURL from movie ";
+            String query = "select idx, movieName, introSimple, posterURL from movie ";
             sql = dbmsConn.prepareStatement(query);
             ResultSet res = sql.executeQuery();
             while (res.next()) {
                 MovieSimple movieSimple = new MovieSimple(
                         res.getInt("idx"),
                         res.getString("movieName"),
-                        res.getString("intro_simple"),
+                        res.getString("introSimple"),
                         picServerIP + res.getString("posterURL"));
                 movieList.addMovie(movieSimple);
             }
@@ -47,17 +47,7 @@ public class MovieController {
         movieList.addPostersAddr(picServerIP + "/pictures/posters/animal_world.jpg");
         return movieList;
     }
-
-    /*
-	@RequestMapping(value="/onViewPosters", method = RequestMethod.GET, consumes="application/json")
-	public @ResponseBody PosterList returnOnViewPosters() {
-	    System.out.println(" { return onview posters... }");
-	    PosterList p = new PosterList();
-	    p.add("愤怒的小鸟", encodeToString("angry_bird.jpg", "jpg"));
-	    p.add("疯狂动物城", encodeToString("animal_world.jpg", "jpg"));
-	    return p;
-	}
-	*/
+    
     public static String encodeToString(String imgPath, String type) {
         BufferedImage image = null;
         try {

@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.OutputStream;
 import java.io.DataInputStream;
 import java.net.URL;
+import java.util.concurrent.SynchronousQueue;
 
 public class Test {
     public void testLogin() {
@@ -70,7 +71,22 @@ public class Test {
             downloadPicture(movie.getAvatar(), localPath);
         }
     }
-	
+
+    public void testMovieInfo() {
+        DataOperationGet dataGet = new DataOperationGet();
+        dataGet.setUrl(dataGet.getBaseUrl() + "/movieInfo/movieInfo");
+        dataGet.setQuery("?movieName=\"疯狂动物城\"");
+        String response;
+        try {
+            response = dataGet.Do();
+            MovieDetail movieDetail = new Gson().fromJson(response, MovieDetail.class);
+            System.out.println(movieDetail.getMovieName());
+            System.out.println(movieDetail.getIntroSimple());
+        } catch (Exception e) {
+            System.out.println("error in testing movieInfo");
+        }
+    }
+
 	public void testOnviewImage() {
 	    DataOperationGet dataOp = new DataOperationGet();
 	    dataOp.setUrl(dataOp.getBaseUrl() + "/movie/onViewPosters");

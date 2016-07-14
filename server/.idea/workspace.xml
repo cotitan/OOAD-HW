@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d6f91fa-931d-4bfb-bcc6-b69f73e0096b" name="Default" comment="" />
+    <list default="true" id="1d6f91fa-931d-4bfb-bcc6-b69f73e0096b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../testServer/target/classes/TestServer/datamodel/Movie.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tickets/controller/MovieController.class" afterPath="$PROJECT_DIR$/target/classes/tickets/controller/MovieController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/target/classes/TestServer/Main.class" afterPath="$PROJECT_DIR$/../testServer/target/classes/TestServer/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/target/classes/TestServer/Test.class" afterPath="$PROJECT_DIR$/../testServer/target/classes/TestServer/Test.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tickets/controller/MovieController.java" afterPath="$PROJECT_DIR$/src/main/java/tickets/controller/MovieController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../testServer/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/Main.java" afterPath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/Test.java" afterPath="$PROJECT_DIR$/../testServer/src/main/java/TestServer/Test.java" />
+    </list>
     <ignored path="OOAD-server.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,24 +33,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MovieController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MovieController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/MovieController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-44">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="64">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1468468082118" expanded="true" signature="1095:1152" ph="select idx, movie" />
+                <marker date="1468483904046" expanded="true" signature="1095:1151" ph="select idx, movie" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MovieInfoController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MovieInfoController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/MovieInfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+            <state relative-caret-position="117">
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -50,62 +60,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBMSOperation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/DBMSOperation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="22" column="94" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="94" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1468468082038" expanded="true" signature="1022:1061" ph="insert into user_Info... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/Application.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MovieDetail.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tickets/datamodel/MovieDetail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="60" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+            <state relative-caret-position="342">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
                 <element signature="e#2093#2094#0" expanded="true" />
                 <element signature="e#2126#2127#0" expanded="true" />
                 <element signature="e#2178#2179#0" expanded="true" />
                 <element signature="e#2222#2223#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GreetingController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/GreetingController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -152,6 +117,7 @@
         <option value="$PROJECT_DIR$/src/main/java/tickets/datamodel/MovieDetail.java" />
         <option value="$PROJECT_DIR$/src/main/java/tickets/ImportMovie.java" />
         <option value="$PROJECT_DIR$/src/main/java/tickets/controller/MovieInfoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tickets/controller/MovieController.java" />
       </list>
     </option>
   </component>
@@ -169,8 +135,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="465" />
-    <option name="y" value="97" />
+    <option name="x" value="186" />
+    <option name="y" value="77" />
     <option name="width" value="1180" />
     <option name="height" value="716" />
   </component>
@@ -684,16 +650,16 @@
       <workItem from="1468331627475" duration="3975000" />
       <workItem from="1468376324887" duration="5500000" />
       <workItem from="1468418918928" duration="3867000" />
-      <workItem from="1468458515788" duration="12104000" />
+      <workItem from="1468458515788" duration="13478000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34176000" />
+    <option name="totallyTimeSpent" value="35550000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="465" y="97" width="1180" height="716" extended-state="0" />
-    <editor active="false" />
+    <frame x="186" y="77" width="1180" height="716" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -706,7 +672,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22881356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22881356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -750,7 +716,7 @@
           <caret line="17" column="82" selection-start-line="17" selection-start-column="82" selection-end-line="17" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1468468082118" expanded="true" signature="1095:1152" ph="select idx, movie" />
+            <marker date="1468483904046" expanded="true" signature="1095:1151" ph="select idx, movie" />
           </folding>
         </state>
       </provider>
@@ -810,7 +776,7 @@
           <caret line="17" column="82" selection-start-line="17" selection-start-column="82" selection-end-line="17" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1468468082118" expanded="true" signature="1095:1152" ph="select idx, movie" />
+            <marker date="1468483904046" expanded="true" signature="1095:1151" ph="select idx, movie" />
           </folding>
         </state>
       </provider>
@@ -862,7 +828,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1468468082118" expanded="true" signature="1095:1152" ph="select idx, movie" />
+            <marker date="1468483904046" expanded="true" signature="1095:1151" ph="select idx, movie" />
           </folding>
         </state>
       </provider>
@@ -883,7 +849,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1468468082118" expanded="true" signature="1095:1152" ph="select idx, movie" />
+            <marker date="1468483904046" expanded="true" signature="1095:1151" ph="select idx, movie" />
           </folding>
         </state>
       </provider>
@@ -913,7 +879,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1468468082118" expanded="true" signature="1095:1152" ph="select idx, movie" />
+            <marker date="1468483904046" expanded="true" signature="1095:1151" ph="select idx, movie" />
           </folding>
         </state>
       </provider>
@@ -1064,17 +1030,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/MovieController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1468468082118" expanded="true" signature="1095:1152" ph="select idx, movie" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -1082,19 +1037,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1468468082038" expanded="true" signature="1022:1061" ph="insert into user_Info... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/datamodel/MovieDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="60" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
-          <folding>
-            <element signature="e#2093#2094#0" expanded="true" />
-            <element signature="e#2126#2127#0" expanded="true" />
-            <element signature="e#2178#2179#0" expanded="true" />
-            <element signature="e#2222#2223#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1109,12 +1051,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/MovieInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+        <state relative-caret-position="117">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
             <marker date="1468480039574" expanded="true" signature="728:764" ph="select * fro... movie" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/datamodel/MovieDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#2093#2094#0" expanded="true" />
+            <element signature="e#2126#2127#0" expanded="true" />
+            <element signature="e#2178#2179#0" expanded="true" />
+            <element signature="e#2222#2223#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/MovieController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1468483904046" expanded="true" signature="1095:1151" ph="select idx, movie" />
           </folding>
         </state>
       </provider>
