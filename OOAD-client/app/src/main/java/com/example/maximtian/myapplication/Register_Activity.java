@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.view.View.OnClickListener;
 
 import Database.DBManager;
 import Database.PublicID;
@@ -37,20 +36,20 @@ public class Register_Activity extends Activity {
         password = (EditText)findViewById(R.id.register_password);
         confirm_password = (EditText)findViewById(R.id.register_confirm);
 
-        registerBtn.setOnClickListener(new OnClickListener() {
+        registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (password.getText().toString().equals(confirm_password.getText().toString()) &&
                         !password.getText().toString().equals("")) {
-        /*            String ps = password.getText().toString();
+                    String ps = password.getText().toString();
                     String ac = acount.getText().toString();
                     User user = new User(PublicID.getUser_id(), ac, ps);
                     dbManager.addUserSQL(user);
-                    Toast.makeText(Register_Activity.this, "两次输入密码不一样", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register_Activity.this, "注册成功", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(Register_Activity.this, login_activity.class);
                     startActivity(intent);
-                    Register_Activity.this.finish(); */
+                    finish();
                 } else if (password.getText().toString().equals("")) {
                     Toast.makeText(Register_Activity.this, "请输入密码", Toast.LENGTH_LONG).show();
                 } else {

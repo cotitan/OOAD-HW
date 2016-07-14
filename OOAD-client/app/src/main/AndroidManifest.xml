@@ -24,7 +24,11 @@
         </service>
 
         <activity android:name="mainActivity.main_activity" />
-        <activity android:name="mainActivity.Movie_Activity" />
+
+        <activity android:name="mainActivity.Movie_Activity" >
+            <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+        </activity>
+
         <activity android:name="mainActivity.Theatre_Activity" />
         <activity android:name="mainActivity.Theatre_Detail" />
         <activity android:name="mainActivity.Order_Activity" />
@@ -33,6 +37,7 @@
         <activity android:name="mainActivity.Movie_Detail" />
         <activity android:name="mainActivity.Choosing_place" />
         <activity android:name="mainActivity.Choosing_theatre" />
+        <activity android:name=".Register_Activity" />
 
     </application>
 

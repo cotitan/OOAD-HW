@@ -4,8 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +29,8 @@ public class DBManager {
             values.put("userName", user.getName());
             values.put("userPassword", user.getPassword());
             db.insert("users", null, values);
-        } catch (Exception e) {
-        } finally {
             db.close();
+        } catch (Exception e) {
         }
     }
 
@@ -45,10 +42,13 @@ public class DBManager {
             values.put("movieId", movie.getMovie_id());
             values.put("title", movie.getTitle());
             values.put("info", movie.getInfo());
+            values.put("time", movie.getTime());
+            values.put("date", movie.getDate());
+            values.put("score", movie.getScore());
+            values.put("tag", movie.getTag());
             db.insert("movies", null, values);
-        } catch (Exception e) {
-        } finally {
             db.close();
+        } catch (Exception e) {
         }
     }
 
@@ -67,10 +67,9 @@ public class DBManager {
                 user.setPassword(cursor.getString(cursor.getColumnIndex("userPassword")));
                 list.add(user);
             }
-        } catch (Exception e) {
-        } finally {
             cursor.close();
             db.close();
+        } catch (Exception e) {
         }
         return list;
     }
@@ -88,12 +87,15 @@ public class DBManager {
                 movie.setMovie_id(cursor.getInt(cursor.getColumnIndex("movieId")));
                 movie.setTitle(cursor.getString(cursor.getColumnIndex("title")));
                 movie.setInfo(cursor.getString(cursor.getColumnIndex("info")));
+                movie.setTime(cursor.getString(cursor.getColumnIndex("time")));
+                movie.setDate(cursor.getString(cursor.getColumnIndex("date")));
+                movie.setScore(cursor.getString(cursor.getColumnIndex("score")));
+                movie.setDate(cursor.getString(cursor.getColumnIndex("tag")));
                 list.add(movie);
             }
-        } catch (Exception e) {
-        } finally {
             cursor.close();
             db.close();
+        } catch (Exception e) {
         }
         return list;
     }
@@ -112,13 +114,17 @@ public class DBManager {
         }
     }
 
-    public void updateMovieData(int id, String title, String info) {
+    public void updateMovieData(int id, String title, String info, String time, String date, String score, String tag) {
         SQLiteDatabase db = null;
         try {
             db = dbHelper.getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put("title", title);
             values.put("info", info);
+            values.put("time", time);
+            values.put("date", date);
+            values.put("score", score);
+            values.put("tag", tag);
             db.update("movies", values, "movieId=" + id, null);
         } catch (Exception e) {
         } finally {
@@ -155,13 +161,17 @@ public class DBManager {
         try {
             db = dbHelper.getReadableDatabase();
             cursor = db.rawQuery(
-                    "select movieId,title,info from movies where title=?",
+                    "select movieId,title,info,time,date,score,tag from movies where title=?",
                     new String[] { title });
             if (cursor.moveToNext()) {
                 movie = new Movie();
                 movie.setMovie_id(cursor.getInt(0));
                 movie.setTitle(cursor.getString(1));
                 movie.setInfo(cursor.getString(2));
+                movie.setTime(cursor.getString(3));
+                movie.setDate(cursor.getString(4));
+                movie.setScore(cursor.getString(5));
+                movie.setDate(cursor.getString(6));
             }
         } catch (Exception e) {
         } finally {

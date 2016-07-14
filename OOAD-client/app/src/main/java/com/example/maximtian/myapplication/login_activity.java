@@ -13,6 +13,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import Database.DBManager;
+import Database.PublicID;
 import Database.User;
 import mainActivity.main_activity;
 
@@ -57,29 +58,23 @@ public class login_activity extends Activity {
                 intent.putExtras(bundle);
                 startService(intent);
 */
-/*                if (account.contentEquals("1234") && password.contentEquals("1234")) {
-                    Toast.makeText(login_activity.this, "HHHH", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(login_activity.this, "TTTT", Toast.LENGTH_SHORT).show();
-                } */
 
                 if (account.equals("")) {
-                    Toast.makeText(login_activity.this, "请输入的账号", Toast.LENGTH_LONG).show();
+                    Toast.makeText(login_activity.this, "请输入账号", Toast.LENGTH_LONG).show();
                 } else if (password.equals("")) {
-                    Toast.makeText(login_activity.this, "请输入的密码", Toast.LENGTH_LONG).show();
+                    Toast.makeText(login_activity.this, "请输入密码", Toast.LENGTH_LONG).show();
                 } else {
                     User user = dbManager.QueryUser(account);
-                    List<User> users = dbManager.getAllUser();
-                    Toast.makeText(login_activity.this, String.valueOf(users.size()), Toast.LENGTH_LONG).show();
+                    Toast.makeText(login_activity.this, account, Toast.LENGTH_SHORT).show();
                     if (user == null) {
-                        Toast.makeText(login_activity.this, "您输入的账号不存在", Toast.LENGTH_LONG).show();
+                        Toast.makeText(login_activity.this, "您输入的账号不存在", Toast.LENGTH_SHORT).show();
                     } else if (account.contentEquals(user.getName())
                             && password.contentEquals(user.getPassword())) {
                         Intent start_main = new Intent(login_activity.this, main_activity.class);
                         startActivity(start_main);
                         finish();
                     } else {
-                        Toast.makeText(login_activity.this, "您输入的账号或密码错误", Toast.LENGTH_LONG).show();
+                        Toast.makeText(login_activity.this, "您输入的账号或密码错误", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
