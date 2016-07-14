@@ -2,15 +2,17 @@ package TestServer;
 
 import TestServer.datamodel.*;
 import java.util.ArrayList;
+
+import TestServer.serverConnector.DataOperationGet;
+import TestServer.serverConnector.DataOperationPost;
 import com.google.gson.Gson;
 import sun.misc.BASE64Decoder;
 import java.io.FileOutputStream;
 import java.io.File;
-import java.io.IOException;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 import java.io.DataInputStream;
 import java.net.URL;
+import java.util.concurrent.SynchronousQueue;
 
 public class Test {
     public void testLogin() {
@@ -64,12 +66,27 @@ public class Test {
 	    }
 
         String localPath = "downloaded/pictures/avatars";
-        for (Movie movie: list.getMovieList()) {
-	        System.out.println(movie.getName() + " , " + movie.getIntro() + movie.getAvatar());
+        for (MovieSimple movie: list.getMovieList()) {
+	        System.out.println(movie.getName() + " " + movie.getIntro() + movie.getAvatar());
             downloadPicture(movie.getAvatar(), localPath);
         }
     }
-	
+
+    public void testMovieInfo() {
+        DataOperationGet dataGet = new DataOperationGet();
+        dataGet.setUrl(dataGet.getBaseUrl() + "/movieInfo/movieInfo");
+        dataGet.setQuery("?movieName=\"疯狂动物城\"");
+        String response;
+        try {
+            response = dataGet.Do();
+            MovieDetail movieDetail = new Gson().fromJson(response, MovieDetail.class);
+            System.out.println(movieDetail.getMovieName());
+            System.out.println(movieDetail.getIntroSimple());
+        } catch (Exception e) {
+            System.out.println("error in testing movieInfo");
+        }
+    }
+
 	public void testOnviewImage() {
 	    DataOperationGet dataOp = new DataOperationGet();
 	    dataOp.setUrl(dataOp.getBaseUrl() + "/movie/onViewPosters");

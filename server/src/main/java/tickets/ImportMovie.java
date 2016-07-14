@@ -47,16 +47,19 @@ public class ImportMovie {
 					strs = line.split("\t");
 				 	try {
 						PreparedStatement sql = dbmsConn.prepareStatement(
-							"insert into movie values(?,?,?,?,?,?,?,?,?)");
+							"insert into movie values(?,?,?,?,?,?,?,?,?,?,?,?)");
 						sql.setInt(1, Integer.parseInt(strs[0]));
 						sql.setString(2, strs[1]);
 						sql.setString(3, strs[2]);
 						sql.setInt(4, Integer.parseInt(strs[3]));
 						sql.setDouble(5, Double.parseDouble(strs[4]));
-						sql.setString(6, strs[5]);
+						sql.setDouble(6, Double.parseDouble(strs[5]));
 						sql.setString(7, strs[6]);
 						sql.setString(8, strs[7]);
 						sql.setString(9, strs[8]);
+						sql.setString(10, strs[9]);
+						sql.setString(11, strs[10]);
+						sql.setString(12, strs[11]);
 						sql.executeUpdate();
 					} catch (Exception e) {
 						e.printStackTrace();

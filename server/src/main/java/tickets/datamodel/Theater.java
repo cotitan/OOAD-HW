@@ -1,41 +1,74 @@
 package tickets.datamodel;
 
 public class Theater {
-    private String name;
-    private String location;
-    private String price;
+    private int theaterID;
+    private String theaterName;
+	private String onShowList;
+    private String address;
+	private double distance;
+	private double lowestPrice;
     // distance ???
 	
     public Theater() {}
-    
-    public Theater(String name, String location, String price) {
-        this.name = name;
-        this.location = location;
-        this.price = price;
+
+	public Theater(int ID, String name, String onShowList,
+                   String address, double distance, double price) {
+		this.theaterID = ID;
+        this.theaterName = name;
+		this.onShowList = onShowList;
+        this.address = address;
+		this.distance = distance;
+        this.lowestPrice = price;
     }
-    
-    public String getName() {
-        return name;
+
+
+    public int getTheaterID() {
+        return theaterID;
     }
-    
-    public String getLocation() {
-        return location;
+
+    public void setTheaterID(int theaterID) {
+        this.theaterID = theaterID;
     }
-    
-    public String getPrice() {
-        return price;
+
+    public String getTheaterName() {
+        return theaterName;
     }
-    
-    public void setName(String name) {
-        this.name = name;
+
+    public void setTheaterName(String theaterName) {
+        this.theaterName = theaterName;
     }
-    
-    public void setLocation(String location) {
-        this.location = location;
+
+    public String getOnShowList() {
+        return onShowList;
     }
-    
-    public void setPrice(String price) {
-        this.price = price;
+
+    public void setOnShowList(String onShowList) {
+        this.onShowList = onShowList;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public double getLowestPrice() {
+        return lowestPrice;
+    }
+
+    public void setLowestPrice(double lowestPrice) {
+        this.lowestPrice = lowestPrice;
+    }
+
 }
 

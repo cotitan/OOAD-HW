@@ -20,6 +20,11 @@ import android.widget.SimpleAdapter;
 
 import com.example.maximtian.myapplication.R;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,6 +38,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import Database.DBManager;
 
 /**
  * Created by MaximTian on 2016/5/22.
@@ -56,10 +64,14 @@ public class Movie_Activity extends ListActivity {
 
     private Spinner m_Spinner;
 
+    private DBManager dbManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movie_layout);
+        dbManager = new DBManager(this);
+
         init_TopView();
         init_movie_info();
         init_Spinner();
@@ -118,44 +130,32 @@ public class Movie_Activity extends ListActivity {
         movie_ListView.setOnItemClickListener(new MyItemClickListener());
     }
 
-
-
     private List<Map<String, Object>> get_movie_Data() {
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("img", R.mipmap.ic_launcher);
-        map.put("title", "疯狂动物城");
-        map.put("info", "This is an apple");
-        map.put("time", "2016-01-01 上映");
-        list.add(map);
 
-        map = new HashMap<String, Object>();
-        map.put("img", R.mipmap.ic_launcher);
-        map.put("title", "愤怒的小鸟");
-        map.put("info", "This is a banana");
-        map.put("time", "2016-02-01 上映");
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("img", R.mipmap.ic_launcher);
-        map.put("title", "疯狂原始人");
-        map.put("info", "This is a cat");
-        map.put("time", "2016-03-01 上映");
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("img", R.mipmap.ic_launcher);
-        map.put("title", "植物大战僵尸");
-        map.put("info", "This is a dog, This is a dog,This is a dog,This is a dog,This is a dog");
-        map.put("time", "2016-04-01 上映");
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("img", R.mipmap.ic_launcher);
-        map.put("title", "舌尖上的中国");
-        map.put("info", "This is an eagle, This is an eagle");
-        map.put("time", "2016-05-01 上映");
-        list.add(map);
+        try {
+/*            File file = new File("/sdcard/test.txt");
+            if (file.exists()) {
+                Toast.makeText(Movie_Activity.this, "HHHHHHH", Toast.LENGTH_SHORT).show();
+            } */
+            InputStream inputStream = getResources().openRawResource(R.drawable.test);
+            InputStreamReader isr = new InputStreamReader(inputStream);
+            BufferedReader br = new BufferedReader(isr);
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] tokens = line.split("\t");
+                map = new HashMap<String, Object>();
+                map.put("img", R.mipmap.ic_launcher);
+                map.put("title", tokens[1]);
+                map.put("time", tokens[2]);
+                map.put("info", tokens[5]);
+                list.add(map);
+            }
+            isr.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return list;
     }

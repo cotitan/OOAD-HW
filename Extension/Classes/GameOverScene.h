@@ -2,6 +2,7 @@
 #define __GameOverScene__H__
 #include "cocos2d.h"
 #include <string>
+#include "cocos2d.h"  // 漏了一个头文件
 USING_NS_CC;
 class GameOverScene : public cocos2d::Layer {
 public:
