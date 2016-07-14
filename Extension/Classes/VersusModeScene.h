@@ -5,6 +5,7 @@
 #include "SelectGate.h"
 #include "GameScene.h"
 #include "SimpleAudioEngine.h"
+#include "ui/CocosGUI.h"
 class VersusModeScene : cocos2d::Layer
 {
 public:
@@ -21,16 +22,26 @@ public:
 
 	// *-----------------------需要向下传递的数据----------------------------------*
 
-	    // 玩家选择的英雄、道具、地图路径
+	    //用于保存设置数据（暂未使用）
+	float backgroundVolume, effectVolume;  // 背景音乐音量，音效音量
+	int curBgm;  //当前选择的背景音乐编号索引
+
+	cocos2d::MenuItemSprite* configItem;  // 设置界面进入按钮
+	cocos2d::Menu* soundState;
+	cocos2d::MenuItemToggle* soundStateToggle;
+	cocos2d::MenuItemSprite* soundOn;
+	cocos2d::MenuItemSprite* soundOff;
+	    // 玩家选择的英雄、道具、地图编号
 	int player1;
-	cocos2d::Sprite* pl1;
+	int prop1;
 	int player2;
-	cocos2d::Sprite* pl2;
-	const char* prop1;
-	cocos2d::Sprite* pr1;
-	const char* prop2;
-	cocos2d::Sprite* pr2;
+	int prop2;
 	int background;
+
+	cocos2d::Sprite* pl1;
+	cocos2d::Sprite* pr1;
+	cocos2d::Sprite* pl2;
+	cocos2d::Sprite* pr2;
 	cocos2d::Sprite* bg;
 
 
@@ -59,9 +70,13 @@ public:
 	void mapOneCallback(Ref* pSender);
 	void mapTwoCallback(Ref* pSender);
 	void mapThreeCallback(Ref* pSender);
-	   // 按钮回调
+	    // 按钮回调
 	void startCallback(Ref* pSender);
 	void restartCallback(Ref* pSender);
+	    // 设置回调
+	void configMenuCallback(cocos2d::Ref* pSender);
+	    // 静音回调
+	void soundCallback(cocos2d::Ref*pSender);
 
 	// * -----------------------显示图片---------------------------------- *
 	void displayPlayer();

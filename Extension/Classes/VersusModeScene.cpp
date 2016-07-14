@@ -1,7 +1,7 @@
 #include "VersusModeScene.h"
-
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "ConfigScene.h"
 USING_NS_CC;
 using namespace CocosDenshion;
 
@@ -27,40 +27,75 @@ bool VersusModeScene::init()
 		return false;
 	}
 
+	// * -----------------------初始化---------------------------------- *
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
 
 	flag = 0;
-	player1 = NULL;
-	player2 = NULL;
-	prop1 = NULL;
-	prop2 = NULL;
-	background = NULL;
-	
+	player1 = 0;
+	player2 = 0;
+	prop1 = 0;
+	prop2 = 0;
+	background = 0;
+	backgroundVolume = effectVolume = 0.5f;
+	curBgm = 0;
+
 	selectGateMenu = SelectGate::create();
 	selectGateMenu->setPosition(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y + 20);
 	addChild(selectGateMenu, 2);
 
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("plist/VersusModeScene.plist");
 
-
 	// * -----------------------背景图片---------------------------------- *
 	auto backGround = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("background.png"));
 	backGround->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	auto scaleX = backGround->getTextureRect().getMaxX();
+	auto scaleY = backGround->getTextureRect().getMaxY();
+	backGround->setScaleX(visibleSize.width / scaleX);
+	backGround->setScaleY(visibleSize.height / scaleY);
 	this->addChild(backGround, 0);
 	
+	//  * -----------------------可以跳转到设置界面的按钮---------------------------------- *
+	configItem = MenuItemSprite::create(
+		Sprite::create("icons/ConfigItemNormal.png"),
+		Sprite::create("icons/ConfigItemSelected.png"),
+		CC_CALLBACK_1(VersusModeScene::configMenuCallback, this));
+	configItem->setPosition(Vec2(origin.x + visibleSize.width - configItem->getContentSize().width,
+		origin.y + visibleSize.height - configItem->getContentSize().height));
+	auto menu = Menu::create(configItem, NULL);
+	menu->setPosition(Vec2::ZERO);
+	addChild(menu, 1);
+
+	// * -----------------------声音开关按钮---------------------------------- *
+	soundOn = MenuItemSprite::create(
+		Sprite::create("icons/SoundOn.png"),
+		Sprite::create("icons/SoundOn.png"));
+	soundOff = MenuItemSprite::create(
+		Sprite::create("icons/SoundOff.png"),
+		Sprite::create("icons/SoundOff.png"));
+	soundStateToggle = MenuItemToggle::createWithCallback(CC_CALLBACK_1(VersusModeScene::soundCallback, this), soundOn, soundOff, NULL);
+	soundStateToggle->setPosition(Vec2(origin.x + soundStateToggle->getContentSize().width,
+		origin.y + visibleSize.height - soundStateToggle->getContentSize().height));
+	if (backgroundVolume <= 0.01 && effectVolume <= 0.01) soundStateToggle->setSelectedIndex(1);
+	soundState = Menu::create(soundStateToggle, NULL);
+	soundState->setPosition(Vec2::ZERO);
+	addChild(soundState, 1);
+
+	// * -----------------------加载玩家---------------------------------- *
 	displayPlayer();
 
+	// * -----------------------加载音效---------------------------------- *
 	auto audio = SimpleAudioEngine::getInstance();
-	audio->preloadBackgroundMusic("music/BGM_1.mp3");
 	audio->playBackgroundMusic("music/gateMap.wav", true);
 	return true;
 }
 
+
 // * -----------------------------------------------------显示函数-------------------------------------------------------- *
+
+    // * -----------------------加载玩家图片---------------------------------- *
 void VersusModeScene::displayPlayer()
 {
-	// * -----------------------加载玩家图片---------------------------------- *
 	player1MenuItem = MenuItemSprite::create(
 		Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("player1.png")),
 		Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("player1.png")),
@@ -78,10 +113,9 @@ void VersusModeScene::displayPlayer()
 	addChild(menuPlayer, 1);
 }
 
+    // * -----------------------加载英雄图片---------------------------------- *
 void VersusModeScene::displayGate()
 {
-	// * -----------------------加载英雄图片---------------------------------- *
-
 	auto gateOneItem = MenuItemSprite::create(
 		Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("Gate_1_1.png")),
 		Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("Gate_1_2.png")),
@@ -102,10 +136,9 @@ void VersusModeScene::displayGate()
 	selectGateMenu->addMenuItem(gateThreeItem);
 }
 
+    // * -----------------------加载道具图片---------------------------------- *
 void VersusModeScene::displayPropGate()
 {
-	// * -----------------------加载道具图片---------------------------------- *
-
 	auto propOneItem = MenuItemSprite::create(
 		Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop_1_1.png")),
 		Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop_1_2.png")),
@@ -126,10 +159,9 @@ void VersusModeScene::displayPropGate()
 	selectGateMenu->addMenuItem(propThreeItem);
 }
 
+    // * -----------------------加载地图图片---------------------------------- *
 void VersusModeScene::displayMapGate()
 {
-	// * -----------------------加载地图图片---------------------------------- *
-
 	auto mapOneItem = MenuItemSprite::create(
 		Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("map_1_1.png")),
 		Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("map_1_2.png")),
@@ -150,6 +182,7 @@ void VersusModeScene::displayMapGate()
 	selectGateMenu->addMenuItem(mapThreeItem);
 }
 
+    // * -----------------------加载确认按钮---------------------------------- *
 void VersusModeScene::displayButton()
 {
 	start = MenuItemSprite::create(
@@ -268,7 +301,7 @@ void VersusModeScene::propOneCallback(Ref * pSender)
 		pr1 = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop_1.png"));
 		pr1->setPosition(Vec2(pr1->getContentSize().width + origin.x, pr1->getContentSize().height / 2 + origin.y + 50));
 		addChild(pr1, 1);
-		prop1 = "Prop_1";
+		prop1 = 1;
 		player1MenuItem->setScale(1.0f);
 	}
 	else if (flag == 2)
@@ -277,7 +310,7 @@ void VersusModeScene::propOneCallback(Ref * pSender)
 		pr2 = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop_1.png"));
 		pr2->setPosition(Vec2(visibleSize.width - pr2->getContentSize().width + origin.x, pr2->getContentSize().height / 2 + origin.y + 50));
 		addChild(pr2, 1);
-		prop2 = "Prop_1";
+		prop2 = 1;
 		player2MenuItem->setScale(1.0f);
 	}
 	selectGateMenu->clearGate();  // 隐藏选道具菜单
@@ -294,7 +327,7 @@ void VersusModeScene::propTwoCallback(Ref * pSender)
 		pr1 = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop_2.png"));
 		pr1->setPosition(Vec2(pr1->getContentSize().width + origin.x, pr1->getContentSize().height / 2 + origin.y + 50));
 		addChild(pr1, 1);
-		prop1 = "Prop_2";
+		prop1 = 2;
 		player1MenuItem->setScale(1.0f);
 	}
 	else if (flag == 2)
@@ -303,7 +336,7 @@ void VersusModeScene::propTwoCallback(Ref * pSender)
 		pr2 = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop_2.png"));
 		pr2->setPosition(Vec2(visibleSize.width - pr2->getContentSize().width + origin.x, pr2->getContentSize().height / 2 + origin.y + 50));
 		addChild(pr2, 1);
-		prop2 = "Prop_2";
+		prop2 = 2;
 		player2MenuItem->setScale(1.0f);
 	}
 	selectGateMenu->clearGate();  // 隐藏选道具菜单
@@ -320,7 +353,7 @@ void VersusModeScene::propThreeCallback(Ref * pSender)
 		pr1 = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop_3.png"));
 		pr1->setPosition(Vec2(pr1->getContentSize().width + origin.x, pr1->getContentSize().height / 2 + origin.y + 50));
 		addChild(pr1, 1);
-		prop1 = "Prop_3";
+		prop1 = 3;
 		player1MenuItem->setScale(1.0f);
 	}
 	else if (flag == 2)
@@ -329,7 +362,7 @@ void VersusModeScene::propThreeCallback(Ref * pSender)
 		pr2 = Sprite::createWithSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop_3.png"));
 		pr2->setPosition(Vec2(visibleSize.width - pr2->getContentSize().width + origin.x, pr2->getContentSize().height / 2 + origin.y + 50));
 		addChild(pr2, 1);
-		prop2 = "Prop_3";
+		prop2 = 3;
 		player2MenuItem->setScale(1.0f);
 	}
 	selectGateMenu->clearGate();  // 隐藏选道具菜单
@@ -377,6 +410,8 @@ void VersusModeScene::mapThreeCallback(Ref * pSender)
 
 void VersusModeScene::startCallback(Ref * pSender)
 {
+	// 播放点击音效
+	SimpleAudioEngine::getInstance()->setEffectsVolume(effectVolume);
 	SimpleAudioEngine::getInstance()->playEffect("music/button.wav", false, 1.0f, 1.0f, 1.0f);
 	SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 	Director::getInstance()->replaceScene(GameScene::createScene(player1, prop1, player2, prop2, background));
@@ -385,11 +420,11 @@ void VersusModeScene::startCallback(Ref * pSender)
 void VersusModeScene::restartCallback(Ref * pSender)
 {
 	flag = 0;
-	player1 = NULL;
-	player2 = NULL;
-	prop1 = NULL;
-	prop2 = NULL;
-	background = NULL;
+	player1 = 0;
+	player2 = 0;
+	prop1 = 0;
+	prop2 =0 ;
+	background = 0;
 	pl1->removeFromParent();
 	pl2->removeFromParent();
 	pr1->removeFromParent();
@@ -397,4 +432,37 @@ void VersusModeScene::restartCallback(Ref * pSender)
 	bg->removeFromParent();
 	start->removeFromParent();
 	restart->removeFromParent();
+}
+
+void VersusModeScene::configMenuCallback(cocos2d::Ref * pSender)
+{
+	// 播放点击音效
+	SimpleAudioEngine::getInstance()->setEffectsVolume(effectVolume);
+	SimpleAudioEngine::getInstance()->playEffect("music/button.wav", false, 1.0f, 1.0f, 1.0f);
+	// 将当前界面的音量传入设置界面
+	auto configScene = ConfigScene::createScene();
+	auto curLayer = (ConfigScene*)configScene->getChildren().at(1);
+	curLayer->backgroundVolume = backgroundVolume;
+	curLayer->effectVolume = effectVolume;
+	curLayer->curBgm = curBgm;
+
+	SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+	Director::getInstance()->replaceScene(CCTransitionMoveInT::create(0.5f, configScene));
+}
+
+void VersusModeScene::soundCallback(cocos2d::Ref * pSender)
+{
+	// 播放点击音效
+	SimpleAudioEngine::getInstance()->setEffectsVolume(effectVolume);
+	SimpleAudioEngine::getInstance()->playEffect("music/button.wav", false, 1.0f, 1.0f, 1.0f);
+	if (backgroundVolume > 0 || effectVolume > 0) {
+		backgroundVolume = effectVolume = 0;
+		SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(backgroundVolume);
+		SimpleAudioEngine::getInstance()->setEffectsVolume(effectVolume);
+		}
+	else if (backgroundVolume == 0 && effectVolume == 0) {
+		backgroundVolume = effectVolume = 0.5f;
+		SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(backgroundVolume);
+		SimpleAudioEngine::getInstance()->setEffectsVolume(effectVolume);
+	}
 }
