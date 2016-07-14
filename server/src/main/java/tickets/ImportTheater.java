@@ -16,23 +16,23 @@ public class ImportTheater {
 	}
 	
 	public ImportTheater() {
-		fileName = "附近的电影院.txt";
+		fileName = "附近的电影院1.txt";
 	}
 
-	/*public void readData() {
-		String query = "select movieName from movie where idx = 1";
+	public void readData() {
+		String query = "select theaterName from theater where theaterID = 1";
 		try {
 			PreparedStatement sql = dbmsConn.prepareStatement(query);
 			ResultSet res = sql.executeQuery();
-			String movieName;
+			String theaterName;
 			while (res.next()) {
-				movieName = res.getString("movieName");
-				System.out.println(movieName);
+				theaterName = res.getString("theaterName");
+				System.out.println(theaterName);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 
 	public void ImportDataToSql() {
 		try {
@@ -47,7 +47,7 @@ public class ImportTheater {
 					strs = line.split("\t");
 				 	try {
 						PreparedStatement sql = dbmsConn.prepareStatement(
-							"insert into movie values(?,?,?,?,?,?,?,?,?,?,?,?)");
+							"insert into theater values(?,?,?,?,?,?)");
 						sql.setInt(1, Integer.parseInt(strs[0]));
 						sql.setString(2, strs[1]);
 						sql.setString(3, strs[2]);

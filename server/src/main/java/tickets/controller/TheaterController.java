@@ -22,10 +22,7 @@ public class TheaterController {
 	private static Connection dbmsConn = DBMSOperation.getDBConnection();
 	private PreparedStatement sql;
 
-
-
-
-	@RequestMapping(value="/nearby", method = RequestMethod.GET, consumes="application/json")
+	@RequestMapping(value="/nearby", method = RequestMethod.GET)
 	public @ResponseBody TheaterList returnTheaterList() {
         System.out.println(" { return theater list... }");
         TheaterList theaterList = new TheaterList();

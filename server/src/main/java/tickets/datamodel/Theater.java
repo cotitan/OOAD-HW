@@ -1,53 +1,74 @@
 package tickets.datamodel;
 
 public class Theater {
-	private int theaterID;
+    private int theaterID;
     private String theaterName;
 	private String onShowList;
     private String address;
 	private double distance;
-	private double lowestPrice
+	private double lowestPrice;
     // distance ???
 	
     public Theater() {}
-    
-    public Theater(String name, String address, String price) {
-        this.theaterName = name;
-        this.address = address;
-        this.lowesetPrice = price;
-    }
-	
-	public Theater(int ID, String name, String address, String onShowList, String address, double distance, double price) {
+
+	public Theater(int ID, String name, String onShowList,
+                   String address, double distance, double price) {
 		this.theaterID = ID;
         this.theaterName = name;
 		this.onShowList = onShowList;
         this.address = address;
 		this.distance = distance;
-        this.lowesetPrice = price;
+        this.lowestPrice = price;
     }
-    
-    public String getName() {
+
+
+    public int getTheaterID() {
+        return theaterID;
+    }
+
+    public void setTheaterID(int theaterID) {
+        this.theaterID = theaterID;
+    }
+
+    public String getTheaterName() {
         return theaterName;
     }
-    
+
+    public void setTheaterName(String theaterName) {
+        this.theaterName = theaterName;
+    }
+
+    public String getOnShowList() {
+        return onShowList;
+    }
+
+    public void setOnShowList(String onShowList) {
+        this.onShowList = onShowList;
+    }
+
     public String getAddress() {
         return address;
     }
-    
-    public double getPrice() {
-        return lowestPrice;
-    }
-    
-    public void setName(String name) {
-        this.theaterName = name;
-    }
-    
-    public void setaddress(String address) {
+
+    public void setAddress(String address) {
         this.address = address;
     }
-    
-    public void setPrice(String price) {
-        this.lowesetPrice = price;
+
+    public double getDistance() {
+        return distance;
     }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public double getLowestPrice() {
+        return lowestPrice;
+    }
+
+    public void setLowestPrice(double lowestPrice) {
+        this.lowestPrice = lowestPrice;
+    }
+
 }
 
