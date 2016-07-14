@@ -1,6 +1,7 @@
 // package src.main.java.tickets;
-package tickets;
+package tickets.controller;
 
+import tickets.DBMSOperation;
 import tickets.datamodel.*;
 import java.sql.ResultSet;
 import java.sql.Connection;

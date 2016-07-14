@@ -1,4 +1,4 @@
-package tickets;
+package tickets.controller;
 
 import tickets.datamodel.Greeting;
 import java.util.concurrent.atomic.AtomicLong;

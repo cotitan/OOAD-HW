@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d65f64a8-5d6d-4d95-9e10-f836e209d3b4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/TestServer/datamodel/Movie.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/TestServer/DataOperation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/TestServer/DataOperationGet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/TestServer/DataOperationPost.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/TestServer/DataOperation.java" afterPath="$PROJECT_DIR$/src/main/java/TestServer/serverConnector/DataOperation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/TestServer/DataOperationGet.java" afterPath="$PROJECT_DIR$/src/main/java/TestServer/serverConnector/DataOperationGet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/TestServer/DataOperationPost.java" afterPath="$PROJECT_DIR$/src/main/java/TestServer/serverConnector/DataOperationPost.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestServer/Test.class" afterPath="$PROJECT_DIR$/target/classes/TestServer/Test.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TestServer/datamodel/MovieList.class" afterPath="$PROJECT_DIR$/target/classes/TestServer/datamodel/MovieList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/TestServer/Test.java" afterPath="$PROJECT_DIR$/src/main/java/TestServer/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/TestServer/datamodel/MovieList.java" afterPath="$PROJECT_DIR$/src/main/java/TestServer/datamodel/MovieList.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../server/src/main/java/tickets/GreetingController.java" afterPath="$PROJECT_DIR$/../server/src/main/java/tickets/controller/GreetingController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../server/src/main/java/tickets/MovieController.java" afterPath="$PROJECT_DIR$/../server/src/main/java/tickets/controller/MovieController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../server/src/main/java/tickets/PictureController.java" afterPath="$PROJECT_DIR$/../server/src/main/java/tickets/controller/PictureController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../server/src/main/java/tickets/TheaterController.java" afterPath="$PROJECT_DIR$/../server/src/main/java/tickets/controller/TheaterController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../server/src/main/java/tickets/UserController.java" afterPath="$PROJECT_DIR$/../server/src/main/java/tickets/controller/UserController.java" />
     </list>
     <ignored path="test-server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -589,12 +581,12 @@
       <updated>1468122245877</updated>
       <workItem from="1468122251019" duration="3961000" />
       <workItem from="1468166631601" duration="741000" />
-      <workItem from="1468466667635" duration="956000" />
+      <workItem from="1468466667635" duration="1469000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5658000" />
+    <option name="totallyTimeSpent" value="6171000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="76" width="1180" height="704" extended-state="1" />
