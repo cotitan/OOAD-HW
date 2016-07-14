@@ -5,6 +5,10 @@ import sun.misc.BASE64Encoder;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,17 +18,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/movie")
 public class MovieController {
     static final String picServerIP = "http://localhost:8081";
+    private static final Connection dbmsConn = DBMSOperation.getDBConnection();
+    private PreparedStatement sql;
 
     @RequestMapping(value = "/onView", method = RequestMethod.GET, consumes = "application/json")
     public @ResponseBody MovieList returnMovieList() {
         System.out.println(" { return movie list... }");
-        String m1_intro = "这是一座独一无二的现代动物都市，每种动物在这里都有自己的居所，比如";
-        String m2_intro = "在一座与世隔绝的美丽小鸟上，住着一群乐天知命的鸟。不过易怒的大红、亢奋的";
-        String avatarAddr1 = picServerIP + "/pictures/avatars/angry_bird.jpg";
-        String avatarAddr2 = picServerIP + "/pictures/avatars/animal_world.jpg";
         MovieList movieList = new MovieList();
-        movieList.addMovie(new Movie("疯狂动物城", m1_intro, avatarAddr1));
-        movieList.addMovie(new Movie("愤怒的小鸟", m2_intro, avatarAddr2));
+        try {
+            String query = "select idx, movieName, intro_simple, posterURL from movie ";
+            sql = dbmsConn.prepareStatement(query);
+            ResultSet res = sql.executeQuery();
+            while (res.next()) {
+                MovieSimple movieSimple = new MovieSimple(
+                        res.getInt("idx"),
+                        res.getString("movieName"),
+                        res.getString("intro_simple"),
+                        picServerIP + res.getString("posterURL"));
+                movieList.addMovie(movieSimple);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         movieList.addPostersAddr(picServerIP + "/pictures/posters/angry_bird.jpg");
         movieList.addPostersAddr(picServerIP + "/pictures/posters/angry_bird.jpg");
         movieList.addPostersAddr(picServerIP + "/pictures/posters/animal_world.jpg");
