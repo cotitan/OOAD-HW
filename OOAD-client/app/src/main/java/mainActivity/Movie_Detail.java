@@ -22,6 +22,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import Database.DBManager;
+import Database.Movie;
+
 /**
  * Created by MaximTian on 2016/5/31.
  */
@@ -54,10 +57,20 @@ public class Movie_Detail extends Activity implements View.OnClickListener {
     private RatingBar ratingBar;  // 电影评分
     private float ratingMarks = (float) 8.9;
 
+    private int movieId; // 电影id
+    private Movie movie;
+    private DBManager dbManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movie_detail);
+        dbManager = new DBManager(this);
+
+        // 获取电影id
+        Bundle bundle = this.getIntent().getExtras();
+        movieId = bundle.getInt("movieId");
+        movie = dbManager.QueryMovieById(movieId);
 
         initView();
         init_remarks();
@@ -85,7 +98,7 @@ public class Movie_Detail extends Activity implements View.OnClickListener {
         imageView.setImageDrawable(getResources().getDrawable(R.drawable.zootopia));
 
         title = (TextView) findViewById(R.id.movie_detail_title);
-        title.setText("疯狂动物城");
+        title.setText(movie.getTitle());
 
         rank = (TextView) findViewById(R.id.movie_detail_rank);
         rank.setText(String.valueOf(ratingMarks));
@@ -97,16 +110,16 @@ public class Movie_Detail extends Activity implements View.OnClickListener {
         ratingBar.setRating(temp_marks);
 
         movie_source = (TextView) findViewById(R.id.movie_detail_source);
-        movie_source.setText("美国 | 97分钟");
+        movie_source.setText(movie.getTime());
 
         movie_time = (TextView) findViewById(R.id.movie_detail_time);
-        movie_time.setText("2016-01-01 上映");
+        movie_time.setText(movie.getDate());
 
 //        movie_brevity = (TextView) findViewById(R.id.movie_detail_brevity);
 //        movie_brevity.setText("一个现代化的动物都市，每种动物在这里都有自己的居所，有沙漠气候的撒哈拉广场、常年严寒的冰川镇等等，它就像一座大熔炉，动物们在这里和平共处——无论是大象还是小老鼠，只要努力，都能闯出一番名堂。兔子朱迪从小就梦想能成为动物城市的警察，尽管身边的所有人都觉得兔子不可能当上警察，但她还是通过自己的努力，跻身到了全是大块头动物城警察局，成为了第一个兔子警官。为了证明自己，她决心侦破一桩神秘案件。追寻真相的路上，朱迪迫使在动物城里以坑蒙拐骗为生的狐狸尼克帮助自己，却发现这桩案件背后隐藏着一个意欲颠覆动物城的巨大阴谋，他们不得不联手合作，去尝试揭开隐藏在这巨大阴谋后的真相");
 
         mContentText = (TextView) findViewById(R.id.movie_content);
-        mContentText.setText("        一个现代化的动物都市，每种动物在这里都有自己的居所，有沙漠气候的撒哈拉广场、常年严寒的冰川镇等等，它就像一座大熔炉，动物们在这里和平共处——无论是大象还是小老鼠，只要努力，都能闯出一番名堂。兔子朱迪从小就梦想能成为动物城市的警察，尽管身边的所有人都觉得兔子不可能当上警察，但她还是通过自己的努力，跻身到了全是大块头动物城警察局，成为了第一个兔子警官。为了证明自己，她决心侦破一桩神秘案件。追寻真相的路上，朱迪迫使在动物城里以坑蒙拐骗为生的狐狸尼克帮助自己，却发现这桩案件背后隐藏着一个意欲颠覆动物城的巨大阴谋，他们不得不联手合作，去尝试揭开隐藏在这巨大阴谋后的真相");
+        mContentText.setText(movie.getInfo());
         mShowMore = (RelativeLayout) findViewById(R.id.show_more);
         mImageSpread = (ImageView) findViewById(R.id.spread);
         mImageShrinkUp = (ImageView) findViewById(R.id.shrink_up);

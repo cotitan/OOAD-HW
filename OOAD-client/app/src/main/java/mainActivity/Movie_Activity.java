@@ -41,6 +41,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import Database.DBManager;
+import Database.Movie;
 
 /**
  * Created by MaximTian on 2016/5/22.
@@ -135,28 +136,34 @@ public class Movie_Activity extends ListActivity {
         Map<String, Object> map = new HashMap<String, Object>();
 
         try {
-/*            File file = new File("/sdcard/test.txt");
-            if (file.exists()) {
-                Toast.makeText(Movie_Activity.this, "HHHHHHH", Toast.LENGTH_SHORT).show();
-            } */
-            InputStream inputStream = getResources().openRawResource(R.drawable.test);
-            InputStreamReader isr = new InputStreamReader(inputStream);
+            InputStream inputStream = getResources().openRawResource(R.drawable.movie);
+            InputStreamReader isr = new InputStreamReader(inputStream, "UTF8");
             BufferedReader br = new BufferedReader(isr);
             String line;
+            Movie movie;
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split("\t");
                 map = new HashMap<String, Object>();
                 map.put("img", R.mipmap.ic_launcher);
                 map.put("title", tokens[1]);
                 map.put("time", tokens[2]);
-                map.put("info", tokens[5]);
+                map.put("info", tokens[8]);
                 list.add(map);
+
+                movie = new Movie(Integer.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], tokens[5],
+                        tokens[6], tokens[7], tokens[8], tokens[8], tokens[10], tokens[11]);
+                if (dbManager.QueryMovieById(Integer.valueOf(tokens[0])) == null) {
+                    dbManager.addMovieSQL(movie);
+                }
+                List<Movie> l = dbManager.getAllMovie();
+//                Toast.makeText(Movie_Activity.this, dbManager.QueryMovie(tokens[1]).getTitle(), Toast.LENGTH_LONG).show();
             }
             isr.close();
+//            movie = dbManager.QueryMovieById(2);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return list;
     }
 
@@ -265,8 +272,9 @@ public class Movie_Activity extends ListActivity {
     private class MyItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-            Map<String, String> map = (Map<String, String>) adapter.getItem(position);
+//            Map<String, String> map = (Map<String, String>) adapter.getItem(position);
             Intent start_main = new Intent(Movie_Activity.this, Movie_Detail.class);
+            start_main.putExtra("movieId", position + 1);
             startActivity(start_main);
         }
     }

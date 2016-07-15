@@ -43,13 +43,16 @@ public class Register_Activity extends Activity {
                         !password.getText().toString().equals("")) {
                     String ps = password.getText().toString();
                     String ac = acount.getText().toString();
-                    User user = new User(PublicID.getUser_id(), ac, ps);
-                    dbManager.addUserSQL(user);
-                    Toast.makeText(Register_Activity.this, "注册成功", Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(Register_Activity.this, login_activity.class);
-                    startActivity(intent);
-                    finish();
+                    if (dbManager.QueryUser(ac) != null) {
+                        Toast.makeText(Register_Activity.this, "该用户名已存在", Toast.LENGTH_SHORT).show();
+                    } else {
+                        User user = new User(PublicID.getUser_id(), ac, ps);
+                        dbManager.addUserSQL(user);
+                        Toast.makeText(Register_Activity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Register_Activity.this, login_activity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                 } else if (password.getText().toString().equals("")) {
                     Toast.makeText(Register_Activity.this, "请输入密码", Toast.LENGTH_LONG).show();
                 } else {
