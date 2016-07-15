@@ -50,18 +50,18 @@ public class Movie_Activity extends ListActivity {
 
     private ListView movie_ListView;
 
-    private ViewPager mViewPager;  // å›¾ç‰‡é€‚é…å™¨
-    private List<ImageView> imageViewList; // æ»‘åŠ¨çš„å›¾ç‰‡é›†åˆ
+    private ViewPager mViewPager;  // Í¼Æ¬ÊÊÅäÆ÷
+    private List<ImageView> imageViewList; // »¬¶¯µÄÍ¼Æ¬¼¯ºÏ
 
-    private int[] imageResId; // å›¾ç‰‡ID
-    private List<View> dots; // å›¾ç‰‡æ ‡é¢˜åœ†ç‚¹
-    private int currentItem = 0; // å›¾ç‰‡çš„ç´¢å¼•å·
+    private int[] imageResId; // Í¼Æ¬ID
+    private List<View> dots; // Í¼Æ¬±êÌâÔ²µã
+    private int currentItem = 0; // Í¼Æ¬µÄË÷ÒıºÅ
 
     private ScheduledExecutorService scheduledExecutorService;
 
-    private SimpleAdapter adapter; // æ•°æ®ç«¯
+    private SimpleAdapter adapter; // Êı¾İ¶Ë
 
-    private static final String[] m_Cities = {"å¹¿å·", "æ·±åœ³", "ä¸œè", "ä½›å±±", "ä¸­å±±", "è‚‡åº†"};
+    private static final String[] m_Cities = {"¹ãÖİ", "ÉîÛÚ", "¶«İ¸", "·ğÉ½", "ÖĞÉ½", "ÕØÇì"};
 
     private Spinner m_Spinner;
 
@@ -84,11 +84,11 @@ public class Movie_Activity extends ListActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         m_Spinner.setAdapter(adapter);
-        //é€‰æ‹©åŸå¸‚çš„ä¸‹æ‹‰èœå•
+        //Ñ¡Ôñ³ÇÊĞµÄÏÂÀ­²Ëµ¥
         m_Spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                //é€‰æ‹©ä¸åŒçš„åŸå¸‚åï¼Œåœ¨è¿™é‡Œä½œå‡ºå˜æ›´
+                //Ñ¡Ôñ²»Í¬µÄ³ÇÊĞºó£¬ÔÚÕâÀï×÷³ö±ä¸ü
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -100,7 +100,7 @@ public class Movie_Activity extends ListActivity {
     @Override
     protected void onStart() {
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
-        // å½“Activityæ˜¾ç¤ºå‡ºæ¥åï¼Œæ¯ä¸¤ç§’é’Ÿåˆ‡æ¢ä¸€æ¬¡å›¾ç‰‡æ˜¾ç¤º
+        // µ±ActivityÏÔÊ¾³öÀ´ºó£¬Ã¿Á½ÃëÖÓÇĞ»»Ò»´ÎÍ¼Æ¬ÏÔÊ¾
         scheduledExecutorService.scheduleAtFixedRate(new ScrollTask(), 1, 2, TimeUnit.SECONDS);
         super.onStart();
     }
@@ -109,14 +109,14 @@ public class Movie_Activity extends ListActivity {
         public void run() {
             synchronized (mViewPager) {
                 currentItem = (currentItem + 1) % imageViewList.size();
-                handler.obtainMessage().sendToTarget(); // é€šè¿‡Handleråˆ‡æ¢å›¾ç‰‡
+                handler.obtainMessage().sendToTarget(); // Í¨¹ıHandlerÇĞ»»Í¼Æ¬
             }
         }
     }
 
     @Override
     protected void onStop() {
-        // å½“Activityä¸å¯è§çš„æ—¶å€™åœæ­¢åˆ‡æ¢
+        // µ±Activity²»¿É¼ûµÄÊ±ºòÍ£Ö¹ÇĞ»»
         scheduledExecutorService.shutdown();
         super.onStop();
     }
@@ -151,16 +151,12 @@ public class Movie_Activity extends ListActivity {
                 list.add(map);
 
                 movie = new Movie(Integer.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], tokens[5],
-                        tokens[6], tokens[7], tokens[8], tokens[8], tokens[10], tokens[11]);
-                if (dbManager.QueryMovieById(Integer.valueOf(tokens[0])) == null) {
+                        tokens[6], tokens[7], tokens[8], tokens[9], tokens[10], tokens[11]);
+                if (dbManager.QueryMovie(Integer.valueOf(tokens[0])) == null) {
                     dbManager.addMovieSQL(movie);
                 }
-                List<Movie> l = dbManager.getAllMovie();
-//                Toast.makeText(Movie_Activity.this, dbManager.QueryMovie(tokens[1]).getTitle(), Toast.LENGTH_LONG).show();
             }
             isr.close();
-//            movie = dbManager.QueryMovieById(2);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -169,7 +165,7 @@ public class Movie_Activity extends ListActivity {
 
     private Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
-            mViewPager.setCurrentItem(currentItem);// åˆ‡æ¢å½“å‰æ˜¾ç¤ºçš„å›¾ç‰‡
+            mViewPager.setCurrentItem(currentItem);// ÇĞ»»µ±Ç°ÏÔÊ¾µÄÍ¼Æ¬
         };
     };
 
@@ -178,11 +174,11 @@ public class Movie_Activity extends ListActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
 //        LinearLayout.LayoutParams cParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-//                getScreenHeight(Movie_Activity.this) * 3 / 10);  // è®¾ç½®å›¾ç‰‡å å±å¹•1/3
+//                getScreenHeight(Movie_Activity.this) * 3 / 10);  // ÉèÖÃÍ¼Æ¬Õ¼ÆÁÄ»1/3
 //        mViewPager.setLayoutParams(cParams);
 
-        mViewPager.setAdapter(new MyAdapter());// è®¾ç½®å¡«å……ViewPageré¡µé¢çš„é€‚é…å™¨
-        mViewPager.setOnPageChangeListener(new MyPageChangeListener()); // è®¾ç½®ä¸€ä¸ªç›‘å¬å™¨ï¼Œå½“ViewPagerä¸­çš„é¡µé¢æ”¹å˜æ—¶è°ƒç”¨
+        mViewPager.setAdapter(new MyAdapter());// ÉèÖÃÌî³äViewPagerÒ³ÃæµÄÊÊÅäÆ÷
+        mViewPager.setOnPageChangeListener(new MyPageChangeListener()); // ÉèÖÃÒ»¸ö¼àÌıÆ÷£¬µ±ViewPagerÖĞµÄÒ³Ãæ¸Ä±äÊ±µ÷ÓÃ
     }
 
     private void get_image_Data() {

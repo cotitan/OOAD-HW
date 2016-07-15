@@ -22,7 +22,7 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL(sql1);
 
         // 创建电影数据库
-        String sql2 = "Create Table If Not Exists movies(movieId integer primary key,"
+/*        String sql2 = "Create Table If Not Exists movies(movieId integer primary key,"
                 + "title varchar(20),"
                 + "date varchar(12),"
                 + "score varchar(5),"
@@ -31,6 +31,18 @@ public class DBHelper extends SQLiteOpenHelper{
                 + "time varchar(5),"
                 + "url varchar(20),"
                 + "simple_info varchar(100),"
+                + "info varchar(400),"
+                + "director varchar(20),"
+                + "actors varchar(40))"; */
+        String sql2 = "Create Table If Not Exists movies(movieId integer primary key,"
+                + "title varchar(20),"
+                + "date varchar(12),"
+                + "score varchar(5),"
+                + "price varchar(5),"
+                + "tag varchar(20),"
+                + "time varchar(5),"
+                + "url varchar(20),"
+                + "simpleInfo varchar(100),"
                 + "info varchar(400),"
                 + "director varchar(20),"
                 + "actors varchar(40))";

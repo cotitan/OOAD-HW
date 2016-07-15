@@ -47,7 +47,7 @@ public class DBManager {
             values.put("tag", movie.getTag());
             values.put("time", movie.getTime());
             values.put("url", movie.getUrl());
-            values.put("sim_info", movie.getSimple_info());
+            values.put("simpleInfo", movie.getSimple_info());
             values.put("info", movie.getInfo());
             values.put("director", movie.getDirector());
             values.put("actors", movie.getActors());
@@ -100,7 +100,7 @@ public class DBManager {
                 movie.setDirector(cursor.getString(cursor.getColumnIndex("director")));
                 movie.setPrice(cursor.getString(cursor.getColumnIndex("price")));
                 movie.setActors(cursor.getString(cursor.getColumnIndex("actors")));
-                movie.setSimple_info(cursor.getString(cursor.getColumnIndex("simple_info")));
+                movie.setSimple_info(cursor.getString(cursor.getColumnIndex("simpleInfo")));
                 list.add(movie);
             }
             cursor.close();
@@ -134,10 +134,10 @@ public class DBManager {
             values.put("date", date);
             values.put("score", score);
             values.put("price", price);
-            values.put("tag", price);
+            values.put("tag", tag);
             values.put("time", time);
             values.put("url", url);
-            values.put("sim_info", sim_info);
+            values.put("simpleInfo", sim_info);
             values.put("info", info);
             values.put("director", dir);
             values.put("actors", actors);
@@ -177,23 +177,23 @@ public class DBManager {
         try {
             db = dbHelper.getReadableDatabase();
             cursor = db.rawQuery(
-                    "select movieId,title,date,score,price,tag,time,url,simple_info,"
+                    "select movieId,title,date,score,price,tag,time,url,simpleInfo,"
                     + "info,director,actors from movies where title=?",
                     new String[] { title });
             if (cursor.moveToNext()) {
                 movie = new Movie();
                 movie.setMovie_id(cursor.getInt(0));
                 movie.setTitle(cursor.getString(1));
-                movie.setInfo(cursor.getString(2));
-                movie.setTime(cursor.getString(3));
-                movie.setDate(cursor.getString(4));
-                movie.setScore(cursor.getString(5));
-                movie.setTag(cursor.getString(6));
+                movie.setDate(cursor.getString(2));
+                movie.setScore(cursor.getString(3));
+                movie.setPrice(cursor.getString(4));
+                movie.setTag(cursor.getString(5));
+                movie.setTime(cursor.getString(6));
                 movie.setUrl(cursor.getString(7));
-                movie.setDirector(cursor.getString(8));
-                movie.setPrice(cursor.getString(9));
-                movie.setActors(cursor.getString(10));
-                movie.setSimple_info(cursor.getString(11));
+                movie.setSimple_info(cursor.getString(8));
+                movie.setInfo(cursor.getString(9));
+                movie.setDirector(cursor.getString(10));
+                movie.setActors(cursor.getString(11));
             }
         } catch (Exception e) {
         } finally {
@@ -203,30 +203,30 @@ public class DBManager {
         return movie;
     }
 
-    public Movie QueryMovieById(int id) {
+    public Movie QueryMovie(int id) {
         SQLiteDatabase db = null;
         Cursor cursor = null;
         Movie movie = null;
         try {
             db = dbHelper.getReadableDatabase();
             cursor = db.rawQuery(
-                    "select movieId,title,date,score,price,tag,time,url,simple_info,"
+                    "select movieId,title,date,score,price,tag,time,url,simpleInfo,"
                             + "info,director,actors from movies where movieId=?",
                     new String[] { String.valueOf(id) });
             if (cursor.moveToNext()) {
                 movie = new Movie();
                 movie.setMovie_id(cursor.getInt(0));
                 movie.setTitle(cursor.getString(1));
-                movie.setInfo(cursor.getString(2));
-                movie.setTime(cursor.getString(3));
-                movie.setDate(cursor.getString(4));
-                movie.setScore(cursor.getString(5));
-                movie.setTag(cursor.getString(6));
+                movie.setDate(cursor.getString(2));
+                movie.setScore(cursor.getString(3));
+                movie.setPrice(cursor.getString(4));
+                movie.setTag(cursor.getString(5));
+                movie.setTime(cursor.getString(6));
                 movie.setUrl(cursor.getString(7));
-                movie.setDirector(cursor.getString(8));
-                movie.setPrice(cursor.getString(9));
-                movie.setActors(cursor.getString(10));
-                movie.setSimple_info(cursor.getString(11));
+                movie.setSimple_info(cursor.getString(8));
+                movie.setInfo(cursor.getString(9));
+                movie.setDirector(cursor.getString(10));
+                movie.setActors(cursor.getString(11));
             }
         } catch (Exception e) {
         } finally {
@@ -235,5 +235,4 @@ public class DBManager {
         }
         return movie;
     }
-
 }
