@@ -24,11 +24,16 @@ public class DBHelper extends SQLiteOpenHelper{
         // 创建电影数据库
         String sql2 = "Create Table If Not Exists movies(movieId integer primary key,"
                 + "title varchar(20),"
-                + "info varchar(400),"
-                + "time varchar(5),"
                 + "date varchar(12),"
                 + "score varchar(5),"
-                + "tag varchar(20))";
+                + "price varchar(5),"
+                + "tag varchar(20),"
+                + "time varchar(5),"
+                + "url varchar(20),"
+                + "simple_info varchar(100),"
+                + "info varchar(400),"
+                + "director varchar(20),"
+                + "actors varchar(40))";
         db.execSQL(sql2);
     }
 

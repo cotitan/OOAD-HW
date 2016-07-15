@@ -65,7 +65,6 @@ public class login_activity extends Activity {
                     Toast.makeText(login_activity.this, "请输入密码", Toast.LENGTH_LONG).show();
                 } else {
                     User user = dbManager.QueryUser(account);
-                    Toast.makeText(login_activity.this, account, Toast.LENGTH_SHORT).show();
                     if (user == null) {
                         Toast.makeText(login_activity.this, "您输入的账号不存在", Toast.LENGTH_SHORT).show();
                     } else if (account.contentEquals(user.getName())

@@ -41,6 +41,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import Database.DBManager;
+import Database.Movie;
 
 /**
  * Created by MaximTian on 2016/5/22.
@@ -49,18 +50,18 @@ public class Movie_Activity extends ListActivity {
 
     private ListView movie_ListView;
 
-    private ViewPager mViewPager;  // Í¼Æ¬ÊÊÅäÆ÷
-    private List<ImageView> imageViewList; // »¬¶¯µÄÍ¼Æ¬¼¯ºÏ
+    private ViewPager mViewPager;  // å›¾ç‰‡é€‚é…å™¨
+    private List<ImageView> imageViewList; // æ»‘åŠ¨çš„å›¾ç‰‡é›†åˆ
 
-    private int[] imageResId; // Í¼Æ¬ID
-    private List<View> dots; // Í¼Æ¬±êÌâÔ²µã
-    private int currentItem = 0; // Í¼Æ¬µÄË÷ÒıºÅ
+    private int[] imageResId; // å›¾ç‰‡ID
+    private List<View> dots; // å›¾ç‰‡æ ‡é¢˜åœ†ç‚¹
+    private int currentItem = 0; // å›¾ç‰‡çš„ç´¢å¼•å·
 
     private ScheduledExecutorService scheduledExecutorService;
 
-    private SimpleAdapter adapter; // Êı¾İ¶Ë
+    private SimpleAdapter adapter; // æ•°æ®ç«¯
 
-    private static final String[] m_Cities = {"¹ãÖİ", "ÉîÛÚ", "¶«İ¸", "·ğÉ½", "ÖĞÉ½", "ÕØÇì"};
+    private static final String[] m_Cities = {"å¹¿å·", "æ·±åœ³", "ä¸œè", "ä½›å±±", "ä¸­å±±", "è‚‡åº†"};
 
     private Spinner m_Spinner;
 
@@ -83,11 +84,11 @@ public class Movie_Activity extends ListActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         m_Spinner.setAdapter(adapter);
-        //Ñ¡Ôñ³ÇÊĞµÄÏÂÀ­²Ëµ¥
+        //é€‰æ‹©åŸå¸‚çš„ä¸‹æ‹‰èœå•
         m_Spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                //Ñ¡Ôñ²»Í¬µÄ³ÇÊĞºó£¬ÔÚÕâÀï×÷³ö±ä¸ü
+                //é€‰æ‹©ä¸åŒçš„åŸå¸‚åï¼Œåœ¨è¿™é‡Œä½œå‡ºå˜æ›´
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -99,7 +100,7 @@ public class Movie_Activity extends ListActivity {
     @Override
     protected void onStart() {
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
-        // µ±ActivityÏÔÊ¾³öÀ´ºó£¬Ã¿Á½ÃëÖÓÇĞ»»Ò»´ÎÍ¼Æ¬ÏÔÊ¾
+        // å½“Activityæ˜¾ç¤ºå‡ºæ¥åï¼Œæ¯ä¸¤ç§’é’Ÿåˆ‡æ¢ä¸€æ¬¡å›¾ç‰‡æ˜¾ç¤º
         scheduledExecutorService.scheduleAtFixedRate(new ScrollTask(), 1, 2, TimeUnit.SECONDS);
         super.onStart();
     }
@@ -108,14 +109,14 @@ public class Movie_Activity extends ListActivity {
         public void run() {
             synchronized (mViewPager) {
                 currentItem = (currentItem + 1) % imageViewList.size();
-                handler.obtainMessage().sendToTarget(); // Í¨¹ıHandlerÇĞ»»Í¼Æ¬
+                handler.obtainMessage().sendToTarget(); // é€šè¿‡Handleråˆ‡æ¢å›¾ç‰‡
             }
         }
     }
 
     @Override
     protected void onStop() {
-        // µ±Activity²»¿É¼ûµÄÊ±ºòÍ£Ö¹ÇĞ»»
+        // å½“Activityä¸å¯è§çš„æ—¶å€™åœæ­¢åˆ‡æ¢
         scheduledExecutorService.shutdown();
         super.onStop();
     }
@@ -135,37 +136,40 @@ public class Movie_Activity extends ListActivity {
         Map<String, Object> map = new HashMap<String, Object>();
 
         try {
-/*            File file = new File("/sdcard/test.txt");
-            if (file.exists()) {
-                Toast.makeText(Movie_Activity.this, "HHHHHHH", Toast.LENGTH_SHORT).show();
-            } */
-            /*
-            InputStream inputStream = getResources().openRawResource("test");
-            InputStreamReader isr = new InputStreamReader(inputStream);
+            InputStream inputStream = getResources().openRawResource(R.drawable.movie);
+            InputStreamReader isr = new InputStreamReader(inputStream, "UTF8");
             BufferedReader br = new BufferedReader(isr);
-
             String line;
+            Movie movie;
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split("\t");
                 map = new HashMap<String, Object>();
                 map.put("img", R.mipmap.ic_launcher);
                 map.put("title", tokens[1]);
                 map.put("time", tokens[2]);
-                map.put("info", tokens[5]);
+                map.put("info", tokens[8]);
                 list.add(map);
+
+                movie = new Movie(Integer.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], tokens[5],
+                        tokens[6], tokens[7], tokens[8], tokens[8], tokens[10], tokens[11]);
+                if (dbManager.QueryMovieById(Integer.valueOf(tokens[0])) == null) {
+                    dbManager.addMovieSQL(movie);
+                }
+                List<Movie> l = dbManager.getAllMovie();
+//                Toast.makeText(Movie_Activity.this, dbManager.QueryMovie(tokens[1]).getTitle(), Toast.LENGTH_LONG).show();
             }
             isr.close();
-            */
+//            movie = dbManager.QueryMovieById(2);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return list;
     }
 
     private Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
-            mViewPager.setCurrentItem(currentItem);// ÇĞ»»µ±Ç°ÏÔÊ¾µÄÍ¼Æ¬
+            mViewPager.setCurrentItem(currentItem);// åˆ‡æ¢å½“å‰æ˜¾ç¤ºçš„å›¾ç‰‡
         };
     };
 
@@ -174,11 +178,11 @@ public class Movie_Activity extends ListActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
 //        LinearLayout.LayoutParams cParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-//                getScreenHeight(Movie_Activity.this) * 3 / 10);  // ÉèÖÃÍ¼Æ¬Õ¼ÆÁÄ»1/3
+//                getScreenHeight(Movie_Activity.this) * 3 / 10);  // è®¾ç½®å›¾ç‰‡å å±å¹•1/3
 //        mViewPager.setLayoutParams(cParams);
 
-        mViewPager.setAdapter(new MyAdapter());// ÉèÖÃÌî³äViewPagerÒ³ÃæµÄÊÊÅäÆ÷
-        mViewPager.setOnPageChangeListener(new MyPageChangeListener()); // ÉèÖÃÒ»¸ö¼àÌıÆ÷£¬µ±ViewPagerÖĞµÄÒ³Ãæ¸Ä±äÊ±µ÷ÓÃ
+        mViewPager.setAdapter(new MyAdapter());// è®¾ç½®å¡«å……ViewPageré¡µé¢çš„é€‚é…å™¨
+        mViewPager.setOnPageChangeListener(new MyPageChangeListener()); // è®¾ç½®ä¸€ä¸ªç›‘å¬å™¨ï¼Œå½“ViewPagerä¸­çš„é¡µé¢æ”¹å˜æ—¶è°ƒç”¨
     }
 
     private void get_image_Data() {
@@ -268,8 +272,9 @@ public class Movie_Activity extends ListActivity {
     private class MyItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-            Map<String, String> map = (Map<String, String>) adapter.getItem(position);
+//            Map<String, String> map = (Map<String, String>) adapter.getItem(position);
             Intent start_main = new Intent(Movie_Activity.this, Movie_Detail.class);
+            start_main.putExtra("movieId", position + 1);
             startActivity(start_main);
         }
     }
