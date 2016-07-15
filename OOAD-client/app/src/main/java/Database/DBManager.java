@@ -28,6 +28,7 @@ public class DBManager {
             values.put("userId", user.getUser_id());
             values.put("userName", user.getName());
             values.put("userPassword", user.getPassword());
+            values.put("userPurchaseList", user.getPurchaseList());
             db.insert("users", null, values);
             db.close();
         } catch (Exception e) {
@@ -52,6 +53,24 @@ public class DBManager {
             values.put("director", movie.getDirector());
             values.put("actors", movie.getActors());
             db.insert("movies", null, values);
+            db.close();
+        } catch (Exception e) {
+        }
+    }
+
+    // theatreId,theaterName,onShowList,address,distance,lowestPrice
+    public void addTheatreSQL(Theatre theatre) {
+        SQLiteDatabase db = null;
+        try {
+            db = dbHelper.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("theatreId", theatre.getTheaterID());
+            values.put("theaterName", theatre.getTheaterName());
+            values.put("onShowList", theatre.getOnShowList());
+            values.put("address", theatre.getAddress());
+            values.put("distance", theatre.getDistance());
+            values.put("lowestPrice", theatre.getLowestPrice());
+            db.insert("theatres", null, values);
             db.close();
         } catch (Exception e) {
         }
@@ -110,13 +129,14 @@ public class DBManager {
         return list;
     }
 
-    public void updateUserData(int id, String name, String password) {
+    public void updateUserData(int id, String name, String password, String purch) {
         SQLiteDatabase db = null;
         try {
             db = dbHelper.getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put("userName", name);
             values.put("userPassword", password);
+            values.put("userPurchaseList", purch);
             db.update("users", values, "userId=" + id, null);
         } catch (Exception e) {
         } finally {
@@ -155,13 +175,14 @@ public class DBManager {
         try {
             db = dbHelper.getReadableDatabase();
             cursor = db.rawQuery(
-                    "select userId,userName,userPassword from users where userName=?",
+                    "select userId,userName,userPassword,userPurchaseList from users where userName=?",
                     new String[] { name });
             if (cursor.moveToNext()) {
                 user = new User();
                 user.setUser_id(cursor.getInt(0));
                 user.setName(cursor.getString(1));
                 user.setPassword(cursor.getString(2));
+                user.setPurchaseList(cursor.getString(3));
             }
             cursor.close();
             db.close();
@@ -235,4 +256,31 @@ public class DBManager {
         }
         return movie;
     }
+
+    public Theatre QueryTheatre(int id) {
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        Theatre theatre = null;
+        try {
+            db = dbHelper.getReadableDatabase();
+            cursor = db.rawQuery(
+                    "select theatreId,theaterName,onShowList,address,distance,lowestPrice from theatres where theatreId=?",
+                    new String[] { String.valueOf(id) });
+            if (cursor.moveToNext()) {
+                theatre = new Theatre();
+                theatre.setTheaterID(cursor.getInt(0));
+                theatre.setTheaterName(cursor.getString(1));
+                theatre.setOnShowList(cursor.getString(2));
+                theatre.setAddress(cursor.getString(3));
+                theatre.setDistance(cursor.getString(4));
+                theatre.setLowestPrice(cursor.getString(5));
+            }
+        } catch (Exception e) {
+        } finally {
+            cursor.close();
+            db.close();
+        }
+        return theatre;
+    }
+
 }

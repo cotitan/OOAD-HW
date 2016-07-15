@@ -7,6 +7,7 @@ public class User {
     private int user_id;
     private String name;
     private String password;
+    private String purchaseList;
 
     public User() {}
 
@@ -14,6 +15,7 @@ public class User {
         this.user_id = id;
         this.name = name;
         this.password = password;
+        this.purchaseList = "";
     }
 
     public int getUser_id() {
@@ -38,5 +40,13 @@ public class User {
 
     public void setPassword(String ps) {
         this.password = ps;
+    }
+
+    public String getPurchaseList() {
+        return this.purchaseList;
+    }
+
+    public void setPurchaseList(String ps) {
+        this.purchaseList = ps;
     }
 }

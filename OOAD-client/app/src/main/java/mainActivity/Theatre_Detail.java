@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -29,6 +30,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
 
+import Database.DBManager;
+import Database.Movie;
+import Database.Theatre;
+
 /**
  * Created by WILLIAM on 2016/6/4.
  */
@@ -43,25 +48,43 @@ public class Theatre_Detail extends ListActivity {
     private TextView movieName;
     private TextView movieRank;
     private String value;
+    private ImageButton m_back;
 
     private SimpleAdapter adapter; // Êý¾Ý¶Ë
+
+    private DBManager dbManager;
+
+    private Theatre theatre;
+    private Movie movie;
+
+    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.theatre_detail);
+        dbManager = new DBManager(this);
+        theatre = dbManager.QueryTheatre(PublicPara.select_TheatreId);
+        movie = dbManager.QueryMovie(PublicPara.select_MovieId);
 
-        Intent intent = getIntent();
-        value = intent.getStringExtra("theatreName");
-        theatreTextView = (TextView) findViewById(R.id.theatre_detail_theatreName);
+        theatreTextView = (TextView) findViewById(R.id.Top_title);
         theatreTextView2 = (TextView) findViewById(R.id.theatre_detail_theatreName2);
         movieName = (TextView) findViewById(R.id.theatre_detail_movieName);
         movieRank = (TextView) findViewById(R.id.theatre_detail_rank);
 
-        theatreTextView.setText(value);
-        theatreTextView2.setText(value);
-        movieName.setText("·è¿ñ¶¯Îï³Ç");
-        movieRank.setText("9.1");
+        theatreTextView.setText(theatre.getTheaterName());
+        theatreTextView2.setText(theatre.getTheaterName());
+        movieName.setText(movie.getTitle());
+        movieRank.setText(movie.getScore());
+
+        m_back = (ImageButton)findViewById(R.id.back);
+        m_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // back to the last activity
+                finish();
+            }
+        });
 
         init_gallery();
         init_movie_info();
@@ -73,8 +96,22 @@ public class Theatre_Detail extends ListActivity {
         //ÉèÖÃ¼àÌýÆ÷
         gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,    long arg3) {
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 Toast.makeText(Theatre_Detail.this, "µã»÷ÁËµÚ" + arg2 + "ÕÅÍ¼Æ¬", Toast.LENGTH_LONG).show();
+            }
+        });
+        gallery.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
+                position = arg2;
+                movieName.setText(PublicPara.MovieName()[position]);
+                movieRank.setText(dbManager.QueryMovie(arg2 + 1).getScore());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                position = 1;
             }
         });
     }
@@ -92,39 +129,15 @@ public class Theatre_Detail extends ListActivity {
     private List<Map<String, Object>> get_movie_Data() {
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("time", "12:45");
-        map.put("movie_type", "Ó¢Óï3D");
-        map.put("hall", "4ºÅÌü");
-        map.put("price", "41");
-        list.add(map);
+        String[] movielist = theatre.getOnShowList().split(",");
 
-        map = new HashMap<String, Object>();
-        map.put("time", "12:45");
-        map.put("movie_type", "Ó¢Óï3D");
-        map.put("hall", "4ºÅÌü");
-        map.put("price", "41");
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("time", "12:45");
-        map.put("movie_type", "Ó¢Óï3D");
-        map.put("hall", "4ºÅÌü");
-        map.put("price", "41");
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("time", "12:45");
-        map.put("movie_type", "Ó¢Óï3D");
-        map.put("hall", "4ºÅÌü");
-        map.put("price", "41");
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("time", "12:45");
-        map.put("movie_type", "Ó¢Óï3D");
-        map.put("hall", "4ºÅÌü");
-        map.put("price", "41");
-        list.add(map);
+        for (int i = 0; i < movielist.length; i++) {
+            map.put("time", "12:45");
+            map.put("movie_type", "Ó¢Óï3D");
+            map.put("hall", "4ºÅÌü");
+            map.put("price", "41");
+            list.add(map);
+        }
 
         return list;
     }
@@ -132,13 +145,7 @@ public class Theatre_Detail extends ListActivity {
     private class MyItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-            Map<String, String> map = (Map<String, String>) adapter.getItem(position);
             Intent start_main = new Intent(Theatre_Detail.this, Choosing_place.class);
-            start_main.putExtra("time", map.get("time").toString());
-            start_main.putExtra("movie_type", map.get("movie_type").toString());
-            start_main.putExtra("hall", map.get("hall").toString());
-            start_main.putExtra("theatreName", value);
-            start_main.putExtra("movieName", "·è¿ñ¶¯Îï³Ç");
             startActivity(start_main);
         }
     }
@@ -146,13 +153,7 @@ public class Theatre_Detail extends ListActivity {
     class ImageAdapter extends BaseAdapter {
         private Context context;
         //Í¼Æ¬Ô´Êý×é
-        private Integer[] imageInteger = {
-                R.drawable.image01,
-                R.drawable.image02,
-                R.drawable.image03,
-                R.drawable.image04,
-                R.drawable.image05
-        };
+        private int[] imageInteger = PublicPara.getMovieList();
 
         public ImageAdapter(Context c) {
             context = c;

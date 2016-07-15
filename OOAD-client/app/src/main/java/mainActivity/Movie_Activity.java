@@ -34,7 +34,7 @@ import android.widget.Spinner;
 import Database.DBManager;
 import Database.Movie;
 
-import static mainActivity.PublicImageID.getMovieImageIDs;
+import static mainActivity.PublicPara.getMovieImageIDs;
 
 /**
  * Created by MaximTian on 2016/5/22.
@@ -265,7 +265,7 @@ public class Movie_Activity extends ListActivity {
 //            Map<String, String> map = (Map<String, String>) adapter.getItem(position);
             Intent start_main = new Intent(Movie_Activity.this, Movie_Detail.class);
             start_main.putExtra("movieId", position + 1);
-            PublicImageID.select_MovieId = position + 1;
+            PublicPara.select_MovieId = position + 1;
             startActivity(start_main);
         }
     }

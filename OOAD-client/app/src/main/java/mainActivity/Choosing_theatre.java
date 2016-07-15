@@ -4,24 +4,25 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.maximtian.myapplication.R;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import Database.DBManager;
+import Database.Theatre;
 
 /**
  * Created by MaximTian on 2016/5/22.
@@ -51,7 +52,7 @@ public class Choosing_theatre extends Activity {
 
         Intent i = this.getIntent();
 //        m_title.setText(i.getStringExtra("movieName"));
-        m_title.setText(dbManager.QueryMovie(PublicImageID.select_MovieId).getTitle());
+        m_title.setText(dbManager.QueryMovie(PublicPara.select_MovieId).getTitle());
 
         m_ImgBut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,8 +81,8 @@ public class Choosing_theatre extends Activity {
         m_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent start_main = new Intent(Choosing_theatre.this, Choosing_place.class);
-                start_main.putExtra("theatreName", list.get(i).get("name").toString());
+                Intent start_main = new Intent(Choosing_theatre.this, Theatre_Detail.class);
+                PublicPara.select_TheatreId = i + 1;
                 startActivity(start_main);
             }
         });
@@ -90,37 +91,31 @@ public class Choosing_theatre extends Activity {
     private List<Map<String, Object>> getData() {
         list = new ArrayList<Map<String, Object>>();
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("name", "广东科学中心巨幕影院");
-        map.put("address", "广州大学城西六路168号");
-        map.put("distance", "3.80km");
-        map.put("ticket", "特惠抢票");
-        map.put("price", "￥ 20.8");
-        list.add(map);
+        try {
+            InputStream inputStream = getResources().openRawResource(R.drawable.theatre);
+            InputStreamReader isr = new InputStreamReader(inputStream, "UTF8");
+            BufferedReader br = new BufferedReader(isr);
+            String line;
+            Theatre theatre;
+            while ((line = br.readLine()) != null) {
+                String[] tokens = line.split("\t");
 
-        map = new HashMap<String, Object>();
-        map.put("name", "广东科学中心巨幕影院");
-        map.put("address", "广州大学城西六路168号");
-        map.put("distance", "3.80km");
-        map.put("ticket", "特惠抢票");
-        map.put("price", "￥ 20.8");
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("name", "广东科学中心巨幕影院");
-        map.put("address", "广州大学城西六路168号");
-        map.put("distance", "3.80km");
-        map.put("ticket", "特惠抢票");
-        map.put("price", "￥ 20.8");
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("name", "广东科学中心巨幕影院");
-        map.put("address", "广州大学城西六路168号");
-        map.put("distance", "3.80km");
-        map.put("ticket", "特惠抢票");
-        map.put("price", "￥ 20.8");
-        list.add(map);
-
+                theatre = new Theatre(Integer.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], tokens[5]);
+                if (dbManager.QueryTheatre(Integer.valueOf(tokens[0])) == null) {
+                    dbManager.addTheatreSQL(theatre);
+                }
+                map = new HashMap<String, Object>();
+                map.put("name", theatre.getTheaterName());
+                map.put("address", theatre.getAddress());
+                map.put("distance", theatre.getDistance() + "km");
+                map.put("ticket", "特惠抢票");
+                map.put("price", "￥ " + theatre.getLowestPrice());
+                list.add(map);
+            }
+            isr.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return list;
     }
 }
