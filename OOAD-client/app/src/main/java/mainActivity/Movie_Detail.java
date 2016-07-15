@@ -60,6 +60,8 @@ public class Movie_Detail extends Activity implements View.OnClickListener {
     private Movie movie;
     private DBManager dbManager;
 
+    private TextView TopTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,11 +101,13 @@ public class Movie_Detail extends Activity implements View.OnClickListener {
         title = (TextView) findViewById(R.id.movie_detail_title);
         title.setText(movie.getTitle());
 
-        rank = (TextView) findViewById(R.id.movie_detail_rank);
-        rank.setText(String.valueOf(ratingMarks));
+        TopTitle = (TextView) findViewById(R.id.Top_title);
+        TopTitle.setText(movie.getTitle());
 
         // 电影评分
         ratingMarks = Float.valueOf(movie.getScore());
+        rank = (TextView) findViewById(R.id.movie_detail_rank);
+        rank.setText(String.valueOf(ratingMarks));
         Toast.makeText(Movie_Detail.this, String.valueOf(ratingMarks), Toast.LENGTH_LONG).show();
         float temp_marks = ratingMarks - 5;
         if (temp_marks <= 0) temp_marks = (float) 0;
@@ -111,10 +115,10 @@ public class Movie_Detail extends Activity implements View.OnClickListener {
         ratingBar.setRating(temp_marks);
 
         movie_source = (TextView) findViewById(R.id.movie_detail_source);
-        movie_source.setText(movie.getTime());
+        movie_source.setText(movie.getTime() + " 分钟");
 
         movie_time = (TextView) findViewById(R.id.movie_detail_time);
-        movie_time.setText(movie.getDate());
+        movie_time.setText(movie.getDate() + " 上映");
 
         mContentText = (TextView) findViewById(R.id.movie_content);
         mContentText.setText(movie.getInfo());

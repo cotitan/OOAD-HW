@@ -25,7 +25,7 @@
                 android:layout_gravity="center" />
 
             <TextView
-                android:text="愤怒的小鸟"
+                android:id="@+id/Top_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"

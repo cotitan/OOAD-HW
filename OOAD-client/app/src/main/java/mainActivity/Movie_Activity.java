@@ -150,8 +150,8 @@ public class Movie_Activity extends ListActivity {
                 map.put("info", tokens[8]);
                 list.add(map);
 
-                movie = new Movie(Integer.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], tokens[5],
-                        tokens[6], tokens[7], tokens[8], tokens[9], tokens[10], tokens[11]);
+                movie = new Movie(Integer.valueOf(tokens[0]), tokens[1], tokens[2], tokens[4], tokens[5], tokens[6],
+                        tokens[3], tokens[7], tokens[8], tokens[9], tokens[10], tokens[11]);
                 if (dbManager.QueryMovie(Integer.valueOf(tokens[0])) == null) {
                     dbManager.addMovieSQL(movie);
                 }
