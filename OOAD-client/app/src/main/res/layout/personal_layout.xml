@@ -8,12 +8,13 @@
         android:id="@+id/Personal_Layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#D3D3D3"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:background="#E3170D"
+
             android:gravity="center">
 
             <Button
@@ -22,8 +23,7 @@
                 android:background="@drawable/red_fillet"
                 android:text="我的"
                 android:textColor="#ffffff"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -197,7 +197,6 @@
                         android:textStyle="bold" />
                 </TableRow>
             </TableLayout>
-
 
             <TableLayout
                 android:layout_width="match_parent"
