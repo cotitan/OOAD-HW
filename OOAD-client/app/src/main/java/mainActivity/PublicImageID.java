@@ -15,4 +15,6 @@ public class PublicImageID {
                 R.drawable.movie5
         };
     }
+
+    public static int select_MovieId = 0;
 }

@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import Database.DBManager;
+
 /**
  * Created by MaximTian on 2016/5/22.
  */
@@ -35,10 +37,13 @@ public class Choosing_theatre extends Activity {
 
     private List<Map<String, Object>> list; // 存影院信息
 
+    private DBManager dbManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choosingtheatre_layout);
+        dbManager = new DBManager(this);
 
         m_ImgBut = (ImageButton)findViewById(R.id.searchButton);
         m_back = (ImageButton)findViewById(R.id.back);
@@ -46,7 +51,7 @@ public class Choosing_theatre extends Activity {
 
         Intent i = this.getIntent();
 //        m_title.setText(i.getStringExtra("movieName"));
-        m_title.setText("愤怒的小鸟");
+        m_title.setText(dbManager.QueryMovie(PublicImageID.select_MovieId).getTitle());
 
         m_ImgBut.setOnClickListener(new View.OnClickListener() {
             @Override

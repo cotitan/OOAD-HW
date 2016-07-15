@@ -1,37 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:descendantFocusability="blocksDescendants"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
 
     <TextView
-        android:id="@+id/theatreName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="3dp"
+        android:id="@+id/theatreName"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="10dp"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:paddingBottom="3dp"
+        android:textSize="9pt"
+        android:textStyle="bold"
+        />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:stretchColumns="0"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:stretchColumns="0">
+        >
 
         <TableRow>
             <TextView
                 android:id="@+id/theatreAddress"
-                android:textColor="#8f8f8f" />
+                android:textColor="#8f8f8f"
+                />
+
             <TextView
                 android:id="@+id/theatreDistance"
-                android:textColor="#8f8f8f" />
+                android:textColor="#8f8f8f"
+                />
+
         </TableRow>
+
     </TableLayout>
 
     <LinearLayout
@@ -45,24 +51,25 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:background="@drawable/ticket_fillet"
+            android:textSize="6pt"
             android:textColor="#EEAD0E"
-            android:textSize="14sp" />
+            />
 
         <TextView
             android:id="@+id/leastTicketPrice"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
+            android:layout_height="30dp"
+            android:textColor="#EE9A49"
             android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="#EE9A49" />
+
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
-            android:textSize="14sp"
             android:text="起"
-            android:textColor="#8f8f8f" />
+            android:textColor="#8f8f8f"
+            />
     </LinearLayout>
 </LinearLayout>

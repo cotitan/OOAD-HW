@@ -41,14 +41,14 @@
                     android:id="@+id/tab_movie"
                     android:checked="true"
                     android:textColor="@drawable/tab_text"
-                    android:drawableTop="@drawable/tab_style"
+                    android:drawableTop="@drawable/movie_style"
                     android:text="电影"
                     style="@style/tab_button_bg" />
 
                 <RadioButton
                     android:id="@+id/tab_theatre"
                     android:textColor="@drawable/tab_text"
-                    android:drawableTop="@drawable/tab_style"
+                    android:drawableTop="@drawable/theatre_style"
                     android:text="影院"
                     style="@style/tab_button_bg" />
 
@@ -64,7 +64,7 @@
                 <RadioButton
                     android:id="@+id/tab_personal"
                     android:textColor="@drawable/tab_text"
-                    android:drawableTop="@drawable/tab_style"
+                    android:drawableTop="@drawable/personal_style"
                     android:text="我的"
                     style="@style/tab_button_bg" />
 
