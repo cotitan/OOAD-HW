@@ -1,6 +1,6 @@
 /*.class
 !/OOAD-client/*.jar
-/testServer/*.jpg
+!/testServer/*.jpg
 /testServer/*.png
 /*.jar
 /*.original

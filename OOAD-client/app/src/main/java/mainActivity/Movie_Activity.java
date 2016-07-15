@@ -139,9 +139,11 @@ public class Movie_Activity extends ListActivity {
             if (file.exists()) {
                 Toast.makeText(Movie_Activity.this, "HHHHHHH", Toast.LENGTH_SHORT).show();
             } */
-            InputStream inputStream = getResources().openRawResource(R.drawable.test);
+            /*
+            InputStream inputStream = getResources().openRawResource("test");
             InputStreamReader isr = new InputStreamReader(inputStream);
             BufferedReader br = new BufferedReader(isr);
+
             String line;
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split("\t");
@@ -153,6 +155,7 @@ public class Movie_Activity extends ListActivity {
                 list.add(map);
             }
             isr.close();
+            */
         } catch (Exception e) {
             e.printStackTrace();
         }
