@@ -9,13 +9,15 @@
         Android:id="@+id/movie_image"
         Android:layout_width="wrap_content"
         Android:layout_height="wrap_content"
+        Android:scaleType="centerCrop"
+        Android:adjustViewBounds="true"
         Android:layout_margin="10dp"/>
 
     <!-- 商品信息 -->
     <LinearLayout
         Android:orientation="vertical"
-        Android:layout_width="240dp"
-        Android:layout_height="74dp">
+        Android:layout_width="215dp"
+        Android:layout_height="wrap_content">
 
         <TextView
             Android:layout_marginTop="5dp"
@@ -33,7 +35,7 @@
             Android:textStyle="italic"
             Android:textSize="16dp"
             Android:ellipsize="end"
-            Android:maxLines="1"
+            Android:maxLines="4"
             Android:singleLine="false" />
 
         <TextView
@@ -45,7 +47,7 @@
     </LinearLayout>
 
     <ImageView
-        Android:layout_marginLeft="14dp"
+        Android:layout_marginLeft="5dp"
         Android:layout_gravity="center"
         Android:layout_width="wrap_content"
         Android:layout_height="wrap_content"

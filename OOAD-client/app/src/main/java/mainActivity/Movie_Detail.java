@@ -96,7 +96,7 @@ public class Movie_Detail extends Activity implements View.OnClickListener {
 
     private void initView() {
         imageView = (ImageView) findViewById(R.id.movie_detail_image);
-        imageView.setImageDrawable(getResources().getDrawable(R.drawable.zootopia));
+        imageView.setImageDrawable(getResources().getDrawable(PublicImageID.getMovieImageIDs()[movie.getMovie_id() - 1]));
 
         title = (TextView) findViewById(R.id.movie_detail_title);
         title.setText(movie.getTitle());
@@ -108,7 +108,6 @@ public class Movie_Detail extends Activity implements View.OnClickListener {
         ratingMarks = Float.valueOf(movie.getScore());
         rank = (TextView) findViewById(R.id.movie_detail_rank);
         rank.setText(String.valueOf(ratingMarks));
-        Toast.makeText(Movie_Detail.this, String.valueOf(ratingMarks), Toast.LENGTH_LONG).show();
         float temp_marks = ratingMarks - 5;
         if (temp_marks <= 0) temp_marks = (float) 0;
         ratingBar = (RatingBar)findViewById(R.id.room_ratingbar);

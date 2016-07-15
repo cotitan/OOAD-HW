@@ -1,6 +1,5 @@
 package mainActivity;
 
-import android.app.Fragment;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -8,21 +7,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 
 import com.example.maximtian.myapplication.R;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -37,11 +30,11 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import Database.DBManager;
 import Database.Movie;
+
+import static mainActivity.PublicImageID.getMovieImageIDs;
 
 /**
  * Created by MaximTian on 2016/5/22.
@@ -141,10 +134,11 @@ public class Movie_Activity extends ListActivity {
             BufferedReader br = new BufferedReader(isr);
             String line;
             Movie movie;
+            int movie_id = 0;
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split("\t");
                 map = new HashMap<String, Object>();
-                map.put("img", R.mipmap.ic_launcher);
+                map.put("img", getMovieImageIDs()[movie_id++]);
                 map.put("title", tokens[1]);
                 map.put("time", tokens[2]);
                 map.put("info", tokens[8]);
