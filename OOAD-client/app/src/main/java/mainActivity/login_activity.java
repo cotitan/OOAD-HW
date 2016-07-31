@@ -1,15 +1,12 @@
-package com.example.maximtian.myapplication;
+package mainActivity;
 
-import mainActivity.main_activity;
+import services.MyServiceConnection;
 import services.serviceClient;
 import android.app.Activity;
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.IBinder;
 import android.os.Message;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import Database.DBManager;
+
+import com.example.maximtian.myapplication.R;
 import com.google.gson.Gson;
 import datamodel.ServerMsg;
 import datamodel.User;
@@ -32,23 +31,10 @@ public class login_activity extends Activity {
     private String password;
     private Button loginBtn;
     private Button registerBtn;
-
     private DBManager dbManager;
 
-    serviceClient.MyBinder binder;
     private Handler handler;
-
-    private ServiceConnection conn = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            binder = (serviceClient.MyBinder) iBinder;
-            System.out.println("*******service connected******");
-        }
-        @Override
-        public void onServiceDisconnected(ComponentName componentName) {
-            System.out.println("*****service disconnected*****");
-        }
-    };
+    private MyServiceConnection conn = new MyServiceConnection();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,9 +72,9 @@ public class login_activity extends Activity {
         password = ed_password.getText().toString();
 
         if (account.equals("")) {
-            Toast.makeText(login_activity.this, "�������˺�", Toast.LENGTH_LONG).show();
+            Toast.makeText(login_activity.this, "请输入账户名", Toast.LENGTH_LONG).show();
         } else if (password.equals("")) {
-            Toast.makeText(login_activity.this, "����������", Toast.LENGTH_LONG).show();
+            Toast.makeText(login_activity.this, "请输入密码", Toast.LENGTH_LONG).show();
         } else {
             User user = new User();
             user.setUsername(account);
@@ -98,8 +84,8 @@ public class login_activity extends Activity {
             msg.what = 0x3;
             msg.obj = new Gson().toJson(user);
             try {
-                binder.setHandler(handler);
-                binder.sendMessage(msg);
+                conn.getMyBinder().setHandler(handler);
+                conn.getMyBinder().sendMessage(msg);
             } catch (Exception e) {
                 Toast.makeText(login_activity.this, "binder==null", Toast.LENGTH_SHORT).show();
             }
@@ -109,7 +95,6 @@ public class login_activity extends Activity {
     public void listenerRegister(View v) {
         Intent start_reg = new Intent(login_activity.this, Register_Activity.class);
         startActivity(start_reg);
-        finish();
     }
 
     /*

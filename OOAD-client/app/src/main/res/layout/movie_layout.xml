@@ -7,8 +7,9 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#E3170D">
 
         <Spinner
             android:id="@+id/location_Spinner"
@@ -27,11 +28,6 @@
             android:textSize="20sp"/>
 
     </LinearLayout>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#cecece" />
 
     <FrameLayout
         android:layout_width="fill_parent"

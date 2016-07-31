@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
-        <activity android:name=".login_activity" >
+        <activity android:name="mainActivity.login_activity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -39,7 +39,7 @@
         <activity android:name="mainActivity.Movie_Detail" />
         <activity android:name="mainActivity.Choosing_place" />
         <activity android:name="mainActivity.Choosing_theatre" />
-        <activity android:name=".Register_Activity" />
+        <activity android:name="mainActivity.Register_Activity" />
 
     </application>
 
