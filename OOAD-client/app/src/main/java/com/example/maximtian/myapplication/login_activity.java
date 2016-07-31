@@ -1,21 +1,25 @@
 package com.example.maximtian.myapplication;
 
-
+import mainActivity.main_activity;
+import services.serviceClient;
 import android.app.Activity;
+import android.app.Service;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-import java.util.List;
-
 import Database.DBManager;
-import Database.PublicID;
-import Database.User;
-import mainActivity.main_activity;
+import com.google.gson.Gson;
+import datamodel.ServerMsg;
+import datamodel.User;
 
 /**
  * Created by MaximTian on 2016/4/12.
@@ -31,51 +35,125 @@ public class login_activity extends Activity {
 
     private DBManager dbManager;
 
+    serviceClient.MyBinder binder;
+    private Handler handler;
+
+    private ServiceConnection conn = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            binder = (serviceClient.MyBinder) iBinder;
+            System.out.println("*******service connected******");
+        }
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            System.out.println("*****service disconnected*****");
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
-        initView();
+        handler = new Handler() {
+            public void handleMessage(Message msg1) {
+                String json = msg1.obj.toString();
+                ServerMsg serverMsg = new Gson().fromJson(json, ServerMsg.class);
+                if (serverMsg.getStatus()) {
+                    Toast.makeText(login_activity.this, "login successfully", Toast.LENGTH_SHORT).show();
+                    Intent start_main = new Intent(login_activity.this, main_activity.class);
+                    startActivity(start_main);
+                    finish();
+                }
+                else {
+                    Toast.makeText(login_activity.this, serverMsg.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+
+        final Intent intent = new Intent(this, serviceClient.class);
+        bindService(intent, conn, Service.BIND_AUTO_CREATE);
+
+        // initView();
         dbManager = new DBManager(this);
     }
 
+    public void listenerLogin(View v) {
+        ed_account = (EditText) findViewById(R.id.account);
+        ed_password = (EditText) findViewById(R.id.password);
+        loginBtn = (Button) findViewById(R.id.login);
+        registerBtn = (Button)findViewById(R.id.register);
+        account = ed_account.getText().toString();
+        password = ed_password.getText().toString();
+
+        if (account.equals("")) {
+            Toast.makeText(login_activity.this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½", Toast.LENGTH_LONG).show();
+        } else if (password.equals("")) {
+            Toast.makeText(login_activity.this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", Toast.LENGTH_LONG).show();
+        } else {
+            User user = new User();
+            user.setUsername(account);
+            user.setPassword(password);
+
+            Message msg = new Message();
+            msg.what = 0x3;
+            msg.obj = new Gson().toJson(user);
+            try {
+                binder.setHandler(handler);
+                binder.sendMessage(msg);
+            } catch (Exception e) {
+                Toast.makeText(login_activity.this, "binder==null", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public void listenerRegister(View v) {
+        Intent start_reg = new Intent(login_activity.this, Register_Activity.class);
+        startActivity(start_reg);
+        finish();
+    }
+
+    /*
     private void initView() {
         ed_account = (EditText) findViewById(R.id.account);
         ed_password = (EditText) findViewById(R.id.password);
         loginBtn = (Button) findViewById(R.id.login);
         registerBtn = (Button)findViewById(R.id.register);
 
+        /*
         loginBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 account = ed_account.getText().toString();
                 password = ed_password.getText().toString();
 
-/*                Intent intent = new Intent(login_activity.this, login_Service.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("account", account);
-                bundle.putString("password", password);
-                intent.putExtras(bundle);
-                startService(intent);
-*/
-
                 if (account.equals("")) {
-                    Toast.makeText(login_activity.this, "ÇëÊäÈëÕËºÅ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(login_activity.this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½", Toast.LENGTH_LONG).show();
                 } else if (password.equals("")) {
-                    Toast.makeText(login_activity.this, "ÇëÊäÈëÃÜÂë", Toast.LENGTH_LONG).show();
+                    Toast.makeText(login_activity.this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", Toast.LENGTH_LONG).show();
                 } else {
+                    String user = "{\"username\":\"tiankk\", \"password\":\"tiankk\"";
+
+                    Message msg = new Message();
+                    msg.what = 0x3;
+                    msg.obj = user;
+                    binder.setHandler(handler);
+                    binder.sendMessage(msg);
+
+
                     User user = dbManager.QueryUser(account);
                     if (user == null) {
-                        Toast.makeText(login_activity.this, "ÄúÊäÈëµÄÕËºÅ²»´æÔÚ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(login_activity.this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ËºÅ²ï¿½ï¿½ï¿½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
                     } else if (account.contentEquals(user.getName())
                             && password.contentEquals(user.getPassword())) {
                         Intent start_main = new Intent(login_activity.this, main_activity.class);
                         startActivity(start_main);
                         finish();
                     } else {
-                        Toast.makeText(login_activity.this, "ÄúÊäÈëµÄÕËºÅ»òÃÜÂë´íÎó", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(login_activity.this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ËºÅ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
                     }
+
                 }
+
             }
         });
 
@@ -87,6 +165,12 @@ public class login_activity extends Activity {
                 finish();
             }
         });
+    }
+    */
+
+    protected  void onDestroy() {
+        unbindService(conn);
+        super.onDestroy();
     }
 
 }

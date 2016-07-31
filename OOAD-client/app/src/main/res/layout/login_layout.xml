@@ -51,7 +51,8 @@
             android:background="#ff336699"
             android:textColor="@android:color/white"
             android:gravity="center"
-            android:text="登录" />
+            android:text="登录"
+            android:onClick="listenerLogin"/>
 
         <Button
             android:id="@+id/login_error"
@@ -73,7 +74,8 @@
             android:gravity="left|center_vertical"
             android:text="注册"
             android:textSize="16sp"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:onClick="listenerRegister"/>
 
     </RelativeLayout>
 

@@ -17,16 +17,19 @@
             </intent-filter>
         </activity>
 
+        <!--
         <service android:name=".login_Service">
             <intent-filter>
                 <action android:name=".login_Service" />
              </intent-filter>
         </service>
+        -->
+
+        <service android:name="services.serviceClient"/>
 
         <activity android:name="mainActivity.main_activity" />
 
-        <activity android:name="mainActivity.Movie_Activity" >
-        </activity>
+        <activity android:name="mainActivity.Movie_Activity" />
 
         <activity android:name="mainActivity.Theatre_Activity" />
         <activity android:name="mainActivity.Theatre_Detail" />

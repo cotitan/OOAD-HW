@@ -2,22 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d6f91fa-931d-4bfb-bcc6-b69f73e0096b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../OOAD-client/.idea/runConfigurations.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/arrow.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/drawable.lnk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/test.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/.idea/.name" afterPath="$PROJECT_DIR$/../OOAD-client/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/.idea/encodings.xml" afterPath="$PROJECT_DIR$/../OOAD-client/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/.idea/gradle.xml" afterPath="$PROJECT_DIR$/../OOAD-client/.idea/gradle.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../OOAD-client/MyApplication.iml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/movie_normal.png" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/movie_normal.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/movie_selected.png" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/movie_selected.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/personal_normal.png" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/personal_normal.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/personal_selected.png" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/personal_selected.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/tab_settings_normal.png" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/tab_settings_normal.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/tab_settings_pressed.png" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/tab_settings_pressed.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/theatre_normal.png" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/theatre_normal.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/theatre_selected.png" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/drawable/theatre_selected.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/target/classes/TestServer/Main.class" afterPath="$PROJECT_DIR$/../testServer/target/classes/TestServer/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/.idea/misc.xml" afterPath="$PROJECT_DIR$/../OOAD-client/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/.idea/modules.xml" afterPath="$PROJECT_DIR$/../OOAD-client/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/.idea/vcs.xml" afterPath="$PROJECT_DIR$/../OOAD-client/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/OOAD-client.iml" afterPath="$PROJECT_DIR$/../OOAD-client/OOAD-client.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/app.iml" afterPath="$PROJECT_DIR$/../OOAD-client/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/java/mainActivity/Movie_Activity.java" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/java/mainActivity/Movie_Activity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/build.gradle" afterPath="$PROJECT_DIR$/../OOAD-client/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/../OOAD-client/gradle/wrapper/gradle-wrapper.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/java/com/example/maximtian/myapplication/login_activity.java" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/java/com/example/maximtian/myapplication/login_activity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testServer/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../testServer/.idea/workspace.xml" />
     </list>
     <ignored path="OOAD-server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,77 +41,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MovieController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/MovieController.java">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImportMovie.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/ImportMovie.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImportTheater.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/ImportTheater.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="50" column="62" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TheaterController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/TheaterController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Theater.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/datamodel/Theater.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovieInfoController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/MovieInfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovieDetail.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tickets/datamodel/MovieDetail.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="-90">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -177,10 +112,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="144" />
-    <option name="y" value="34" />
+    <option name="x" value="449" />
+    <option name="y" value="23" />
     <option name="width" value="1180" />
-    <option name="height" value="676" />
+    <option name="height" value="704" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -207,8 +142,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -280,36 +215,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="datamodel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OOAD-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tickets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -718,14 +623,16 @@
       <workItem from="1468503353498" duration="3978000" />
       <workItem from="1468552099811" duration="59000" />
       <workItem from="1468552366820" duration="723000" />
+      <workItem from="1469895565870" duration="1283000" />
+      <workItem from="1469946333655" duration="2432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41059000" />
+    <option name="totallyTimeSpent" value="44774000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="144" y="34" width="1180" height="676" extended-state="1" />
+    <frame x="449" y="23" width="1180" height="704" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -735,11 +642,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3523316" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35197368" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22881356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22881356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -776,7 +683,7 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -790,7 +697,7 @@
         <state relative-caret-position="324">
           <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -800,7 +707,9 @@
         <state relative-caret-position="1260">
           <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#413#414#0" expanded="false" />
+            <element signature="e#442#443#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -809,7 +718,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="50" column="62" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
-          <folding />
+          <folding>
+            <marker date="1468549799624" expanded="true" signature="505:556" ph="select theat... theater" />
+            <marker date="1468549799624" expanded="true" signature="1338:1377" ph="insert into theater... " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -818,7 +730,7 @@
         <state relative-caret-position="414">
           <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -835,7 +747,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-          <folding />
+          <folding>
+            <marker date="1468549799624" expanded="true" signature="728:764" ph="select * fro... movie" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -852,7 +766,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -861,7 +775,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-          <folding />
+          <folding>
+            <marker date="1468549799624" expanded="true" signature="728:764" ph="select * fro... movie" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -878,7 +794,7 @@
         <state relative-caret-position="162">
           <caret line="17" column="82" selection-start-line="17" selection-start-column="82" selection-end-line="17" selection-end-column="82" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -903,7 +819,9 @@
         <state relative-caret-position="594">
           <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#413#414#0" expanded="false" />
+            <element signature="e#442#443#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -920,7 +838,7 @@
         <state relative-caret-position="162">
           <caret line="17" column="82" selection-start-line="17" selection-start-column="82" selection-end-line="17" selection-end-column="82" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -944,7 +862,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#413#414#0" expanded="false" />
+            <element signature="e#442#443#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -961,7 +881,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -978,7 +898,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1002,7 +922,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1092,25 +1012,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/DBMSOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tickets/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="22" column="94" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="94" />
         </state>
       </provider>
     </entry>
@@ -1126,7 +1032,7 @@
         <state relative-caret-position="324">
           <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1136,33 +1042,46 @@
         <state relative-caret-position="1260">
           <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/ImportTheater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="50" column="62" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/TheaterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#413#414#0" expanded="false" />
+            <element signature="e#442#443#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tickets/datamodel/Theater.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="237">
           <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/TheaterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/ImportTheater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="50" column="62" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
+          <folding>
+            <marker date="1468549799624" expanded="true" signature="505:556" ph="select theat... theater" />
+            <marker date="1468549799624" expanded="true" signature="1338:1377" ph="insert into theater... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/DBMSOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1171,14 +1090,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-          <folding />
+          <folding>
+            <marker date="1468549799624" expanded="true" signature="728:764" ph="select * fro... movie" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tickets/datamodel/MovieDetail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
+        <state relative-caret-position="329">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
