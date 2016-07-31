@@ -62,7 +62,8 @@
             android:layout_below="@id/login"
             android:background="#00000000"
             android:text="忘记密码"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:onClick="listenerForgetPW"/>
 
         <Button
             android:id="@+id/register"

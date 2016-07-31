@@ -45,7 +45,7 @@ public class login_activity extends Activity {
                 String json = msg1.obj.toString();
                 ServerMsg serverMsg = new Gson().fromJson(json, ServerMsg.class);
                 if (serverMsg.getStatus()) {
-                    Toast.makeText(login_activity.this, "login successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login_activity.this, serverMsg.getMessage(), Toast.LENGTH_SHORT).show();
                     Intent start_main = new Intent(login_activity.this, main_activity.class);
                     startActivity(start_main);
                     finish();
@@ -95,6 +95,12 @@ public class login_activity extends Activity {
     public void listenerRegister(View v) {
         Intent start_reg = new Intent(login_activity.this, Register_Activity.class);
         startActivity(start_reg);
+    }
+
+    public void listenerForgetPW(View v) {
+        Intent start_main = new Intent(login_activity.this, main_activity.class);
+        startActivity(start_main);
+        finish();
     }
 
     /*
