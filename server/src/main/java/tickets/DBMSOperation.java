@@ -7,11 +7,11 @@ import java.sql.Connection;
 public class DBMSOperation {
 	
 	private static Connection dbmsConn;
-	private static String mysqlHost = "jdbc:mysql://127.0.0.1:3306/movieTickets"
+	// private static String mysqlHost = "jdbc:mysql://127.0.0.1:3306/movieTickets"
+	private static String mysqlHost = "jdbc:mysql://104.224.176.124:3306/movieTickets"
 			+ "?useUnicode=true&characterEncoding=utf-8";
 			// + "?useUnicode=true&characterEncoding=UTF8";
 	// private static String mysqlHost = "jdbc:mysql://42.96.205.36:3306/movieTickets";
-	// private static String mysqlHost = "jdbc:mysql://163.44.169.177:3306/movieTickets";
 	
 	public static Connection getDBConnection() {
 
