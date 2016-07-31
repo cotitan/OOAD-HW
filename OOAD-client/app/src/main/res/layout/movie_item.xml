@@ -10,8 +10,9 @@
         Android:layout_width="wrap_content"
         Android:layout_height="wrap_content"
         Android:scaleType="centerCrop"
-        Android:adjustViewBounds="true"
-        Android:layout_margin="10dp"/>
+        Android:scaleX="0.85"
+        Android:scaleY="0.85"
+        Android:adjustViewBounds="true"/>
 
     <!-- 商品信息 -->
     <LinearLayout

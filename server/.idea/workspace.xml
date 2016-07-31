@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d6f91fa-931d-4bfb-bcc6-b69f73e0096b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/java/com/example/maximtian/myapplication/Register_Activity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/java/com/example/maximtian/myapplication/login_activity.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/.idea/encodings.xml" afterPath="$PROJECT_DIR$/../OOAD-client/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/bin/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/bin/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/layout/main_layout.xml" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/layout/main_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/layout/movie_layout.xml" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/layout/movie_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/layout/register_layout.xml" afterPath="$PROJECT_DIR$/../OOAD-client/app/src/main/res/layout/register_layout.xml" />
-    </list>
+    <list default="true" id="1d6f91fa-931d-4bfb-bcc6-b69f73e0096b" name="Default" comment="" />
     <ignored path="OOAD-server.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,8 +26,8 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="234">
+              <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -615,16 +606,16 @@
       <workItem from="1468552099811" duration="59000" />
       <workItem from="1468552366820" duration="723000" />
       <workItem from="1469895565870" duration="1283000" />
-      <workItem from="1469946333655" duration="3030000" />
+      <workItem from="1469946333655" duration="3034000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45372000" />
+    <option name="totallyTimeSpent" value="45376000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="449" y="23" width="1180" height="704" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -637,7 +628,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22881356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22881356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1097,8 +1088,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tickets/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="234">
+          <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
           <folding />
         </state>
       </provider>

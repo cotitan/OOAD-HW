@@ -30,14 +30,14 @@ public class Order_Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_layout);
 
-        m_ListView = (ListView)findViewById(R.id.orderListview);
+        m_ListView = (ListView) findViewById(R.id.orderListview);
 
         simpleAdapter = new SimpleAdapter(this, getData(),
                 R.layout.order_listview_item, new String[]{"state", "movieName", "movieTicket", "movieSeat", "movieCost"},
                 new int[]{R.id.order_state, R.id.order_movieName, R.id.order_movieTicket,
                         R.id.order_movieSeat, R.id.order_movieCost});
         m_ListView.setAdapter(simpleAdapter);
-        // 点击ListView的监听事件
+        // ???ListView????????
         m_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -53,31 +53,31 @@ public class Order_Activity extends Activity {
         map.put("movieName", "疯狂动物城");
         map.put("movieTicket", "电影票两张");
         map.put("movieSeat", "6排14座，6排15座");
-        map.put("movieCost", "45.0元");
+        map.put("movieCost", "￥45.0元");
         list.add(map);
 
         map = new HashMap<String, Object>();
         map.put("state", "订单已完成");
-        map.put("movieName", "疯狂动物城");
-        map.put("movieTicket", "电影票两张");
-        map.put("movieSeat", "6排14座，6排15座");
-        map.put("movieCost", "?45.0元");
+        map.put("movieName", "大鱼海棠");
+        map.put("movieTicket", "电影票一张");
+        map.put("movieSeat", "5排3座");
+        map.put("movieCost", "￥22.0元");
         list.add(map);
 
         map = new HashMap<String, Object>();
         map.put("state", "订单已完成");
-        map.put("movieName", "疯狂动物城");
-        map.put("movieTicket", "电影票两张");
-        map.put("movieSeat", "6排14座，6排15座");
-        map.put("movieCost", "?45.0元");
+        map.put("movieName", "愤怒的小鸟");
+        map.put("movieTicket", "电影票三张");
+        map.put("movieSeat", "5排12座，5排13座，5排14座");
+        map.put("movieCost", "￥54.0元");
         list.add(map);
 
         map = new HashMap<String, Object>();
         map.put("state", "订单已完成");
-        map.put("movieName", "疯狂动物城");
-        map.put("movieTicket", "电影票两张");
-        map.put("movieSeat", "6排14座，6排15座");
-        map.put("movieCost", "?45.0元");
+        map.put("movieName", "忍者神龟2");
+        map.put("movieTicket", "电影票一张");
+        map.put("movieSeat", "3排14座");
+        map.put("movieCost", "￥18.0元");
         list.add(map);
 
         return list;

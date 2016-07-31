@@ -26,13 +26,13 @@ public class HttpUtil {
     public static HttpClient httpClient = new DefaultHttpClient();
 
     public static String getRequest(String url) throws Exception {
-        // ´´½¨HttpGet¶ÔÏó¡£
+        // åˆ›å»ºHttpGetå¯¹è±¡ã€‚
         HttpGet get = new HttpGet(url);
-        // ·¢ËÍGETÇëÇó
+        // å‘é€GETè¯·æ±‚
         HttpResponse httpResponse = httpClient.execute(get);
-        // Èç¹û·şÎñÆ÷³É¹¦µØ·µ»ØÏìÓ¦
+        // å¦‚æœæœåŠ¡å™¨æˆåŠŸåœ°è¿”å›å“åº”
         if (httpResponse.getStatusLine().getStatusCode() == 200) {
-            // »ñÈ¡·şÎñÆ÷ÏìÓ¦×Ö·û´®
+            // è·å–æœåŠ¡å™¨å“åº”å­—ç¬¦ä¸²
             String result = EntityUtils.toString(httpResponse.getEntity());
             return result;
         } else {
@@ -47,14 +47,14 @@ public class HttpUtil {
         postData.put("password", password);
 
         HttpEntity requestHttpEntity = new StringEntity(postData.toString());
-        HttpPost post = new HttpPost(url);  // ´´½¨HttpPost¶ÔÏó
+        HttpPost post = new HttpPost(url);  // åˆ›å»ºHttpPostå¯¹è±¡
         post.setEntity(requestHttpEntity);
 
         HttpResponse httpResponse = httpClient.execute(post);
 
-        // Èç¹û·şÎñÆ÷³É¹¦µØ·µ»ØÏìÓ¦
+        // å¦‚æœæœåŠ¡å™¨æˆåŠŸåœ°è¿”å›å“åº”
         if (httpResponse.getStatusLine().getStatusCode() == 200) {
-            // »ñÈ¡·şÎñÆ÷ÏìÓ¦×Ö·û´®
+            // è·å–æœåŠ¡å™¨å“åº”å­—ç¬¦ä¸²
             String result = EntityUtils.toString(httpResponse.getEntity());
             if (result.indexOf("true") != -1) {
                 return true;
